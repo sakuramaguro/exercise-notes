@@ -1,0 +1,166 @@
+% !TeX root = ../sections/02_exercises.tex
+\begin{exercise}
+	数列 $\{a_n\}$ と $\{b_n\}$ はそれぞれ
+	$\alpha\in\mathbb{R}$ および $\beta\in\mathbb{R}$ に収束するとき，
+	$\lambda,\mu\in\mathbb{R}$ に対して数列
+	\[
+	\{\lambda a_n+\mu b_n\}
+	\]
+	は収束して
+	\[
+	\lim_{n\to\infty}(\lambda a_n+\mu b_n)
+	=
+	\lambda\alpha+\mu\beta
+	\]
+	であることを証明せよ。
+\end{exercise}
+\begin{background}
+	この問題では，収束する数列の線形結合も収束し，
+	その極限は極限値の線形結合になることを示す。
+	
+	\begin{definition}[数列の収束]
+		数列 $\{a_n\}$ が実数 $\alpha$ に収束するとは，
+		任意の $\epsilon>0$ に対して，ある自然数 $N$ が存在して，
+		すべての $n\geq N$ に対して
+		\[
+		|a_n-\alpha|<\epsilon
+		\]
+		が成り立つことをいう。
+	\end{definition}
+	
+	\begin{remark}
+		今回示したいことは
+		\[
+		\lambda a_n+\mu b_n
+		\to
+		\lambda\alpha+\mu\beta
+		\]
+		である。
+		
+		したがって，極限の定義より，
+		任意の $\epsilon>0$ に対して，十分大きな $n$ で
+		\[
+		|(\lambda a_n+\mu b_n)-(\lambda\alpha+\mu\beta)|<\epsilon
+		\]
+		を示せばよい。
+	\end{remark}
+	
+	\subsection{線形結合の誤差を分解する準備}
+	
+	\begin{lemma}[三角不等式]
+		任意の実数 $x,y$ に対して
+		\[
+		|x+y|\leq |x|+|y|
+		\]
+		が成り立つ。
+	\end{lemma}
+	
+	\begin{lemma}[定数倍と絶対値]
+		任意の実数 $c,x$ に対して
+		\[
+		|cx|=|c||x|
+		\]
+		が成り立つ。
+	\end{lemma}
+	
+	\begin{remark}
+		差を整理すると，
+		\[
+		(\lambda a_n+\mu b_n)-(\lambda\alpha+\mu\beta)
+		=
+		\lambda(a_n-\alpha)+\mu(b_n-\beta)
+		\]
+		である。
+		
+		したがって，三角不等式より
+		\[
+		|(\lambda a_n+\mu b_n)-(\lambda\alpha+\mu\beta)|
+		\leq
+		|\lambda||a_n-\alpha|
+		+
+		|\mu||b_n-\beta|
+		\]
+		と評価できる。
+	\end{remark}
+\end{background}
+\begin{strategy}
+	示したいことは
+	\[
+	\lim_{n\to\infty}(\lambda a_n+\mu b_n)
+	=
+	\lambda\alpha+\mu\beta
+	\]
+	である。
+	
+	まず，極限の定義に戻る。
+	任意の $\epsilon>0$ に対して，十分大きな $n$ で
+	\[
+	|(\lambda a_n+\mu b_n)-(\lambda\alpha+\mu\beta)|<\epsilon
+	\]
+	を示せばよい。
+	
+	差を変形すると，
+	\[
+	(\lambda a_n+\mu b_n)-(\lambda\alpha+\mu\beta)
+	=
+	\lambda(a_n-\alpha)+\mu(b_n-\beta)
+	\]
+	である。
+	
+	したがって，三角不等式を用いて
+	\[
+	|(\lambda a_n+\mu b_n)-(\lambda\alpha+\mu\beta)|
+	\leq
+	|\lambda||a_n-\alpha|
+	+
+	|\mu||b_n-\beta|
+	\]
+	と評価する。
+	
+	ここで，$a_n\to\alpha$ であるから，
+	$n$ を十分大きくすれば $|a_n-\alpha|$ を小さくできる。
+	また，$b_n\to\beta$ であるから，
+	$n$ を十分大きくすれば $|b_n-\beta|$ も小さくできる。
+	
+	具体的には，
+	\[
+	|a_n-\alpha|<\frac{\epsilon}{2(|\lambda|+1)}
+	\]
+	かつ
+	\[
+	|b_n-\beta|<\frac{\epsilon}{2(|\mu|+1)}
+	\]
+	となるように $n$ を十分大きく取る。
+	
+	このように選ぶと，
+	\[
+	|\lambda||a_n-\alpha|
+	<
+	\frac{|\lambda|}{|\lambda|+1}\cdot\frac{\epsilon}{2}
+	\leq
+	\frac{\epsilon}{2}
+	\]
+	であり，同様に
+	\[
+	|\mu||b_n-\beta|
+	<
+	\frac{\epsilon}{2}
+	\]
+	となる。
+	
+	したがって，十分大きな $n$ に対して
+	\[
+	|(\lambda a_n+\mu b_n)-(\lambda\alpha+\mu\beta)|
+	<
+	\epsilon
+	\]
+	が成り立つ。
+	
+	つまり，線形結合の誤差を
+	\[
+	a_n-\alpha
+	\quad\text{と}\quad
+	b_n-\beta
+	\]
+	の誤差に分解し，それぞれを十分小さくすることが方針である。
+\end{strategy}

@@ -1,0 +1,111 @@
+% !TeX root = ../sections/02_exercises.tex
+\begin{exercise}
+	以下の等式を $\epsilon N$ 論法で証明せよ。
+	\[
+	\lim_{n\to\infty}
+	\sqrt{n}\left(\sqrt{n+1}-\sqrt{n}\right)
+	=
+	\frac{1}{2},
+	\]
+	\[
+	\lim_{n\to\infty}
+	\frac{n^2+2n}{n+1}
+	=
+	\infty.
+	\]
+\end{exercise}
+\begin{background}
+	この問題では，有限の極限と正の無限大への発散を，
+	それぞれ定義に従って示す。
+	
+	\begin{definition}[数列の収束]
+		数列 $\{a_n\}$ が実数 $\alpha$ に収束するとは，
+		任意の $\epsilon>0$ に対して，ある自然数 $N$ が存在して，
+		$n\geq N$ ならば
+		\[
+		|a_n-\alpha|<\epsilon
+		\]
+		となることをいう。
+	\end{definition}
+	
+	\begin{definition}[正の無限大への発散]
+		数列 $\{a_n\}$ が正の無限大に発散するとは，
+		任意の $M>0$ に対して，ある自然数 $N$ が存在して，
+		$n\geq N$ ならば
+		\[
+		a_n>M
+		\]
+		となることをいう。
+	\end{definition}
+	
+	\subsection{式を簡単な形に直すための準備}
+	
+	\begin{remark}
+		第一の極限では，有理化を用いて
+		\[
+		\sqrt{n}(\sqrt{n+1}-\sqrt{n})
+		=
+		\frac{\sqrt{n}}{\sqrt{n+1}+\sqrt{n}}
+		=
+		\frac{1}{\sqrt{1+\frac{1}{n}}+1}
+		\]
+		と変形する。
+		
+		第二の極限では，多項式の割り算により
+		\[
+		\frac{n^2+2n}{n+1}
+		=
+		n+1-\frac{1}{n+1}
+		\]
+		と変形できる。
+	\end{remark}
+\end{background}
+\begin{strategy}
+	第一の極限では，まず有理化を行う。
+	
+	\[
+	\sqrt{n}(\sqrt{n+1}-\sqrt{n})
+	=
+	\frac{1}{\sqrt{1+\frac{1}{n}}+1}
+	\]
+	
+	したがって，示すべきことは
+	\[
+	\frac{1}{\sqrt{1+\frac{1}{n}}+1}
+	\to
+	\frac{1}{2}
+	\]
+	である。
+	
+	差を評価すると，
+	\[
+	\left|
+	\frac{1}{\sqrt{1+\frac{1}{n}}+1}
+	-
+	\frac{1}{2}
+	\right|
+	\]
+	を $1/n$ の形で上から押さえることができる。
+	したがって，任意の $\epsilon>0$ に対し，
+	$n$ を十分大きく取ればこの差を $\epsilon$ より小さくできる。
+	
+	第二の極限では，
+	\[
+	\frac{n^2+2n}{n+1}
+	=
+	n+1-\frac{1}{n+1}
+	\]
+	と変形する。
+	
+	この式は $n$ が大きくなるといくらでも大きくなる。
+	実際，
+	\[
+	n+1-\frac{1}{n+1}\geq n
+	\]
+	であるから，任意の $M>0$ に対して $N>M$ となる自然数 $N$ を取れば，
+	$n\geq N$ のとき
+	\[
+	\frac{n^2+2n}{n+1}>M
+	\]
+	が従う。
+\end{strategy}

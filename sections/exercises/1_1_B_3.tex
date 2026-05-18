@@ -1,0 +1,130 @@
+% !TeX root = ../sections/02_exercises.tex
+\begin{exercise}
+	以下の問いに答えよ。
+	
+	\begin{enumerate}
+		\item $n\in\mathbb{N}$ に対して，
+		\[
+		h_n:=n^{1/n}-1
+		\]
+		とするとき，$n\geq 2$ に対して不等式
+		\[
+		h_n^2\leq \frac{2}{n-1}
+		\]
+		を証明せよ。
+		
+		\item
+		\[
+		\lim_{n\to\infty} n^{1/n}=1
+		\]
+		が成立することを $\epsilon N$ 論法により証明せよ。
+	\end{enumerate}
+\end{exercise}
+\begin{background}
+	この問題では，
+	\[
+	n^{1/n}\to 1
+	\]
+	を示すために，
+	\[
+	h_n=n^{1/n}-1
+	\]
+	とおいて，$h_n$ が $0$ に近づくことを示す。
+	
+	\begin{remark}
+		$n\geq 1$ のとき
+		\[
+		n^{1/n}\geq 1
+		\]
+		であるから，
+		\[
+		h_n=n^{1/n}-1\geq 0
+		\]
+		である。
+	\end{remark}
+	
+	\subsection{二項定理で $n^{1/n}-1$ を評価する準備}
+	
+	\begin{theorem}[二項定理]
+		$n\in\mathbb{N}$ に対して
+		\[
+		(1+x)^n
+		=
+		\sum_{k=0}^{n}\binom{n}{k}x^k
+		\]
+		が成り立つ。
+	\end{theorem}
+	
+	\begin{remark}
+		$h_n=n^{1/n}-1$ なので，
+		\[
+		n^{1/n}=1+h_n
+		\]
+		である。
+		したがって
+		\[
+		n=(1+h_n)^n
+		\]
+		と書ける。
+	\end{remark}
+\end{background}
+\begin{strategy}
+	まず
+	\[
+	h_n=n^{1/n}-1
+	\]
+	とおく。
+	
+	このとき
+	\[
+	n=(1+h_n)^n
+	\]
+	である。
+	
+	二項定理を用いると，
+	\[
+	(1+h_n)^n
+	=
+	1+nh_n+\frac{n(n-1)}{2}h_n^2+\cdots
+	\]
+	となる。
+	
+	ここで $h_n\geq 0$ であるから，各項は非負である。
+	したがって特に
+	\[
+	n=(1+h_n)^n
+	\geq
+	\frac{n(n-1)}{2}h_n^2
+	\]
+	が成り立つ。
+	
+	両辺を整理すると，
+	\[
+	h_n^2\leq \frac{2}{n-1}
+	\]
+	を得る。
+	
+	次に，この不等式から
+	\[
+	0\leq h_n\leq \sqrt{\frac{2}{n-1}}
+	\]
+	である。
+	
+	右辺は $n\to\infty$ で $0$ に近づく。
+	したがって，任意の $\epsilon>0$ に対して，
+	\[
+	\sqrt{\frac{2}{n-1}}<\epsilon
+	\]
+	となるように $N$ を選べば，
+	$n\geq N$ に対して
+	\[
+	|n^{1/n}-1|=h_n<\epsilon
+	\]
+	が従う。
+	
+	よって
+	\[
+	\lim_{n\to\infty}n^{1/n}=1
+	\]
+	である。
+\end{strategy}

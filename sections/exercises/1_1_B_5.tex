@@ -1,0 +1,103 @@
+% !TeX root = ../sections/02_exercises.tex
+\begin{exercise}
+	数列 $\{a_n\}$ が $\alpha\in\mathbb{R}$ に収束するとき，極限
+	\[
+	\lim_{n\to\infty}
+	\frac{a_1+2a_2+\cdots+(n-1)a_{n-1}+na_n}{n^2}
+	\]
+	を求めよ。
+\end{exercise}
+\begin{background}
+	この問題では，収束列 $\{a_n\}$ に重み $1,2,\ldots,n$ をつけた平均の極限を考える。
+	
+	\begin{remark}
+		求める極限は
+		\[
+		\frac{a_1+2a_2+\cdots+na_n}{n^2}
+		=
+		\frac{1}{n^2}\sum_{k=1}^{n}ka_k
+		\]
+		である。
+	\end{remark}
+	
+	\subsection{重み付き平均を極限値と誤差に分ける準備}
+	
+	\begin{lemma}[自然数の和]
+		\[
+		1+2+\cdots+n
+		=
+		\frac{n(n+1)}{2}
+		\]
+		が成り立つ。
+	\end{lemma}
+	
+	\begin{remark}
+		$a_k\to\alpha$ であるから，
+		\[
+		a_k=\alpha+(a_k-\alpha)
+		\]
+		と分解する。
+		
+		すると
+		\[
+		\frac{1}{n^2}\sum_{k=1}^{n}ka_k
+		=
+		\alpha\frac{1}{n^2}\sum_{k=1}^{n}k
+		+
+		\frac{1}{n^2}\sum_{k=1}^{n}k(a_k-\alpha)
+		\]
+		となる。
+	\end{remark}
+\end{background}
+\begin{strategy}
+	まず和をシグマで書く。
+	\[
+	\frac{a_1+2a_2+\cdots+na_n}{n^2}
+	=
+	\frac{1}{n^2}\sum_{k=1}^{n}ka_k
+	\]
+	
+	ここで
+	\[
+	a_k=\alpha+(a_k-\alpha)
+	\]
+	と分解する。
+	
+	すると
+	\[
+	\frac{1}{n^2}\sum_{k=1}^{n}ka_k
+	=
+	\alpha\frac{1}{n^2}\sum_{k=1}^{n}k
+	+
+	\frac{1}{n^2}\sum_{k=1}^{n}k(a_k-\alpha)
+	\]
+	となる。
+	
+	第一項については
+	\[
+	\frac{1}{n^2}\sum_{k=1}^{n}k
+	=
+	\frac{n(n+1)}{2n^2}
+	\to
+	\frac{1}{2}
+	\]
+	であるから，
+	\[
+	\alpha\frac{1}{n^2}\sum_{k=1}^{n}k
+	\to
+	\frac{\alpha}{2}
+	\]
+	となる。
+	
+	第二項
+	\[
+	\frac{1}{n^2}\sum_{k=1}^{n}k(a_k-\alpha)
+	\]
+	は，$a_k-\alpha\to 0$ を使って $0$ に収束することを示す。
+	
+	したがって全体の極限は
+	\[
+	\frac{\alpha}{2}
+	\]
+	である。
+\end{strategy}

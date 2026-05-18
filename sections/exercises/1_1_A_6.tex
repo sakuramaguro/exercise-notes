@@ -1,0 +1,211 @@
+% !TeX root = ../sections/02_exercises.tex
+\begin{exercise}
+	数列 $\{a_n\}$ と $\{b_n\}$ はそれぞれ
+	$\alpha\in\mathbb{R}$ および
+	$\beta\in\mathbb{R}\setminus\{0\}$ に収束するとする。
+	以下の問いに答えよ。
+	
+	\begin{enumerate}
+		\item $N_0\in\mathbb{N}$ が存在して，
+		$n\geq N_0$ ならば
+		\[
+		|b_n|\geq \frac{|\beta|}{2}
+		\]
+		であることを証明せよ。
+		
+		\item 数列
+		\[
+		\left\{\frac{a_n}{b_n}\right\}_{n\geq N_0}
+		\]
+		は収束して，
+		\[
+		\lim_{n\to\infty}\frac{a_n}{b_n}
+		=
+		\frac{\alpha}{\beta}
+		\]
+		であることを証明せよ。
+	\end{enumerate}
+\end{exercise}
+
+\begin{background}
+	この問題では，商の極限を扱う。
+	分母にあたる数列 $b_n$ が $0$ に近づいてしまうと
+	商を扱いにくいので，まず $b_n$ が十分大きな番号以降で
+	$0$ から離れていることを示す。
+	
+	\begin{definition}[数列の収束]
+		数列 $\{b_n\}$ が実数 $\beta$ に収束するとは，
+		任意の $\epsilon>0$ に対して，ある自然数 $N$ が存在して，
+		すべての $n\geq N$ に対して
+		\[
+		|b_n-\beta|<\epsilon
+		\]
+		が成り立つことをいう。
+	\end{definition}
+	
+	\begin{remark}
+		今回，$\beta\neq 0$ である。
+		したがって
+		\[
+		|\beta|>0
+		\]
+		である。
+		
+		$b_n\to\beta$ なので，十分大きな $n$ では
+		$b_n$ は $\beta$ に近い。
+		そのため，$b_n$ も $0$ から離れているはずである。
+	\end{remark}
+	
+	\subsection{分母を $0$ から離すための準備}
+	
+	\begin{lemma}[逆三角不等式]
+		任意の実数 $x,y$ に対して
+		\[
+		\bigl||x|-|y|\bigr|\leq |x-y|
+		\]
+		が成り立つ。
+	\end{lemma}
+	
+	\begin{remark}
+		逆三角不等式を $x=b_n,\ y=\beta$ に適用すると，
+		\[
+		\bigl||b_n|-|\beta|\bigr|
+		\leq |b_n-\beta|
+		\]
+		となる。
+		
+		したがって，$|b_n-\beta|$ を十分小さくすれば，
+		$|b_n|$ は $|\beta|$ に近くなる。
+	\end{remark}
+	
+	\begin{lemma}[商の誤差評価]
+		$\beta\neq 0$ かつ $|b_n|\geq |\beta|/2$ のとき，
+		\[
+		\left|
+		\frac{a_n}{b_n}
+		-
+		\frac{\alpha}{\beta}
+		\right|
+		\leq
+		\frac{2}{|\beta|}|a_n-\alpha|
+		+
+		\frac{2|\alpha|}{|\beta|^2}|b_n-\beta|
+		\]
+		が成り立つ。
+	\end{lemma}
+	
+	\begin{remark}
+		この評価により，商の誤差を
+		\[
+		|a_n-\alpha|
+		\quad\text{と}\quad
+		|b_n-\beta|
+		\]
+		の誤差に分けて考えることができる。
+	\end{remark}
+\end{background}
+\begin{strategy}
+	まず，(1) では $b_n$ が十分大きな番号以降で $0$ から離れていることを示す。
+	
+	$\beta\neq 0$ であるから
+	\[
+	|\beta|>0
+	\]
+	である。
+	
+	$b_n\to\beta$ なので，極限の定義において
+	\[
+	\epsilon=\frac{|\beta|}{2}
+	\]
+	と選ぶことができる。
+	
+	すると，ある自然数 $N_0$ が存在して，すべての $n\geq N_0$ に対して
+	\[
+	|b_n-\beta|<\frac{|\beta|}{2}
+	\]
+	が成り立つ。
+	
+	逆三角不等式より
+	\[
+	\bigl||b_n|-|\beta|\bigr|
+	\leq |b_n-\beta|
+	\]
+	であるから，$|b_n|$ は $|\beta|$ から大きく離れない。
+	したがって
+	\[
+	|b_n|>\frac{|\beta|}{2}
+	\]
+	が得られる。特に
+	\[
+	|b_n|\geq\frac{|\beta|}{2}
+	\]
+	である。
+	
+	次に，(2) では
+	\[
+	\frac{a_n}{b_n}\to\frac{\alpha}{\beta}
+	\]
+	を示す。
+	
+	示すべきことは，任意の $\epsilon>0$ に対して，
+	十分大きな $n$ で
+	\[
+	\left|
+	\frac{a_n}{b_n}
+	-
+	\frac{\alpha}{\beta}
+	\right|<\epsilon
+	\]
+	となることである。
+	
+	差を通分すると，
+	\[
+	\frac{a_n}{b_n}-\frac{\alpha}{\beta}
+	=
+	\frac{\beta a_n-\alpha b_n}{\beta b_n}
+	\]
+	である。
+	
+	分子を
+	\[
+	\beta a_n-\alpha b_n
+	=
+	\beta(a_n-\alpha)+\alpha(\beta-b_n)
+	\]
+	と分解する。
+	
+	すると三角不等式より，
+	\[
+	|\beta a_n-\alpha b_n|
+	\leq
+	|\beta||a_n-\alpha|
+	+
+	|\alpha||b_n-\beta|
+	\]
+	となる。
+	
+	また，(1) より十分大きな $n$ では
+	\[
+	|b_n|\geq \frac{|\beta|}{2}
+	\]
+	であるから，分母は $0$ から離れている。
+	
+	したがって，商全体の誤差は
+	\[
+	|a_n-\alpha|
+	\quad\text{と}\quad
+	|b_n-\beta|
+	\]
+	を十分小さくすることで小さくできる。
+	
+	つまり，(2) の方針は，
+	まず (1) によって分母 $b_n$ を $0$ から離し，
+	そのうえで商の差を通分し，
+	収束の仮定
+	\[
+	a_n\to\alpha,
+	\qquad
+	b_n\to\beta
+	\]
+	を使って誤差を $\epsilon$ より小さく抑えることである。
+\end{strategy}
