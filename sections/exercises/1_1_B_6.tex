@@ -3,60 +3,60 @@
 	$k$ を実数の定数とし，数列 $\{a_n\}$ は $0$ でない実数
 	$\alpha$ に収束するとする。極限
 	\[
-	A=
-	\lim_{n\to\infty}
-	\frac{
-		a_1+2^2a_2+\cdots+(n-1)^2a_{n-1}+n^2a_n
-	}{n^k}
+		A=
+		\lim_{n\to\infty}
+		\frac{
+			a_1+2^2a_2+\cdots+(n-1)^2a_{n-1}+n^2a_n
+		}{n^k}
 	\]
 	が $0$ でない実数に収束するときの $k$ の値を求め，
 	そのときの極限値 $A$ を求めよ。
 \end{exercise}
 \begin{background}
 	この問題では，重み $1^2,2^2,\ldots,n^2$ を持つ和の増大の速さを調べる。
-	
+
 	\begin{remark}
 		分子は
 		\[
-		\sum_{j=1}^{n}j^2a_j
+			\sum_{j=1}^{n}j^2a_j
 		\]
 		と書ける。
-		
+
 		$a_j\to\alpha$ であり，$\alpha\neq 0$ なので，
 		分子はおおよそ
 		\[
-		\alpha\sum_{j=1}^{n}j^2
+			\alpha\sum_{j=1}^{n}j^2
 		\]
 		のように振る舞う。
 	\end{remark}
-	
+
 	\subsection{二乗和の増大度を調べる準備}
-	
+
 	\begin{lemma}[二乗和の公式]
 		\[
-		1^2+2^2+\cdots+n^2
-		=
-		\frac{n(n+1)(2n+1)}{6}
+			1^2+2^2+\cdots+n^2
+			=
+			\frac{n(n+1)(2n+1)}{6}
 		\]
 		が成り立つ。
 	\end{lemma}
-	
+
 	\begin{remark}
 		二乗和は
 		\[
-		\sum_{j=1}^{n}j^2
-		=
-		\frac{n(n+1)(2n+1)}{6}
+			\sum_{j=1}^{n}j^2
+			=
+			\frac{n(n+1)(2n+1)}{6}
 		\]
 		であるから，主要項は
 		\[
-		\frac{1}{3}n^3
+			\frac{1}{3}n^3
 		\]
 		である。
-		
+
 		したがって
 		\[
-		\sum_{j=1}^{n}j^2
+			\sum_{j=1}^{n}j^2
 		\]
 		は $n^3$ 程度の速さで大きくなる。
 	\end{remark}
@@ -64,75 +64,75 @@
 \begin{strategy}
 	分子をシグマで書くと
 	\[
-	\sum_{j=1}^{n}j^2a_j
+		\sum_{j=1}^{n}j^2a_j
 	\]
 	である。
-	
+
 	ここで
 	\[
-	a_j=\alpha+(a_j-\alpha)
+		a_j=\alpha+(a_j-\alpha)
 	\]
 	と分解する。
-	
+
 	すると
 	\[
-	\sum_{j=1}^{n}j^2a_j
-	=
-	\alpha\sum_{j=1}^{n}j^2
-	+
-	\sum_{j=1}^{n}j^2(a_j-\alpha)
+		\sum_{j=1}^{n}j^2a_j
+		=
+		\alpha\sum_{j=1}^{n}j^2
+		+
+		\sum_{j=1}^{n}j^2(a_j-\alpha)
 	\]
 	となる。
-	
+
 	第一項について，
 	\[
-	\sum_{j=1}^{n}j^2
-	=
-	\frac{n(n+1)(2n+1)}{6}
+		\sum_{j=1}^{n}j^2
+		=
+		\frac{n(n+1)(2n+1)}{6}
 	\]
 	であるから，
 	\[
-	\sum_{j=1}^{n}j^2
-	\sim
-	\frac{1}{3}n^3
+		\sum_{j=1}^{n}j^2
+		\sim
+		\frac{1}{3}n^3
 	\]
 	である。
-	
+
 	したがって，分子全体は主に
 	\[
-	\frac{\alpha}{3}n^3
+		\frac{\alpha}{3}n^3
 	\]
 	のように振る舞う。
-	
+
 	よって
 	\[
-	\frac{\sum_{j=1}^{n}j^2a_j}{n^k}
+		\frac{\sum_{j=1}^{n}j^2a_j}{n^k}
 	\]
 	が $0$ でない実数に収束するためには，
 	分母 $n^k$ の増大度が分子の主要項 $n^3$ と一致する必要がある。
-	
+
 	したがって
 	\[
-	k=3
+		k=3
 	\]
 	でなければならない。
-	
+
 	このとき，
 	\[
-	A
-	=
-	\lim_{n\to\infty}
-	\frac{\sum_{j=1}^{n}j^2a_j}{n^3}
-	=
-	\frac{\alpha}{3}
+		A
+		=
+		\lim_{n\to\infty}
+		\frac{\sum_{j=1}^{n}j^2a_j}{n^3}
+		=
+		\frac{\alpha}{3}
 	\]
 	となる。
-	
+
 	よって求める値は
 	\[
-	k=3,
-	\qquad
-	A=\frac{\alpha}{3}
+		k=3,
+		\qquad
+		A=\frac{\alpha}{3}
 	\]
 	である。
 \end{strategy}

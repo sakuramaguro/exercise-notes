@@ -3,74 +3,74 @@
 \begin{exercise}
 	% 問題文
 	$0<r<1$に対して、$\lim_{n\rightarrow\infty}r^n=0$であることを\\$\epsilon N$ 論法を用いて証明せよ.
-	
+
 \end{exercise}
 
 \begin{background}
 	この問題で用いる基本事項を整理する。
-	
+
 	\begin{definition}[数列の極限]
 		数列 $\{a_n\}$ が実数 $\alpha$ に収束するとは，
 		任意の $\epsilon>0$ に対して，ある自然数 $N$ が存在して，
 		すべての $n\geq N$ に対して
 		\[
-		|a_n-\alpha|<\epsilon
+			|a_n-\alpha|<\epsilon
 		\]
 		が成り立つことをいう。
 		このとき，
 		\[
-		\lim_{n\to\infty}a_n=\alpha
+			\lim_{n\to\infty}a_n=\alpha
 		\]
 		と書く。
 	\end{definition}
-	
+
 	\begin{remark}
 		今回の問題では
 		\[
-		a_n=r^n,\qquad \alpha=0
+			a_n=r^n,\qquad \alpha=0
 		\]
 		である。したがって，示すべき不等式は
 		\[
-		|r^n-0|<\epsilon
+			|r^n-0|<\epsilon
 		\]
 		である。
 	\end{remark}
-	
+
 	\begin{remark}
 		仮定より $0<r<1$ であるから，任意の自然数 $n$ に対して
 		\[
-		r^n>0
+			r^n>0
 		\]
 		である。よって
 		\[
-		|r^n-0|=r^n
+			|r^n-0|=r^n
 		\]
 		となる。
 		したがって，この問題では
 		\[
-		r^n<\epsilon
+			r^n<\epsilon
 		\]
 		を示せばよい。
 	\end{remark}
-	
+
 	\subsection{収束先が $0$ であることを示すための道具}
-	
+
 	\begin{theorem}[アルキメデスの性質]
 		任意の実数 $A$ に対して，ある自然数 $N$ が存在して
 		\[
-		N>A
+			N>A
 		\]
 		が成り立つ。
 	\end{theorem}
-	
+
 	\begin{lemma}
 		$0<r<1$ のとき，
 		\[
-		\log r<0
+			\log r<0
 		\]
 		である。
 	\end{lemma}
-	
+
 	\begin{remark}
 		$\log r<0$ であるため，不等式の両辺を $\log r$ で割ると，
 		不等号の向きが反転することに注意する。
@@ -79,66 +79,66 @@
 
 \begin{strategy}
 	まず，極限の定義に従って考える。
-	
+
 	示したいことは
 	\[
-	\lim_{n\to\infty}r^n=0
+		\lim_{n\to\infty}r^n=0
 	\]
 	である。したがって，任意の $\epsilon>0$ に対して，
 	ある自然数 $N$ が存在し，すべての $n\geq N$ に対して
 	\[
-	|r^n-0|<\epsilon
+		|r^n-0|<\epsilon
 	\]
 	が成り立つことを示せばよい。
-	
+
 	ここで $0<r<1$ より $r^n>0$ であるから，
 	\[
-	|r^n-0|=r^n
+		|r^n-0|=r^n
 	\]
 	である。したがって目標は
 	\[
-	r^n<\epsilon
+		r^n<\epsilon
 	\]
 	を示すことに変わる。
-	
+
 	次に，この不等式を満たすような $n$ の条件を逆算する。
 	両辺の対数をとると，
 	\[
-	r^n<\epsilon
+		r^n<\epsilon
 	\]
 	は
 	\[
-	n\log r<\log\epsilon
+		n\log r<\log\epsilon
 	\]
 	となる。
-	
+
 	ただし $0<r<1$ より
 	\[
-	\log r<0
+		\log r<0
 	\]
 	である。したがって，両辺を $\log r$ で割ると不等号の向きが反転し，
 	\[
-	n>\frac{\log\epsilon}{\log r}
+		n>\frac{\log\epsilon}{\log r}
 	\]
 	を得る。
-	
+
 	よって，アルキメデスの性質より，
 	\[
-	N>\frac{\log\epsilon}{\log r}
+		N>\frac{\log\epsilon}{\log r}
 	\]
 	を満たす自然数 $N$ を取ることができる。
-	
+
 	このように選べば，すべての $n\geq N$ に対して
 	\[
-	n>\frac{\log\epsilon}{\log r}
+		n>\frac{\log\epsilon}{\log r}
 	\]
 	となり，逆にたどることで
 	\[
-	r^n<\epsilon
+		r^n<\epsilon
 	\]
 	が従う。したがって，
 	\[
-	|r^n-0|<\epsilon
+		|r^n-0|<\epsilon
 	\]
 	が成り立つ。
 \end{strategy}

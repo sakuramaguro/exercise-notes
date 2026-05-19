@@ -6,63 +6,63 @@
 
 \begin{background}
 	この問題では，数列が正の無限大に発散することを示す。
-	
+
 	\begin{definition}[数列が正の無限大に発散すること]
 		数列 $\{a_n\}$ が正の無限大に発散するとは，
 		任意の実数 $M>0$ に対して，ある自然数 $N$ が存在して，
 		すべての $n\geq N$ に対して
 		\[
-		a_n>M
+			a_n>M
 		\]
 		が成り立つことをいう。
 		このとき，
 		\[
-		\lim_{n\to\infty}a_n=\infty
+			\lim_{n\to\infty}a_n=\infty
 		\]
 		と書く。
 	\end{definition}
-	
+
 	\begin{remark}
 		今回の数列は
 		\[
-		a_n=r^n
+			a_n=r^n
 		\]
 		である。したがって示すべきことは，任意の $M>0$ に対して，
 		$n$ を十分大きくすれば
 		\[
-		r^n>M
+			r^n>M
 		\]
 		となることである。
 	\end{remark}
-	
+
 	\begin{remark}
 		前問のように有限の極限値を示す場合は
 		\[
-		|a_n-\alpha|<\epsilon
+			|a_n-\alpha|<\epsilon
 		\]
 		を考えた。しかし，今回は極限値が $\infty$ であるため，
 		ある値に近づくことではなく，任意に大きい数 $M$ を
 		最終的に超えることを示す。
 	\end{remark}
-	
+
 	\subsection{正の無限大への発散を示すための道具}
-	
+
 	\begin{theorem}[アルキメデスの性質]
 		任意の実数 $A$ に対して，ある自然数 $N$ が存在して
 		\[
-		N>A
+			N>A
 		\]
 		が成り立つ。
 	\end{theorem}
-	
+
 	\begin{lemma}
 		$r>1$ のとき，
 		\[
-		\log r>0
+			\log r>0
 		\]
 		である。
 	\end{lemma}
-	
+
 	\begin{remark}
 		$\log r>0$ であるため，不等式の両辺を $\log r$ で割っても，
 		不等号の向きは変わらない。
@@ -72,75 +72,75 @@
 \begin{strategy}
 	示したいことは
 	\[
-	\lim_{n\to\infty}r^n=\infty
+		\lim_{n\to\infty}r^n=\infty
 	\]
 	である。
-	
+
 	まず，正の無限大への発散の定義に戻る。
 	この問題では，任意の $M>0$ に対して，ある自然数 $N$ が存在し，
 	すべての $n\geq N$ に対して
 	\[
-	r^n>M
+		r^n>M
 	\]
 	が成り立つことを示せばよい。
-	
+
 	つまり，目標は
 	\[
-	r^n>M
+		r^n>M
 	\]
 	となるような自然数 $N$ を，$M$ に応じて見つけることである。
-	
+
 	この不等式を $n$ について解くために，両辺の対数をとる。
 	$r>1$ なので $r^n>0$ であり，また $M>0$ であるから，
 	対数をとることができる。すると
 	\[
-	r^n>M
+		r^n>M
 	\]
 	は
 	\[
-	n\log r>\log M
+		n\log r>\log M
 	\]
 	となる。
-	
+
 	ここで $r>1$ より
 	\[
-	\log r>0
+		\log r>0
 	\]
 	である。したがって，両辺を $\log r$ で割っても
 	不等号の向きは変わらず，
 	\[
-	n>\frac{\log M}{\log r}
+		n>\frac{\log M}{\log r}
 	\]
 	を得る。
-	
+
 	よって，アルキメデスの性質より，
 	\[
-	N>\frac{\log M}{\log r}
+		N>\frac{\log M}{\log r}
 	\]
 	を満たす自然数 $N$ を取ればよい。
-	
+
 	このように選べば，すべての $n\geq N$ に対して
 	\[
-	n>\frac{\log M}{\log r}
+		n>\frac{\log M}{\log r}
 	\]
 	となる。したがって，両辺に正の数 $\log r$ をかけて
 	\[
-	n\log r>\log M
+		n\log r>\log M
 	\]
 	を得る。これは
 	\[
-	\log(r^n)>\log M
+		\log(r^n)>\log M
 	\]
 	を意味するので，
 	\[
-	r^n>M
+		r^n>M
 	\]
 	が従う。
-	
+
 	したがって，任意の $M>0$ に対して，十分大きな $n$ では
 	$r^n>M$ が成り立つ。ゆえに
 	\[
-	\lim_{n\to\infty}r^n=\infty
+		\lim_{n\to\infty}r^n=\infty
 	\]
 	である。
 \end{strategy}

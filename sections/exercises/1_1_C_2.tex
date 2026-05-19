@@ -1,0 +1,302 @@
+\begin{exercise}
+    数列 $\{a_n\}$ が $\alpha\in\mathbb{R}$ に収束し，
+    数列 $\{b_n\}$ が $\beta\in\mathbb{R}$ に収束するとき，
+    \[
+        \lim_{n\to\infty}
+        \frac{
+            b_n a_1+b_{n-1}a_2+\cdots+a_{n-1}b_2+a_n b_1
+        }{n}
+        =
+        \alpha\beta
+    \]
+    であることを証明せよ。
+\end{exercise}
+\begin{background}
+    この問題では，収束列どうしを逆向きに掛け合わせた平均を扱う。
+
+    分子は
+    \[
+        b_n a_1+b_{n-1}a_2+\cdots+a_{n-1}b_2+a_n b_1
+    \]
+    である。これをシグマ記号で書くと，
+    \[
+        \sum_{j=1}^{n}a_jb_{n+1-j}
+    \]
+    となる。
+
+    したがって，示すべき極限は
+    \[
+        \lim_{n\to\infty}
+        \frac{1}{n}
+        \sum_{j=1}^{n}a_jb_{n+1-j}
+        =
+        \alpha\beta
+    \]
+    である。
+
+    \begin{definition}[数列の収束]
+		数列 $\{a_n\}$ が $\alpha\in\mathbb{R}$ に収束するとは，
+        任意の $\epsilon>0$ に対して，ある自然数 $N$ が存在して，
+        $n\geq N$ ならば
+        \[
+            |a_n-\alpha|<\epsilon
+        \]
+        が成り立つことをいう。
+    \end{definition}
+
+    \begin{remark}
+        仮定より
+        \[
+            a_n\to\alpha,
+            \qquad
+            b_n\to\beta
+        \]
+        である。
+
+        したがって，$a_j$ は最終的に $\alpha$ に近づき，
+        $b_j$ は最終的に $\beta$ に近づく。
+
+        ただし，この問題では積が
+        \[
+            a_jb_{n+1-j}
+        \]
+        という形になっているため，$a_j$ の添字 $j$ が大きいとき，
+        $b_{n+1-j}$ の添字が必ず大きいとは限らない。
+        そのため，各項を直接
+        \[
+            a_jb_{n+1-j}\approx \alpha\beta
+        \]
+        と見るよりも，和全体を分解して評価する方が扱いやすい。
+    \end{remark}
+
+    \subsection{逆向きに並んだ積の平均を分解する準備}
+
+    \begin{lemma}[収束列は有界]
+		数列 $\{x_n\}$ が実数 $L$ に収束するならば，
+        $\{x_n\}$ は有界である。
+        すなわち，ある定数 $C>0$ が存在して，
+        すべての $n\in\mathbb{N}$ に対して
+        \[
+            |x_n|\leq C
+        \]
+        が成り立つ。
+    \end{lemma}
+
+    \begin{lemma}[Cesaro の平均定理]
+		数列 $\{x_n\}$ が $L\in\mathbb{R}$ に収束するならば，
+        \[
+            \frac{x_1+x_2+\cdots+x_n}{n}\to L
+        \]
+        である。
+    \end{lemma}
+
+    \begin{remark}
+        有限和では，足す順番を入れ替えても値は変わらない。
+        したがって
+        \[
+            \sum_{j=1}^{n}b_{n+1-j}
+            =
+            b_n+b_{n-1}+\cdots+b_1
+            =
+            \sum_{j=1}^{n}b_j
+        \]
+        である。
+
+        よって，$b_n\to\beta$ であることから，Cesaro の平均定理を使えば
+        \[
+            \frac{1}{n}\sum_{j=1}^{n}b_{n+1-j}
+            =
+            \frac{1}{n}\sum_{j=1}^{n}b_j
+            \to \beta
+        \]
+        が分かる。
+    \end{remark}
+\end{background}
+\begin{strategy}
+    まず，分子をシグマ記号で表す。
+    \[
+        b_n a_1+b_{n-1}a_2+\cdots+a_{n-1}b_2+a_n b_1
+        =
+        \sum_{j=1}^{n}a_jb_{n+1-j}
+    \]
+    である。
+
+    したがって，示すべきことは
+    \[
+        \frac{1}{n}\sum_{j=1}^{n}a_jb_{n+1-j}
+        \to
+        \alpha\beta
+    \]
+    である。
+
+    ここで，$a_j$ を極限値と誤差に分ける。
+    すなわち
+    \[
+        a_j=\alpha+(a_j-\alpha)
+    \]
+    と書く。
+
+    これを代入すると，
+    \[
+        \frac{1}{n}\sum_{j=1}^{n}a_jb_{n+1-j}
+        =
+        \frac{1}{n}\sum_{j=1}^{n}
+        \{\alpha+(a_j-\alpha)\}b_{n+1-j}
+    \]
+    である。
+
+    したがって，
+    \[
+        \frac{1}{n}\sum_{j=1}^{n}a_jb_{n+1-j}
+        =
+        \alpha
+        \frac{1}{n}\sum_{j=1}^{n}b_{n+1-j}
+        +
+        \frac{1}{n}\sum_{j=1}^{n}(a_j-\alpha)b_{n+1-j}
+    \]
+    と分解できる。
+
+    第一項について考える。
+    有限和の順序を入れ替えると，
+    \[
+        \sum_{j=1}^{n}b_{n+1-j}
+        =
+        \sum_{j=1}^{n}b_j
+    \]
+    である。
+
+    よって
+    \[
+        \alpha
+        \frac{1}{n}\sum_{j=1}^{n}b_{n+1-j}
+        =
+        \alpha
+        \frac{1}{n}\sum_{j=1}^{n}b_j
+    \]
+    となる。
+
+    仮定より
+    \[
+        b_j\to\beta
+    \]
+    であるから，Cesaro の平均定理より
+    \[
+        \frac{1}{n}\sum_{j=1}^{n}b_j
+        \to
+        \beta
+    \]
+    である。
+
+    したがって第一項は
+    \[
+        \alpha
+        \frac{1}{n}\sum_{j=1}^{n}b_{n+1-j}
+        \to
+        \alpha\beta
+    \]
+    となる。
+
+    次に，第二項
+    \[
+        \frac{1}{n}\sum_{j=1}^{n}(a_j-\alpha)b_{n+1-j}
+    \]
+    が $0$ に収束することを示す。
+
+    仮定より
+    \[
+        b_n\to\beta
+    \]
+    であるから，収束列は有界である。
+    したがって，ある定数 $C>0$ が存在して，
+    すべての $m\in\mathbb{N}$ に対して
+    \[
+        |b_m|\leq C
+    \]
+    が成り立つ。
+
+    このとき，すべての $j=1,2,\ldots,n$ に対して
+    $n+1-j\in\mathbb{N}$ であるから，
+    \[
+        |b_{n+1-j}|\leq C
+    \]
+    が成り立つ。
+
+    したがって，三角不等式より
+    \[
+        \left|
+            \frac{1}{n}\sum_{j=1}^{n}(a_j-\alpha)b_{n+1-j}
+        \right|
+        \leq
+        \frac{1}{n}\sum_{j=1}^{n}
+        |a_j-\alpha|\,|b_{n+1-j}|
+    \]
+    である。
+
+    さらに
+    \[
+        |b_{n+1-j}|\leq C
+    \]
+    より，
+    \[
+        \left|
+            \frac{1}{n}\sum_{j=1}^{n}(a_j-\alpha)b_{n+1-j}
+        \right|
+        \leq
+        C\frac{1}{n}\sum_{j=1}^{n}|a_j-\alpha|
+    \]
+    となる。
+
+    ここで，仮定より
+    \[
+        a_j\to\alpha
+    \]
+    であるから，
+    \[
+        |a_j-\alpha|\to 0
+    \]
+    である。
+
+    したがって，Cesaro の平均定理より
+    \[
+        \frac{1}{n}\sum_{j=1}^{n}|a_j-\alpha|
+        \to
+        0
+    \]
+    である。
+
+    よって
+    \[
+        C\frac{1}{n}\sum_{j=1}^{n}|a_j-\alpha|
+        \to
+        0
+    \]
+    である。
+
+    以上より，はさみうちの考え方から
+    \[
+        \frac{1}{n}\sum_{j=1}^{n}(a_j-\alpha)b_{n+1-j}
+        \to
+        0
+    \]
+    が従う。
+
+    したがって，
+    \[
+        \frac{1}{n}\sum_{j=1}^{n}a_jb_{n+1-j}
+        =
+        \alpha
+        \frac{1}{n}\sum_{j=1}^{n}b_{n+1-j}
+        +
+        \frac{1}{n}\sum_{j=1}^{n}(a_j-\alpha)b_{n+1-j}
+    \]
+    において，第一項は $\alpha\beta$ に収束し，
+    第二項は $0$ に収束する。
+
+    ゆえに
+    \[
+        \frac{1}{n}\sum_{j=1}^{n}a_jb_{n+1-j}
+        \to
+        \alpha\beta
+    \]
+    である。
+\end{strategy}

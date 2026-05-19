@@ -2,11 +2,11 @@
 \begin{exercise}
 	$n\geq 2$ のとき，不等式
 	\[
-	\frac{2^n}{n!}\leq 2\left(\frac{2}{3}\right)^{n-2}
+		\frac{2^n}{n!}\leq 2\left(\frac{2}{3}\right)^{n-2}
 	\]
 	が成立することを証明し，極限
 	\[
-	\lim_{n\to\infty}\frac{2^n}{n!}
+		\lim_{n\to\infty}\frac{2^n}{n!}
 	\]
 	を求めよ。
 	ただし，$\epsilon N$ 論法を用いる必要はない。
@@ -14,46 +14,46 @@
 \begin{background}
 	この問題では，階乗 $n!$ が指数 $2^n$ よりも速く大きくなることを，
 	具体的な不等式によって確認する。
-	
+
 	\begin{remark}
 		左辺は
 		\[
-		\frac{2^n}{n!}
-		=
-		\frac{2}{1}\cdot\frac{2}{2}\cdot\frac{2}{3}
-		\cdots\frac{2}{n}
+			\frac{2^n}{n!}
+			=
+			\frac{2}{1}\cdot\frac{2}{2}\cdot\frac{2}{3}
+			\cdots\frac{2}{n}
 		\]
 		と分解できる。
 		$n\geq 2$ のとき，$3$ 以降の因子について
 		\[
-		\frac{2}{k}\leq \frac{2}{3}
-		\qquad (k\geq 3)
+			\frac{2}{k}\leq \frac{2}{3}
+			\qquad (k\geq 3)
 		\]
 		が成り立つ。
 	\end{remark}
-	
+
 	\subsection{階乗を積の形で評価する準備}
-	
+
 	\begin{lemma}[はさみうちの原理]
 		数列 $\{x_n\},\{y_n\}$ が
 		\[
-		0\leq x_n\leq y_n
+			0\leq x_n\leq y_n
 		\]
 		を満たし，
 		\[
-		\lim_{n\to\infty}y_n=0
+			\lim_{n\to\infty}y_n=0
 		\]
 		であるならば，
 		\[
-		\lim_{n\to\infty}x_n=0
+			\lim_{n\to\infty}x_n=0
 		\]
 		である。
 	\end{lemma}
-	
+
 	\begin{remark}
 		$0<2/3<1$ なので，
 		\[
-		\left(\frac{2}{3}\right)^{n-2}\to 0
+			\left(\frac{2}{3}\right)^{n-2}\to 0
 		\]
 		である。
 	\end{remark}
@@ -61,50 +61,50 @@
 \begin{strategy}
 	まず
 	\[
-	\frac{2^n}{n!}
+		\frac{2^n}{n!}
 	\]
 	を積の形に直す。
-	
+
 	実際，
 	\[
-	\frac{2^n}{n!}
-	=
-	2\cdot 1\cdot
-	\frac{2}{3}\cdot\frac{2}{4}
-	\cdots
-	\frac{2}{n}
+		\frac{2^n}{n!}
+		=
+		2\cdot 1\cdot
+		\frac{2}{3}\cdot\frac{2}{4}
+		\cdots
+		\frac{2}{n}
 	\]
 	である。
-	
+
 	ここで $k\geq 3$ ならば
 	\[
-	\frac{2}{k}\leq\frac{2}{3}
+		\frac{2}{k}\leq\frac{2}{3}
 	\]
 	であるから，
 	\[
-	\frac{2^n}{n!}
-	\leq
-	2\left(\frac{2}{3}\right)^{n-2}
+		\frac{2^n}{n!}
+		\leq
+		2\left(\frac{2}{3}\right)^{n-2}
 	\]
 	が得られる。
-	
+
 	さらに
 	\[
-	0<\frac{2}{3}<1
+		0<\frac{2}{3}<1
 	\]
 	であるから，
 	\[
-	2\left(\frac{2}{3}\right)^{n-2}\to 0
+		2\left(\frac{2}{3}\right)^{n-2}\to 0
 	\]
 	である。
-	
+
 	また
 	\[
-	0\leq \frac{2^n}{n!}
+		0\leq \frac{2^n}{n!}
 	\]
 	なので，はさみうちの原理より
 	\[
-	\lim_{n\to\infty}\frac{2^n}{n!}=0
+		\lim_{n\to\infty}\frac{2^n}{n!}=0
 	\]
 	である。
 \end{strategy}

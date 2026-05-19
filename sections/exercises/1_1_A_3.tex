@@ -5,63 +5,63 @@
 \begin{background}
 	この問題では，十分大きな番号以降で成り立つ不等式が，
 	極限にも受け継がれることを示す。
-	
+
 	\begin{definition}[数列の収束]
 		数列 $\{a_n\}$ が実数 $\alpha$ に収束するとは，
 		任意の $\epsilon>0$ に対して，ある自然数 $N$ が存在して，
 		すべての $n\geq N$ に対して
 		\[
-		|a_n-\alpha|<\epsilon
+			|a_n-\alpha|<\epsilon
 		\]
 		が成り立つことをいう。
 		このとき，
 		\[
-		\lim_{n\to\infty}a_n=\alpha
+			\lim_{n\to\infty}a_n=\alpha
 		\]
 		と書く。
 	\end{definition}
-	
+
 	\begin{remark}
 		今回の仮定は
 		\[
-		\lim_{n\to\infty}a_n=\alpha,
-		\qquad
-		\lim_{n\to\infty}b_n=\beta
+			\lim_{n\to\infty}a_n=\alpha,
+			\qquad
+			\lim_{n\to\infty}b_n=\beta
 		\]
 		である。したがって，$n$ を十分大きくすれば，
 		$a_n$ は $\alpha$ に近く，$b_n$ は $\beta$ に近くなる。
 	\end{remark}
-	
+
 	\begin{remark}
 		また，問題文では，ある番号 $N_0\in\mathbb{N}$ が存在して，
 		すべての $n\geq N_0$ に対して
 		\[
-		a_n\leq b_n
+			a_n\leq b_n
 		\]
 		が成り立つと仮定されている。
-		
+
 		これは，すべての $n$ で $a_n\leq b_n$ が成り立つという意味ではなく，
 		ある番号以降では常に $a_n\leq b_n$ が成り立つ，という意味である。
 	\end{remark}
-	
+
 	\subsection{極限における順序保存性の準備}
-	
+
 	\begin{lemma}[有限個の自然数の最大値]
 		自然数 $N_0,N_1,N_2$ に対して，
 		\[
-		N=\max\{N_0,N_1,N_2\}
+			N=\max\{N_0,N_1,N_2\}
 		\]
 		とおけば，
 		\[
-		n\geq N
+			n\geq N
 		\]
 		ならば
 		\[
-		n\geq N_0,\qquad n\geq N_1,\qquad n\geq N_2
+			n\geq N_0,\qquad n\geq N_1,\qquad n\geq N_2
 		\]
 		がすべて成り立つ。
 	\end{lemma}
-	
+
 	\begin{remark}
 		この補題により，
 		$a_n\leq b_n$ が成り立つ条件と，
@@ -74,100 +74,100 @@
 \begin{strategy}
 	示したいことは
 	\[
-	\alpha\leq \beta
+		\alpha\leq \beta
 	\]
 	である。
-	
+
 	このような不等式を示すときは，背理法を用いると考えやすい。
 	そこで，反対に
 	\[
-	\alpha>\beta
+		\alpha>\beta
 	\]
 	であると仮定する。
-	
+
 	このとき，
 	\[
-	\alpha-\beta>0
+		\alpha-\beta>0
 	\]
 	である。そこで，この正の差を利用して
 	\[
-	\epsilon=\frac{\alpha-\beta}{3}
+		\epsilon=\frac{\alpha-\beta}{3}
 	\]
 	とおく。
-	
+
 	$a_n\to\alpha$ であるから，十分大きな $n$ に対して
 	\[
-	|a_n-\alpha|<\epsilon
+		|a_n-\alpha|<\epsilon
 	\]
 	が成り立つ。これは特に
 	\[
-	\alpha-\epsilon<a_n
+		\alpha-\epsilon<a_n
 	\]
 	を意味する。
-	
+
 	また，$b_n\to\beta$ であるから，十分大きな $n$ に対して
 	\[
-	|b_n-\beta|<\epsilon
+		|b_n-\beta|<\epsilon
 	\]
 	が成り立つ。これは特に
 	\[
-	b_n<\beta+\epsilon
+		b_n<\beta+\epsilon
 	\]
 	を意味する。
-	
+
 	ここで，
 	\[
-	\epsilon=\frac{\alpha-\beta}{3}
+		\epsilon=\frac{\alpha-\beta}{3}
 	\]
 	と選んでいるので，
 	\[
-	\alpha-\epsilon
-	>
-	\beta+\epsilon
+		\alpha-\epsilon
+		>
+		\beta+\epsilon
 	\]
 	が成り立つ。実際，
 	\[
-	\alpha-\epsilon-(\beta+\epsilon)
-	=
-	\alpha-\beta-2\epsilon
-	=
-	\alpha-\beta-\frac{2}{3}(\alpha-\beta)
-	=
-	\frac{1}{3}(\alpha-\beta)
-	>0
+		\alpha-\epsilon-(\beta+\epsilon)
+		=
+		\alpha-\beta-2\epsilon
+		=
+		\alpha-\beta-\frac{2}{3}(\alpha-\beta)
+		=
+		\frac{1}{3}(\alpha-\beta)
+		>0
 	\]
 	である。
-	
+
 	したがって，十分大きな $n$ に対して
 	\[
-	a_n>\alpha-\epsilon
-	>
-	\beta+\epsilon
-	>b_n
+		a_n>\alpha-\epsilon
+		>
+		\beta+\epsilon
+		>b_n
 	\]
 	となる。つまり
 	\[
-	a_n>b_n
+		a_n>b_n
 	\]
 	が得られる。
-	
+
 	しかし，問題文の仮定より，ある番号 $N_0$ 以降では常に
 	\[
-	a_n\leq b_n
+		a_n\leq b_n
 	\]
 	が成り立つ。
-	
+
 	十分大きな $n$ を取れば，
 	$a_n\leq b_n$ と $a_n>b_n$ が同時に成り立つことになり，
 	これは矛盾である。
-	
+
 	よって，仮定
 	\[
-	\alpha>\beta
+		\alpha>\beta
 	\]
 	は誤りである。したがって
 	\[
-	\alpha\leq\beta
+		\alpha\leq\beta
 	\]
 	が成り立つ。
 \end{strategy}

@@ -5,63 +5,63 @@
 
 \begin{background}
 	この問題では，収束する数列に絶対値をつけても，その極限は極限値の絶対値になることを示す。
-	
+
 	\begin{definition}[数列の収束]
 		数列 $\{a_n\}$ が $\alpha\in\mathbb{R}$ に収束するとは，
 		任意の $\epsilon>0$ に対して，ある自然数 $N$ が存在して，
 		すべての $n\geq N$ に対して
 		\[
-		|a_n-\alpha|<\epsilon
+			|a_n-\alpha|<\epsilon
 		\]
 		が成り立つことをいう。
 		このとき，
 		\[
-		\lim_{n\to\infty}a_n=\alpha
+			\lim_{n\to\infty}a_n=\alpha
 		\]
 		と書く。
 	\end{definition}
-	
+
 	\begin{remark}
 		今回，仮定として
 		\[
-		\lim_{n\to\infty}a_n=\alpha
+			\lim_{n\to\infty}a_n=\alpha
 		\]
 		が与えられている。したがって，任意の $\epsilon>0$ に対して，
 		$n$ を十分大きくすれば
 		\[
-		|a_n-\alpha|<\epsilon
+			|a_n-\alpha|<\epsilon
 		\]
 		となる。
 	\end{remark}
-	
+
 	\begin{remark}
 		示したいことは
 		\[
-		\lim_{n\to\infty}|a_n|=|\alpha|
+			\lim_{n\to\infty}|a_n|=|\alpha|
 		\]
 		である。したがって，極限の定義より，任意の $\epsilon>0$ に対して，
 		$n$ を十分大きくすれば
 		\[
-		\bigl||a_n|-|\alpha|\bigr|<\epsilon
+			\bigl||a_n|-|\alpha|\bigr|<\epsilon
 		\]
 		となることを示せばよい。
 	\end{remark}
-	
+
 	\subsection{絶対値の連続性に向けた準備}
-	
+
 	\begin{lemma}[逆三角不等式]
 		任意の実数 $x,y$ に対して，
 		\[
-		\bigl||x|-|y|\bigr|\leq |x-y|
+			\bigl||x|-|y|\bigr|\leq |x-y|
 		\]
 		が成り立つ。
 	\end{lemma}
-	
+
 	\begin{remark}
 		この補題を $x=a_n,\ y=\alpha$ に適用すると，
 		\[
-		\bigl||a_n|-|\alpha|\bigr|
-		\leq |a_n-\alpha|
+			\bigl||a_n|-|\alpha|\bigr|
+			\leq |a_n-\alpha|
 		\]
 		となる。
 		したがって，$|a_n-\alpha|$ を小さくできれば，
@@ -72,54 +72,54 @@
 \begin{strategy}
 	示したいことは
 	\[
-	\lim_{n\to\infty}|a_n|=|\alpha|
+		\lim_{n\to\infty}|a_n|=|\alpha|
 	\]
 	である。
-	
+
 	まず，極限の定義に戻る。すなわち，任意の $\epsilon>0$ に対して，
 	ある自然数 $N$ が存在し，すべての $n\geq N$ に対して
 	\[
-	\bigl||a_n|-|\alpha|\bigr|<\epsilon
+		\bigl||a_n|-|\alpha|\bigr|<\epsilon
 	\]
 	が成り立つことを示せばよい。
-	
+
 	一方，仮定より
 	\[
-	\lim_{n\to\infty}a_n=\alpha
+		\lim_{n\to\infty}a_n=\alpha
 	\]
 	である。したがって，任意の $\epsilon>0$ に対して，
 	ある自然数 $N$ が存在し，すべての $n\geq N$ に対して
 	\[
-	|a_n-\alpha|<\epsilon
+		|a_n-\alpha|<\epsilon
 	\]
 	が成り立つ。
-	
+
 	ここで，逆三角不等式を用いると，
 	\[
-	\bigl||a_n|-|\alpha|\bigr|
-	\leq |a_n-\alpha|
+		\bigl||a_n|-|\alpha|\bigr|
+		\leq |a_n-\alpha|
 	\]
 	である。
-	
+
 	したがって，$n\geq N$ のとき，
 	\[
-	|a_n-\alpha|<\epsilon
+		|a_n-\alpha|<\epsilon
 	\]
 	であるから，
 	\[
-	\bigl||a_n|-|\alpha|\bigr|
-	\leq |a_n-\alpha|
-	<\epsilon
+		\bigl||a_n|-|\alpha|\bigr|
+		\leq |a_n-\alpha|
+		<\epsilon
 	\]
 	となる。
-	
+
 	よって，任意の $\epsilon>0$ に対して，十分大きな $n$ では
 	\[
-	\bigl||a_n|-|\alpha|\bigr|<\epsilon
+		\bigl||a_n|-|\alpha|\bigr|<\epsilon
 	\]
 	が成り立つ。したがって，
 	\[
-	\lim_{n\to\infty}|a_n|=|\alpha|
+		\lim_{n\to\infty}|a_n|=|\alpha|
 	\]
 	である。
 \end{strategy}
