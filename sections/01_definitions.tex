@@ -27,3 +27,84 @@
 	\end{corollary}
 \end{comment}
 
+\begin{theorem}[収束列の部分列]
+	数列 $\{a_n\}_{n\in\mathbb{N}}$ が $\alpha\in\mathbb{R}$ に収束するとする。
+	また，$\{a_{n_k}\}_{k\in\mathbb{N}}$ を $\{a_n\}$ の部分列とする。
+	このとき，
+	\[
+		\lim_{k\to\infty}a_{n_k}=\alpha
+	\]
+	である。
+\end{theorem}
+\begin{proof}
+	数列 $\{a_n\}$ が $\alpha$ に収束すると仮定する。
+	すなわち，任意の $\epsilon>0$ に対して，ある自然数 $N$ が存在して，
+	$n\geq N$ ならば
+	\[
+		|a_n-\alpha|<\epsilon
+	\]
+	が成り立つ。
+
+	いま，$\{a_{n_k}\}_{k\in\mathbb{N}}$ を $\{a_n\}$ の部分列とする。
+	部分列であるから，添字の列
+	\[
+		n_1<n_2<n_3<\cdots
+	\]
+	は自然数からなる狭義単調増加列である。
+
+	このとき，すべての $k\in\mathbb{N}$ に対して
+	\[
+		n_k\geq k
+	\]
+	が成り立つ。
+
+	実際，$n_1\geq 1$ であり，添字は少なくとも $1$ ずつ増えるので，
+	\[
+		n_k\geq k
+	\]
+	である。
+
+	ここで，任意に $\epsilon>0$ を取る。
+	$a_n\to\alpha$ より，ある自然数 $N$ が存在して，
+	$n\geq N$ ならば
+	\[
+		|a_n-\alpha|<\epsilon
+	\]
+	が成り立つ。
+
+	そこで，部分列の番号について
+	\[
+		K=N
+	\]
+	とおく。
+
+	このとき，$k\geq K$ ならば
+	\[
+		k\geq N
+	\]
+	である。さらに $n_k\geq k$ だから，
+	\[
+		n_k\geq k\geq N
+	\]
+	となる。
+
+	したがって，元の数列の収束性より，
+	\[
+		|a_{n_k}-\alpha|<\epsilon
+	\]
+	が成り立つ。
+
+	つまり，任意の $\epsilon>0$ に対して，ある自然数 $K$ が存在して，
+	$k\geq K$ ならば
+	\[
+		|a_{n_k}-\alpha|<\epsilon
+	\]
+	である。
+
+	よって，数列 $\{a_{n_k}\}$ は $\alpha$ に収束する。
+	すなわち，
+	\[
+		\lim_{k\to\infty}a_{n_k}=\alpha
+	\]
+	である。
+\end{proof}

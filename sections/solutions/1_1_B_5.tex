@@ -1,0 +1,307 @@
+% !TeX root = ../sections/03_solutions.tex
+\subsection{1.1.B.5}
+\begin{proof}
+    求める数列を
+    \[
+        x_n=
+        \frac{a_1+2a_2+\cdots+(n-1)a_{n-1}+na_n}{n^2}
+    \]
+    とおく。
+
+    シグマ記号を用いると，
+    \[
+        x_n=
+        \frac{1}{n^2}\sum_{k=1}^{n}ka_k
+    \]
+    である。
+
+    仮定より
+    \[
+        \lim_{k\to\infty}a_k=\alpha
+    \]
+    であるから，
+    \[
+        a_k=\alpha+(a_k-\alpha)
+    \]
+    と分解する。
+
+    これを代入すると，
+    \[
+        x_n
+        =
+        \frac{1}{n^2}\sum_{k=1}^{n}k\{\alpha+(a_k-\alpha)\}
+    \]
+    である。したがって，
+    \[
+        x_n
+        =
+        \alpha\frac{1}{n^2}\sum_{k=1}^{n}k
+        +
+        \frac{1}{n^2}\sum_{k=1}^{n}k(a_k-\alpha)
+    \]
+    となる。
+
+    ここで
+    \[
+        \sum_{k=1}^{n}k=\frac{n(n+1)}{2}
+    \]
+    であるから，
+    \[
+        \alpha\frac{1}{n^2}\sum_{k=1}^{n}k
+        =
+        \alpha\frac{n(n+1)}{2n^2}
+        =
+        \frac{\alpha}{2}\left(1+\frac{1}{n}\right)
+    \]
+    である。
+
+    よって
+    \[
+        \alpha\frac{1}{n^2}\sum_{k=1}^{n}k
+        \to
+        \frac{\alpha}{2}
+    \]
+    である。
+
+    したがって，あとは
+    \[
+        \frac{1}{n^2}\sum_{k=1}^{n}k(a_k-\alpha)
+        \to 0
+    \]
+    を示せばよい。
+    そこで
+    \[
+        R_n=
+        \frac{1}{n^2}\sum_{k=1}^{n}k(a_k-\alpha)
+    \]
+    とおく。
+
+    $R_n\to 0$ を示すため，任意に $\epsilon>0$ を取る。
+
+    $a_k\to\alpha$ であるから，
+    \[
+        \frac{\epsilon}{2}>0
+    \]
+    に対して，ある自然数 $N_1$ が存在して，
+    \[
+        k\geq N_1
+    \]
+    ならば
+    \[
+        |a_k-\alpha|<\frac{\epsilon}{2}
+    \]
+    が成り立つ。
+
+    ここで，有限個の和
+    \[
+        C=
+        \sum_{k=1}^{N_1-1}k|a_k-\alpha|
+    \]
+    を考える。
+    これは有限個の実数の和であるから，ある実数として定まる。
+    また，各項は $0$ 以上なので
+    \[
+        C\geq 0
+    \]
+    である。
+    $n\geq N_1$ のとき，
+    \[
+        |R_n|
+        =
+        \left|
+            \frac{1}{n^2}\sum_{k=1}^{n}k(a_k-\alpha)
+        \right|
+    \]
+    である。
+
+    三角不等式より，
+    \[
+        |R_n|
+        \leq
+        \frac{1}{n^2}\sum_{k=1}^{n}k|a_k-\alpha|
+    \]
+    である。
+
+    この和を
+    \[
+        \sum_{k=1}^{n}k|a_k-\alpha|
+        =
+        \sum_{k=1}^{N_1-1}k|a_k-\alpha|
+        +
+        \sum_{k=N_1}^{n}k|a_k-\alpha|
+    \]
+    と分ける。
+
+    したがって，
+    \[
+        |R_n|
+        \leq
+        \frac{1}{n^2}
+        \sum_{k=1}^{N_1-1}k|a_k-\alpha|
+        +
+        \frac{1}{n^2}
+        \sum_{k=N_1}^{n}k|a_k-\alpha|
+    \]
+    である。
+
+    先ほどの $C$ を用いれば，
+    \[
+        \frac{1}{n^2}
+        \sum_{k=1}^{N_1-1}k|a_k-\alpha|
+        =
+        \frac{C}{n^2}
+    \]
+    である。
+    また，$k\geq N_1$ ならば
+    \[
+        |a_k-\alpha|<\frac{\epsilon}{2}
+    \]
+    であるから，
+    \[
+        \sum_{k=N_1}^{n}k|a_k-\alpha|
+        <
+        \sum_{k=N_1}^{n}k\frac{\epsilon}{2}
+        \leq
+        \frac{\epsilon}{2}\sum_{k=1}^{n}k
+    \]
+    である。
+
+    よって
+    \[
+        \frac{1}{n^2}
+        \sum_{k=N_1}^{n}k|a_k-\alpha|
+        \leq
+        \frac{\epsilon}{2}
+        \cdot
+        \frac{1}{n^2}\sum_{k=1}^{n}k
+    \]
+    となる。
+
+    さらに
+    \[
+        \frac{1}{n^2}\sum_{k=1}^{n}k
+        =
+        \frac{n(n+1)}{2n^2}
+        =
+        \frac{n+1}{2n}
+    \]
+    である。
+    $n\geq 1$ ならば
+    \[
+        \frac{n+1}{2n}\leq 1
+    \]
+    である。
+    したがって，
+    \[
+        \frac{1}{n^2}
+        \sum_{k=N_1}^{n}k|a_k-\alpha|
+        \leq
+        \frac{\epsilon}{2}
+    \]
+    である。
+
+    以上より，$n\geq N_1$ のとき
+    \[
+        |R_n|
+        \leq
+        \frac{C}{n^2}
+        +
+        \frac{\epsilon}{2}
+    \]
+    を得る。
+    次に，$C/n^2$ を小さくする。
+    もし $C=0$ ならば
+    \[
+        \frac{C}{n^2}=0<\frac{\epsilon}{2}
+    \]
+    である。
+
+    もし $C>0$ ならば，アルキメデスの性質より，
+    \[
+        N_2>\sqrt{\frac{2C}{\epsilon}}
+    \]
+    を満たす自然数 $N_2$ を取ることができる。
+    すると，$n\geq N_2$ ならば
+    \[
+        n^2\geq N_2^2>\frac{2C}{\epsilon}
+    \]
+    であるから，
+    \[
+        \frac{C}{n^2}<\frac{\epsilon}{2}
+    \]
+    となる。
+
+    したがって，いずれの場合も，ある自然数 $N_2$ が存在して，
+    $n\geq N_2$ ならば
+    \[
+        \frac{C}{n^2}<\frac{\epsilon}{2}
+    \]
+    が成り立つ。
+    そこで
+    \[
+        N=\max\{N_1,N_2\}
+    \]
+    とおく。
+
+    このとき，$n\geq N$ ならば
+    \[
+        n\geq N_1,
+        \qquad
+        n\geq N_2
+    \]
+    である。
+
+    したがって，
+    \[
+        |R_n|
+        \leq
+        \frac{C}{n^2}
+        +
+        \frac{\epsilon}{2}
+        <
+        \frac{\epsilon}{2}
+        +
+        \frac{\epsilon}{2}
+        =
+        \epsilon
+    \]
+    となる。
+
+    よって
+    \[
+        R_n\to 0
+    \]
+    である。
+    以上より，
+    \[
+        x_n
+        =
+        \alpha\frac{1}{n^2}\sum_{k=1}^{n}k
+        +
+        R_n
+    \]
+    であり，
+    \[
+        \alpha\frac{1}{n^2}\sum_{k=1}^{n}k
+        \to
+        \frac{\alpha}{2},
+        \qquad
+        R_n\to 0
+    \]
+    である。
+
+    したがって
+    \[
+        x_n\to \frac{\alpha}{2}
+    \]
+    である。
+
+    ゆえに
+    \[
+        \lim_{n\to\infty}
+        \frac{a_1+2a_2+\cdots+(n-1)a_{n-1}+na_n}{n^2}
+        =
+        \frac{\alpha}{2}
+    \]
+    である。
+\end{proof}

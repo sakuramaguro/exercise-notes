@@ -1,0 +1,159 @@
+% !TeX root = ../sections/03_solutions.tex
+\subsection{1.1.B.2.1}
+\begin{proof}
+    まず，
+    \[
+        \lim_{n\to\infty}
+        \sqrt{n}\left(\sqrt{n+1}-\sqrt{n}\right)
+        =
+        \frac{1}{2}
+    \]
+    を示す。
+
+    左辺の数列を変形する。
+    有理化すると，
+    \[
+        \sqrt{n}\left(\sqrt{n+1}-\sqrt{n}\right)
+        =
+        \sqrt{n}\cdot
+        \frac{(n+1)-n}{\sqrt{n+1}+\sqrt{n}}
+    \]
+    である。したがって
+    \[
+        \sqrt{n}\left(\sqrt{n+1}-\sqrt{n}\right)
+        =
+        \frac{\sqrt{n}}{\sqrt{n+1}+\sqrt{n}}
+    \]
+    となる。
+
+    分母分子を $\sqrt{n}$ で割ると，
+    \[
+        \frac{\sqrt{n}}{\sqrt{n+1}+\sqrt{n}}
+        =
+        \frac{1}{\sqrt{1+\frac{1}{n}}+1}
+    \]
+    である。
+
+    よって，
+    \[
+        \sqrt{n}\left(\sqrt{n+1}-\sqrt{n}\right)
+        =
+        \frac{1}{\sqrt{1+\frac{1}{n}}+1}
+    \]
+    である。
+
+    ここで，任意に $\epsilon>0$ を取る。
+    示したいのは，十分大きな $n$ に対して
+    \[
+        \left|
+            \frac{1}{\sqrt{1+\frac{1}{n}}+1}
+            -
+            \frac{1}{2}
+        \right|
+        <\epsilon
+    \]
+    が成り立つことである。
+
+    実際，
+    \[
+        \left|
+            \frac{1}{\sqrt{1+\frac{1}{n}}+1}
+            -
+            \frac{1}{2}
+        \right|
+        =
+        \left|
+            \frac{2-\left(\sqrt{1+\frac{1}{n}}+1\right)}
+            {2\left(\sqrt{1+\frac{1}{n}}+1\right)}
+        \right|
+    \]
+    であるから，
+    \[
+        =
+        \frac{\sqrt{1+\frac{1}{n}}-1}
+        {2\left(\sqrt{1+\frac{1}{n}}+1\right)}
+    \]
+    となる。
+
+    さらに，
+    \[
+        \sqrt{1+\frac{1}{n}}-1
+        =
+        \frac{\frac{1}{n}}{\sqrt{1+\frac{1}{n}}+1}
+    \]
+    であるから，
+    \[
+        \left|
+            \frac{1}{\sqrt{1+\frac{1}{n}}+1}
+            -
+            \frac{1}{2}
+        \right|
+        =
+        \frac{1}
+        {2n\left(\sqrt{1+\frac{1}{n}}+1\right)^2}
+    \]
+    を得る。
+
+    ここで
+    \[
+        \sqrt{1+\frac{1}{n}}\geq 1
+    \]
+    であるから，
+    \[
+        \sqrt{1+\frac{1}{n}}+1\geq 2
+    \]
+    である。したがって
+    \[
+        \left(\sqrt{1+\frac{1}{n}}+1\right)^2\geq 4
+    \]
+    である。
+
+    よって
+    \[
+        \left|
+            \frac{1}{\sqrt{1+\frac{1}{n}}+1}
+            -
+            \frac{1}{2}
+        \right|
+        \leq
+        \frac{1}{8n}
+    \]
+    が成り立つ。
+
+    ここで，アルキメデスの性質より，
+    \[
+        N>\frac{1}{8\epsilon}
+    \]
+    を満たす自然数 $N$ を取ることができる。
+
+    このとき，$n\geq N$ ならば
+    \[
+        \frac{1}{8n}
+        \leq
+        \frac{1}{8N}
+        <
+        \epsilon
+    \]
+    である。
+
+    したがって，$n\geq N$ ならば
+    \[
+        \left|
+            \sqrt{n}\left(\sqrt{n+1}-\sqrt{n}\right)
+            -
+            \frac{1}{2}
+        \right|
+        <
+        \epsilon
+    \]
+    が成り立つ。
+
+    ゆえに
+    \[
+        \lim_{n\to\infty}
+        \sqrt{n}\left(\sqrt{n+1}-\sqrt{n}\right)
+        =
+        \frac{1}{2}
+    \]
+    である。
+\end{proof}

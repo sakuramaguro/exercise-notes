@@ -1,0 +1,182 @@
+% !TeX root = ../sections/03_solutions.tex
+\subsection{1.1.A.6.2}
+\begin{proof}
+(1) より，ある自然数 $N_0$ が存在して，$n\geq N_0$ ならば
+    \[
+        |b_n|\geq \frac{|\beta|}{2}
+    \]
+    が成り立つ。
+
+    示したいことは
+    \[
+        \lim_{n\to\infty}\frac{a_n}{b_n}
+        =
+        \frac{\alpha}{\beta}
+    \]
+    である。すなわち，任意の $\epsilon>0$ に対して，ある自然数 $N$ が存在して，
+    $n\geq N$ ならば
+    \[
+        \left|
+            \frac{a_n}{b_n}-\frac{\alpha}{\beta}
+        \right|<\epsilon
+    \]
+    となることを示せばよい。
+
+    まず差を通分する。
+    \[
+        \frac{a_n}{b_n}-\frac{\alpha}{\beta}
+        =
+        \frac{\beta a_n-\alpha b_n}{\beta b_n}
+    \]
+
+    分子を次のように変形する。
+    \[
+        \beta a_n-\alpha b_n
+        =
+        \beta a_n-\beta\alpha+\beta\alpha-\alpha b_n
+    \]
+    したがって，
+    \[
+        \beta a_n-\alpha b_n
+        =
+        \beta(a_n-\alpha)+\alpha(\beta-b_n)
+    \]
+    である。
+
+    よって，
+    \[
+        \left|
+            \frac{a_n}{b_n}-\frac{\alpha}{\beta}
+        \right|
+        =
+        \left|
+            \frac{\beta(a_n-\alpha)+\alpha(\beta-b_n)}{\beta b_n}
+        \right|
+    \]
+    である。
+    三角不等式を用いると，
+    \[
+        \left|
+            \frac{a_n}{b_n}-\frac{\alpha}{\beta}
+        \right|
+        \leq
+        \frac{|\beta||a_n-\alpha|+|\alpha||\beta-b_n|}
+        {|\beta||b_n|}
+    \]
+    となる。
+
+    ここで，$n\geq N_0$ ならば
+    \[
+        |b_n|\geq \frac{|\beta|}{2}
+    \]
+    であるから，
+    \[
+        \frac{1}{|b_n|}
+        \leq
+        \frac{2}{|\beta|}
+    \]
+    が成り立つ。
+
+    したがって，$n\geq N_0$ のとき
+    \[
+        \left|
+            \frac{a_n}{b_n}-\frac{\alpha}{\beta}
+        \right|
+        \leq
+        \frac{2}{|\beta|}|a_n-\alpha|
+        +
+        \frac{2|\alpha|}{|\beta|^2}|b_n-\beta|
+    \]
+    を得る。
+
+    ここで，任意に $\epsilon>0$ を取る。
+
+    $a_n\to\alpha$ であるから，ある自然数 $N_1$ が存在して，
+    $n\geq N_1$ ならば
+    \[
+        |a_n-\alpha|<\frac{|\beta|\epsilon}{4}
+    \]
+    が成り立つ。
+
+    また，$b_n\to\beta$ であるから，ある自然数 $N_2$ が存在して，
+    $n\geq N_2$ ならば
+    \[
+        |b_n-\beta|
+        <
+        \frac{|\beta|^2\epsilon}{4(|\alpha|+1)}
+    \]
+    が成り立つ。
+
+    ここで
+    \[
+        N=\max\{N_0,N_1,N_2\}
+    \]
+    とおく。
+
+    このとき，$n\geq N$ ならば，
+    \[
+        n\geq N_0,\qquad n\geq N_1,\qquad n\geq N_2
+    \]
+    である。
+
+    したがって，
+    \[
+        \frac{2}{|\beta|}|a_n-\alpha|
+        <
+        \frac{2}{|\beta|}\cdot \frac{|\beta|\epsilon}{4}
+        =
+        \frac{\epsilon}{2}
+    \]
+    である。
+
+    また，
+    \[
+        \frac{2|\alpha|}{|\beta|^2}|b_n-\beta|
+        <
+        \frac{2|\alpha|}{|\beta|^2}
+        \cdot
+        \frac{|\beta|^2\epsilon}{4(|\alpha|+1)}
+    \]
+    であるから，
+    \[
+        \frac{2|\alpha|}{|\beta|^2}|b_n-\beta|
+        <
+        \frac{|\alpha|}{|\alpha|+1}\cdot\frac{\epsilon}{2}
+        \leq
+        \frac{\epsilon}{2}
+    \]
+    となる。
+
+    よって，$n\geq N$ ならば
+    \[
+        \left|
+            \frac{a_n}{b_n}-\frac{\alpha}{\beta}
+        \right|
+        \leq
+        \frac{2}{|\beta|}|a_n-\alpha|
+        +
+        \frac{2|\alpha|}{|\beta|^2}|b_n-\beta|
+        <
+        \frac{\epsilon}{2}+\frac{\epsilon}{2}
+        =
+        \epsilon
+    \]
+    である。
+
+    したがって，任意の $\epsilon>0$ に対して，ある自然数 $N$ が存在して，
+    $n\geq N$ ならば
+    \[
+        \left|
+            \frac{a_n}{b_n}-\frac{\alpha}{\beta}
+        \right|<\epsilon
+    \]
+    が成り立つ。
+
+    ゆえに
+    \[
+        \lim_{n\to\infty}\frac{a_n}{b_n}
+        =
+        \frac{\alpha}{\beta}
+    \]
+    である。
+\end{proof}
