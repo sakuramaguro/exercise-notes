@@ -1,0 +1,87 @@
+% !TeX root = ../sections/02_exercises.tex
+
+\begin{exercise}
+		R-2. 環
+		\[
+		\mathbb{Z}[\sqrt{2}+\sqrt{3}]
+		=
+		\{\, f(\sqrt{2}+\sqrt{3}) \mid f(X)\in\mathbb{Z}[X] \,\}
+		\]
+		は，$\mathbb{Z}$-加群とみたとき $\mathbb{Z}$-自由加群であることを示せ。
+		また，その階数も求めよ。
+	\end{exercise}
+	
+	\begin{background}
+		$\alpha=\sqrt{2}+\sqrt{3}$ とおく。
+		このとき $\mathbb{Z}[\alpha]$ は，
+		$\alpha$ の整数係数多項式で表される元全体である。
+		
+		$\alpha$ が有理数体 $\mathbb{Q}$ 上代数的で，その最小多項式の次数が $d$ であれば，
+		\[
+		1,\alpha,\alpha^2,\dots,\alpha^{d-1}
+		\]
+		が $\mathbb{Q}(\alpha)$ の $\mathbb{Q}$-基底になる。
+		
+		今回の $\alpha=\sqrt{2}+\sqrt{3}$ については，
+		\[
+		\alpha^2=5+2\sqrt{6}
+		\]
+		であるから，
+		\[
+		(\alpha^2-5)^2=24
+		\]
+		となる。したがって
+		\[
+		\alpha^4-10\alpha^2+1=0
+		\]
+		が成り立つ。
+		
+		つまり，$\alpha$ は
+		\[
+		X^4-10X^2+1
+		\]
+		の根である。
+	\end{background}
+	
+	\begin{strategy}
+		まず
+		\[
+		\alpha=\sqrt{2}+\sqrt{3}
+		\]
+		とおく。
+		関係式
+		\[
+		\alpha^4-10\alpha^2+1=0
+		\]
+		より，$\alpha^4$ は $1,\alpha,\alpha^2,\alpha^3$ の
+		$\mathbb{Z}$-係数線形結合で表せる。
+		したがって，$\alpha^4$ 以上の高次の冪はすべて
+		\[
+		1,\alpha,\alpha^2,\alpha^3
+		\]
+		の $\mathbb{Z}$-係数線形結合で表せる。
+		
+		よって，$\mathbb{Z}[\alpha]$ は
+		\[
+		1,\alpha,\alpha^2,\alpha^3
+		\]
+		で生成される。
+		
+		次に，これらが $\mathbb{Z}$ 上一次独立であることを示す。
+		そのためには，$\alpha$ の最小多項式が
+		\[
+		X^4-10X^2+1
+		\]
+		であり，次数が $4$ であることを確認すればよい。
+		
+		以上により，
+		\[
+		\{1,\alpha,\alpha^2,\alpha^3\}
+		\]
+		が $\mathbb{Z}[\alpha]$ の $\mathbb{Z}$-基底となる。
+		したがって，
+		\[
+		\mathbb{Z}[\sqrt{2}+\sqrt{3}]
+		\]
+		は階数 $4$ の $\mathbb{Z}$-自由加群である。
+	\end{strategy}

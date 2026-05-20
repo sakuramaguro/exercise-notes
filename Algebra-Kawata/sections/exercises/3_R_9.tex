@@ -1,0 +1,141 @@
+% !TeX root = ../sections/02_exercises.tex
+
+\begin{exercise}
+	R-9. 環 $A=\mathbb{Z}[\sqrt{2},\sqrt{3}]$ のイデアル
+	\[
+	I=(\sqrt{6})
+	\]
+	は $\sqrt{6}$ で生成された単項イデアルとする。
+	\begin{enumerate}
+		\item $\mathbb{Z}$-加群として $I$ は自由加群であることを示せ。
+		また，基底を一組求めよ。
+		\item $\mathbb{Z}$-加群として $A/I$ はねじれ加群で，
+		\[
+		A/I\cong
+		\mathbb{Z}/6\mathbb{Z}\oplus
+		\mathbb{Z}/6\mathbb{Z}
+		\]
+		に同型，すなわち不変系は $(6,6)$ であることを示せ。
+	\end{enumerate}
+\end{exercise}
+
+\begin{background}
+	$A=\mathbb{Z}[\sqrt{2},\sqrt{3}]$ は，
+	$\mathbb{Z}$-加群として
+	\[
+	A=
+	\mathbb{Z}
+	\oplus
+	\mathbb{Z}\sqrt{2}
+	\oplus
+	\mathbb{Z}\sqrt{3}
+	\oplus
+	\mathbb{Z}\sqrt{6}
+	\]
+	である。
+	
+	すなわち，任意の元は一意的に
+	\[
+	a+b\sqrt{2}+c\sqrt{3}+d\sqrt{6}
+	\qquad
+	(a,b,c,d\in\mathbb{Z})
+	\]
+	と表される。
+	
+	イデアル
+	\[
+	I=(\sqrt{6})
+	\]
+	は，
+	\[
+	I=\{\sqrt{6}x\mid x\in A\}
+	\]
+	で定義される。
+	
+	したがって，$A$ の一般元に $\sqrt{6}$ を掛けることで，
+	$I$ の $\mathbb{Z}$-加群としての生成元が得られる。
+\end{background}
+
+\begin{strategy}
+	任意の元 $x\in A$ を
+	\[
+	x=a+b\sqrt{2}+c\sqrt{3}+d\sqrt{6}
+	\qquad
+	(a,b,c,d\in\mathbb{Z})
+	\]
+	と書く。
+	このとき
+	\[
+	\sqrt{6}x
+	=
+	a\sqrt{6}
+	+b\sqrt{12}
+	+c\sqrt{18}
+	+d\sqrt{36}.
+	\]
+	ここで
+	\[
+	\sqrt{12}=2\sqrt{3},
+	\qquad
+	\sqrt{18}=3\sqrt{2},
+	\qquad
+	\sqrt{36}=6
+	\]
+	であるから，
+	\[
+	\sqrt{6}x
+	=
+	6d+3c\sqrt{2}+2b\sqrt{3}+a\sqrt{6}.
+	\]
+	
+	したがって
+	\[
+	I=
+	6\mathbb{Z}
+	\oplus
+	3\mathbb{Z}\sqrt{2}
+	\oplus
+	2\mathbb{Z}\sqrt{3}
+	\oplus
+	\mathbb{Z}\sqrt{6}.
+	\]
+	よって，$I$ は $\mathbb{Z}$-自由加群であり，一組の基底は
+	\[
+	6,\quad 3\sqrt{2},\quad 2\sqrt{3},\quad \sqrt{6}
+	\]
+	である。
+	
+	商加群 $A/I$ は，基底
+	\[
+	1,\sqrt{2},\sqrt{3},\sqrt{6}
+	\]
+	に関して
+	\[
+	\mathbb{Z}/6\mathbb{Z}
+	\oplus
+	\mathbb{Z}/3\mathbb{Z}
+	\oplus
+	\mathbb{Z}/2\mathbb{Z}
+	\oplus
+	0
+	\]
+	と見られる。
+	
+	さらに
+	\[
+	\mathbb{Z}/3\mathbb{Z}
+	\oplus
+	\mathbb{Z}/2\mathbb{Z}
+	\cong
+	\mathbb{Z}/6\mathbb{Z}
+	\]
+	であるから，
+	\[
+	A/I
+	\cong
+	\mathbb{Z}/6\mathbb{Z}
+	\oplus
+	\mathbb{Z}/6\mathbb{Z}
+	\]
+	となる。
+\end{strategy}

@@ -1,0 +1,52 @@
+% !TeX root = ../sections/02_exercises.tex
+
+\begin{exercise}
+	R-1. 環 $\mathbb{Z}[\sqrt{2}]$ は，$\mathbb{Z}$-加群とみると階数 $2$ の
+	$\mathbb{Z}$-自由加群であることを示せ。
+\end{exercise}
+
+\begin{background}
+	$\mathbb{Z}$-加群とは，アーベル群に整数倍が定まったもののことである。
+	特に，$\mathbb{Z}$-自由加群であることを示すには，ある元の組が
+	$\mathbb{Z}$ 上の基底になっていることを示せばよい。
+	
+	$\mathbb{Z}$-加群 $M$ に対して，元の組
+	\[
+	v_1,\dots,v_r\in M
+	\]
+	が基底であるとは，任意の $x\in M$ が一意的に
+	\[
+	x=a_1v_1+\cdots+a_rv_r
+	\qquad
+	(a_1,\dots,a_r\in\mathbb{Z})
+	\]
+	と表されることをいう。
+	
+	このとき $M$ は階数 $r$ の自由 $\mathbb{Z}$-加群である。
+\end{background}
+
+\begin{strategy}
+	$\mathbb{Z}[\sqrt{2}]$ の元は，定義より
+	\[
+	a+b\sqrt{2}
+	\qquad
+	(a,b\in\mathbb{Z})
+	\]
+	の形で表される。
+	したがって，まず $\{1,\sqrt{2}\}$ が
+	$\mathbb{Z}[\sqrt{2}]$ を生成することを確認する。
+	
+	次に，一意性を示すために
+	\[
+	a+b\sqrt{2}=0
+	\qquad
+	(a,b\in\mathbb{Z})
+	\]
+	ならば $a=b=0$ であることを示す。
+	ここで $\sqrt{2}$ が無理数であることを用いる。
+	
+	以上により，$\{1,\sqrt{2}\}$ が
+	$\mathbb{Z}[\sqrt{2}]$ の $\mathbb{Z}$-基底であると分かる。
+	したがって，$\mathbb{Z}[\sqrt{2}]$ は階数 $2$ の
+	$\mathbb{Z}$-自由加群である。
+\end{strategy}

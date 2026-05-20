@@ -1,0 +1,116 @@
+% !TeX root = ../sections/02_exercises.tex
+
+\begin{exercise}
+	R-5. $A$ を有限生成自由アーベル群とし，$B$ をその部分群とする。
+	次を示せ。
+	\begin{enumerate}
+		\item $B$ の階数は $A$ の階数以下である。
+		\item $A/B$ が有限群であることと，
+		\[
+		\operatorname{rank} A=\operatorname{rank} B
+		\]
+		であることは同値である。
+	\end{enumerate}
+\end{exercise}
+
+\begin{background}
+	有限生成自由アーベル群とは，
+	ある非負整数 $n$ に対して
+	\[
+	A\cong \mathbb{Z}^n
+	\]
+	と表されるアーベル群のことである。
+	この $n$ を $A$ の階数といい，
+	\[
+	\operatorname{rank}A=n
+	\]
+	と書く。
+	
+	自由アーベル群の部分群は再び自由アーベル群である。
+	したがって，$B\subset A$ も有限生成自由アーベル群であり，
+	$\operatorname{rank}B$ が定義できる。
+	
+	階数は，有理数体 $\mathbb{Q}$ でテンソルすることで
+	ベクトル空間の次元として捉えることができる。
+	すなわち，
+	\[
+	\operatorname{rank}A
+	=
+	\dim_{\mathbb{Q}}(A\otimes_{\mathbb{Z}}\mathbb{Q})
+	\]
+	である。
+	
+	また，アーベル群 $G$ が有限群であるならば，
+	\[
+	G\otimes_{\mathbb{Z}}\mathbb{Q}=0
+	\]
+	である。
+	逆に，有限生成アーベル群 $G$ について
+	\[
+	G\otimes_{\mathbb{Z}}\mathbb{Q}=0
+	\]
+	であれば，$G$ は階数 $0$ であり，したがって有限群である。
+\end{background}
+
+\begin{strategy}
+	包含写像
+	\[
+	B\hookrightarrow A
+	\]
+	を考える。
+	これに $\mathbb{Q}$ とのテンソル積を取ると，
+	\[
+	B\otimes_{\mathbb{Z}}\mathbb{Q}
+	\longrightarrow
+	A\otimes_{\mathbb{Z}}\mathbb{Q}
+	\]
+	という $\mathbb{Q}$-ベクトル空間の単射が得られる。
+	
+	したがって，
+	\[
+	\dim_{\mathbb{Q}}(B\otimes_{\mathbb{Z}}\mathbb{Q})
+	\leq
+	\dim_{\mathbb{Q}}(A\otimes_{\mathbb{Z}}\mathbb{Q})
+	\]
+	である。
+	これより
+	\[
+	\operatorname{rank}B\leq \operatorname{rank}A
+	\]
+	が従う。
+	
+	次に，完全列
+	\[
+	0\longrightarrow B\longrightarrow A\longrightarrow A/B\longrightarrow 0
+	\]
+	を考える。
+	これに $\mathbb{Q}$ とのテンソル積を取ることで，
+	階数について
+	\[
+	\operatorname{rank}(A/B)
+	=
+	\operatorname{rank}A-\operatorname{rank}B
+	\]
+	が得られる。
+	
+	したがって，
+	\[
+	\operatorname{rank}A=\operatorname{rank}B
+	\]
+	であることは，
+	\[
+	\operatorname{rank}(A/B)=0
+	\]
+	であることと同値である。
+	
+	$A/B$ は有限生成アーベル群であるから，階数が $0$ であることは
+	$A/B$ が有限群であることと同値である。
+	
+	よって，
+	\[
+	A/B\text{ が有限群}
+	\quad\Longleftrightarrow\quad
+	\operatorname{rank}A=\operatorname{rank}B
+	\]
+	が成り立つ。
+\end{strategy}

@@ -1,0 +1,114 @@
+% !TeX root = ../sections/02_exercises.tex
+
+\begin{exercise}
+	R-10. 環 $\mathbb{Z}[X,Y]$ のイデアル
+	\[
+	I=(X^2-2,\;Y^2-3,\;XY)
+	\]
+	は $X^2-2,\;Y^2-3,\;XY$ で生成されたイデアルとする。
+	\[
+	A=\mathbb{Z}[X,Y]/I
+	\]
+	と置き，
+	\[
+	\overline{X}=X+I\in A,
+	\qquad
+	\overline{Y}=Y+I\in A
+	\]
+	と表す。
+	\begin{enumerate}
+		\item $\mathbb{Z}$-加群として
+		\[
+		A\cong \mathbb{Z}\oplus \mathbb{Z}/2\mathbb{Z}\oplus \mathbb{Z}/3\mathbb{Z}
+		\]
+		であることを示せ。
+		\item $B=(3\overline{X}+2\overline{Y})$ を
+		$3\overline{X}+2\overline{Y}$ で生成された $A$ の単項イデアルとするとき，
+		\[
+		B=6\mathbb{Z}\oplus\mathbb{Z}(3\overline{X}+2\overline{Y})
+		\]
+		を確かめよ。
+		また，$\mathbb{Z}$-加群として $A/B$ の不変系を求めよ。
+		\item $C=(3\overline{X},2\overline{Y})$ を
+		$3\overline{X}$ と $2\overline{Y}$ で生成された $A$ のイデアルとするとき，
+		$\mathbb{Z}$-加群として $A/C$ の不変系を求めよ。
+	\end{enumerate}
+\end{exercise}
+
+\begin{background}
+	商環
+	\[
+	A=\mathbb{Z}[X,Y]/I
+	\]
+	では，
+	\[
+	\overline{X}^2=2,
+	\qquad
+	\overline{Y}^2=3,
+	\qquad
+	\overline{X}\overline{Y}=0
+	\]
+	という関係が成り立つ。
+	
+	したがって，$A$ の元はまず
+	\[
+	a+b\overline{X}+c\overline{Y}
+	\]
+	の形に整理することを考える。
+	
+	ただし，この設問は注意が必要である。
+	与えられた関係式を環の等式として厳密に使うと，
+	\[
+	6=\overline{X}^2\overline{Y}^2
+	=(\overline{X}\overline{Y})^2=0
+	\]
+	のような追加関係も現れる。
+	そのため，問題文の意図としてどの $\mathbb{Z}$-加群表示を用いるかを確認しながら進める必要がある。
+	
+	不変系を求める基本方針は，$A$ を $\mathbb{Z}$-加群として表示し，
+	その中で $B$ や $C$ を部分加群として書き，生成元行列の Smith 標準形を求めることである。
+\end{background}
+
+\begin{strategy}
+	まず，商環 $A$ の関係式
+	\[
+	\overline{X}^2=2,
+	\qquad
+	\overline{Y}^2=3,
+	\qquad
+	\overline{X}\overline{Y}=0
+	\]
+	を用いて，任意の元を
+	\[
+	a+b\overline{X}+c\overline{Y}
+	\]
+	の形に整理する。
+	
+	次に，$B=(3\overline{X}+2\overline{Y})$ については，
+	生成元
+	\[
+	g=3\overline{X}+2\overline{Y}
+	\]
+	に対して，
+	\[
+	g\cdot 1,\qquad
+	g\cdot\overline{X},\qquad
+	g\cdot\overline{Y}
+	\]
+	を計算する。
+	これにより，$B$ が $\mathbb{Z}$-加群としてどの元で生成されるかを調べる。
+	
+	同様に，$C=(3\overline{X},2\overline{Y})$ については，
+	\[
+	3\overline{X},\qquad 2\overline{Y}
+	\]
+	およびそれらに $\overline{X},\overline{Y}$ を掛けた元を調べる。
+	
+	最後に，$A$ の $\mathbb{Z}$-加群表示に対して，
+	$B$ や $C$ の生成元を列ベクトルで表し，Smith 標準形を求める。
+	その対角成分から
+	\[
+	A/B,\qquad A/C
+	\]
+	の不変系を読み取る。
+\end{strategy}

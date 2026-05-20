@@ -1,0 +1,114 @@
+% !TeX root = ../sections/02_exercises.tex
+
+\begin{exercise}
+	R-3. 環 $R$ 自身を左 $R$-加群とみたとき，加群としての同型
+	\[
+	\operatorname{End}_R(R)\cong R
+	\]
+	が成り立つことを示せ。
+	さらに，これは環としての同型でもあることを示せ。
+\end{exercise}
+
+\begin{background}
+	$R$ を左 $R$-加群とみるとは，$R$ の元 $a\in R$ が
+	左からの積
+	\[
+	r\mapsto ar
+	\]
+	によって作用していると考えることである。
+	
+	$\operatorname{End}_R(R)$ は，左 $R$-加群としての
+	$R$ から $R$ への準同型全体である。
+	つまり，写像 $\varphi:R\to R$ が $\operatorname{End}_R(R)$ の元であるとは，
+	任意の $r,s\in R$ に対して
+	\[
+	\varphi(r+s)=\varphi(r)+\varphi(s),
+	\qquad
+	\varphi(rs)=r\varphi(s)
+	\]
+	が成り立つことをいう。
+	
+	任意の $\varphi\in\operatorname{End}_R(R)$ は，$\varphi(1)$ によって完全に決まる。
+	実際，
+	\[
+	\varphi(r)=\varphi(r\cdot 1)=r\varphi(1)
+	\]
+	である。
+	
+	ただし，$R$ が非可換環の場合には注意が必要である。
+	左 $R$-加群 $R$ の自己準同型環は，一般には
+	\[
+	\operatorname{End}_R({}_RR)\cong R^{\operatorname{op}}
+	\]
+	となる。
+	したがって，問題文のように環として
+	\[
+	\operatorname{End}_R(R)\cong R
+	\]
+	と述べるには，$R$ が可換環である，または積の向きについての約束を明確にする必要がある。
+\end{background}
+
+\begin{strategy}
+	写像
+	\[
+	\Phi:\operatorname{End}_R(R)\longrightarrow R
+	\]
+	を
+	\[
+	\Phi(\varphi)=\varphi(1)
+	\]
+	で定める。
+	
+	まず，$\Phi$ が加法について準同型であることを確認する。
+	次に，任意の $a\in R$ に対して
+	\[
+	\varphi_a(r)=ra
+	\]
+	と定めると，$\varphi_a$ は左 $R$-加群準同型であり，
+	\[
+	\Phi(\varphi_a)=a
+	\]
+	となることを確認する。
+	これにより $\Phi$ は全射である。
+	
+	さらに，
+	\[
+	\Phi(\varphi)=0
+	\]
+	ならば $\varphi(1)=0$ であり，任意の $r\in R$ について
+	\[
+	\varphi(r)=r\varphi(1)=0
+	\]
+	となるので，$\varphi=0$ である。
+	したがって $\Phi$ は単射である。
+	
+	環構造については，合成の順序に注意する。
+	$\varphi_a(r)=ra$，$\varphi_b(r)=rb$ とすると，
+	\[
+	(\varphi_a\circ\varphi_b)(r)
+	=
+	\varphi_a(rb)
+	=
+	(rb)a
+	=
+	r(ba)
+	\]
+	である。
+	したがって，
+	\[
+	\varphi_a\circ\varphi_b=\varphi_{ba}
+	\]
+	となる。
+	
+	このため，一般の非可換環では
+	\[
+	\operatorname{End}_R({}_RR)\cong R^{\operatorname{op}}
+	\]
+	である。
+	特に $R$ が可換環ならば $R^{\operatorname{op}}=R$ なので，
+	環としても
+	\[
+	\operatorname{End}_R(R)\cong R
+	\]
+	が成り立つ。
+\end{strategy}

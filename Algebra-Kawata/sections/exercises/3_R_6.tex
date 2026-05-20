@@ -1,0 +1,110 @@
+% !TeX root = ../sections/02_exercises.tex
+
+\begin{exercise}
+	R-6. $A=\mathbb{Z}\oplus\mathbb{Z}$ を階数 $2$ の $\mathbb{Z}$-自由加群とし，
+	その部分加群 $B,C$ を次のように置く：
+	\[
+	B:=\mathbb{Z}(2,0)+\mathbb{Z}(0,-3),
+	\qquad
+	C:=\mathbb{Z}(5,2)+\mathbb{Z}(3,5).
+	\]
+	\begin{enumerate}
+		\item $B$ と $C$ の階数を求めよ。
+		\item $A/B$ と $A/C$ の不変系を求めよ。
+	\end{enumerate}
+\end{exercise}
+
+\begin{background}
+	$A=\mathbb{Z}^2$ の部分加群が有限個のベクトルで生成されているとき，
+	それらの生成ベクトルを列に並べた整数行列を考える。
+	
+	例えば，$B$ に対しては
+	\[
+	M_B=
+	\begin{pmatrix}
+		2 & 0\\
+		0 & -3
+	\end{pmatrix}
+	\]
+	を考える。
+	
+	部分加群の階数は，この行列の $\mathbb{Q}$ 上での階数に等しい。
+	また，商加群 $A/B$ の不変系は，対応する整数行列の
+	Smith 標準形を求めることで得られる。
+	
+	整数行列 $M$ を基本変形によって
+	\[
+	\operatorname{diag}(d_1,\dots,d_r)
+	\]
+	の形にし，
+	\[
+	d_1\mid d_2\mid\cdots\mid d_r
+	\]
+	となるようにしたものを Smith 標準形という。
+\end{background}
+
+\begin{strategy}
+	$B$ については，生成ベクトル
+	\[
+	(2,0),\quad (0,-3)
+	\]
+	を列に並べた行列を考える。
+	行列式は
+	\[
+	\det
+	\begin{pmatrix}
+		2 & 0\\
+		0 & -3
+	\end{pmatrix}
+	=-6
+	\]
+	であるから，$B$ の階数は $2$ である。
+	
+	次に Smith 標準形を求める。
+	\[
+	\begin{pmatrix}
+		2 & 0\\
+		0 & -3
+	\end{pmatrix}
+	\]
+	は Smith 標準形として
+	\[
+	\operatorname{diag}(1,6)
+	\]
+	に変形できる。
+	したがって
+	\[
+	A/B\cong \mathbb{Z}/6\mathbb{Z}
+	\]
+	となる。
+	
+	$C$ については，生成ベクトル
+	\[
+	(5,2),\quad (3,5)
+	\]
+	を列に並べた行列
+	\[
+	M_C=
+	\begin{pmatrix}
+		5 & 3\\
+		2 & 5
+	\end{pmatrix}
+	\]
+	を考える。
+	この行列式は
+	\[
+	5\cdot 5-3\cdot 2=19
+	\]
+	であるから，$C$ の階数は $2$ である。
+	
+	また，成分全体の最大公約数は $1$ で，行列式の絶対値は $19$ である。
+	したがって Smith 標準形は
+	\[
+	\operatorname{diag}(1,19)
+	\]
+	であり，
+	\[
+	A/C\cong \mathbb{Z}/19\mathbb{Z}
+	\]
+	となる。
+\end{strategy}

@@ -1,0 +1,93 @@
+% !TeX root = ../sections/02_exercises.tex
+
+\begin{exercise}
+	R-4. $R$ は可換環とする。
+	$F$ が階数 $n$ の自由 $R$-加群であれば，
+	\[
+	\operatorname{Hom}_R(F,R)
+	\]
+	も階数 $n$ の自由 $R$-加群であることを示せ。
+\end{exercise}
+
+\begin{background}
+	$F$ が階数 $n$ の自由 $R$-加群であるとは，ある基底
+	\[
+	e_1,\dots,e_n\in F
+	\]
+	が存在して，任意の $x\in F$ が一意的に
+	\[
+	x=a_1e_1+\cdots+a_ne_n
+	\qquad
+	(a_1,\dots,a_n\in R)
+	\]
+	と表されることをいう。
+	
+	$\operatorname{Hom}_R(F,R)$ は，$F$ から $R$ への
+	$R$-加群準同型全体であり，これを $F$ の双対加群という。
+	
+	基底 $e_1,\dots,e_n$ に対して，双対基底
+	\[
+	e_1^\ast,\dots,e_n^\ast\in\operatorname{Hom}_R(F,R)
+	\]
+	を
+	\[
+	e_i^\ast(e_j)=
+	\begin{cases}
+		1 & (i=j),\\
+		0 & (i\neq j)
+	\end{cases}
+	\]
+	によって定める。
+\end{background}
+
+\begin{strategy}
+	$F$ の基底を
+	\[
+	e_1,\dots,e_n
+	\]
+	とする。
+	これに対して双対基底
+	\[
+	e_1^\ast,\dots,e_n^\ast
+	\]
+	を定義する。
+	
+	任意の $\varphi\in\operatorname{Hom}_R(F,R)$ に対して，
+	$\varphi$ は基底の値
+	\[
+	\varphi(e_1),\dots,\varphi(e_n)
+	\]
+	によって完全に決まる。
+	
+	実際，任意の
+	\[
+	x=a_1e_1+\cdots+a_ne_n
+	\]
+	に対して，
+	\[
+	\varphi(x)
+	=
+	a_1\varphi(e_1)+\cdots+a_n\varphi(e_n)
+	\]
+	である。
+	
+	したがって，
+	\[
+	\varphi
+	=
+	\varphi(e_1)e_1^\ast+\cdots+\varphi(e_n)e_n^\ast
+	\]
+	と表せる。
+	また，この表示は一意的である。
+	
+	よって，
+	\[
+	e_1^\ast,\dots,e_n^\ast
+	\]
+	は $\operatorname{Hom}_R(F,R)$ の基底である。
+	したがって，
+	\[
+	\operatorname{Hom}_R(F,R)
+	\]
+	は階数 $n$ の自由 $R$-加群である。
+\end{strategy}

@@ -1,0 +1,105 @@
+% !TeX root = ../sections/02_exercises.tex
+
+\begin{exercise}
+	R-8. 環 $A=\mathbb{Z}[\sqrt{3}]$ のイデアル
+	\[
+	I=(2\sqrt{3})
+	\]
+	は $2\sqrt{3}$ で生成された単項イデアルとする。
+	\begin{enumerate}
+		\item $\mathbb{Z}$-加群として
+		\[
+		I=6\mathbb{Z}\oplus 2\sqrt{3}\mathbb{Z}
+		\]
+		であることを示せ。
+		\item $\mathbb{Z}$-加群として $A/I$ はねじれ加群で，
+		\[
+		A/I\cong \mathbb{Z}/2\mathbb{Z}\oplus \mathbb{Z}/6\mathbb{Z}
+		\]
+		に同型，すなわち不変系は $(2,6)$ であることを示せ。
+	\end{enumerate}
+\end{exercise}
+
+\begin{background}
+	$A=\mathbb{Z}[\sqrt{3}]$ は，
+	$\mathbb{Z}$-加群として
+	\[
+	A=\mathbb{Z}\oplus \mathbb{Z}\sqrt{3}
+	\]
+	と表される。
+	つまり，任意の元は一意的に
+	\[
+	a+b\sqrt{3}
+	\qquad
+	(a,b\in\mathbb{Z})
+	\]
+	と書ける。
+	
+	イデアル
+	\[
+	I=(2\sqrt{3})
+	\]
+	は
+	\[
+	I=\{(2\sqrt{3})x\mid x\in A\}
+	\]
+	で定義される。
+	
+	したがって，$x=a+b\sqrt{3}$ とおいて，
+	\[
+	(2\sqrt{3})(a+b\sqrt{3})
+	\]
+	を計算すれば，$I$ の $\mathbb{Z}$-加群としての形が分かる。
+\end{background}
+
+\begin{strategy}
+	任意の元 $x\in A$ を
+	\[
+	x=a+b\sqrt{3}
+	\qquad
+	(a,b\in\mathbb{Z})
+	\]
+	と書く。
+	すると
+	\[
+	(2\sqrt{3})(a+b\sqrt{3})
+	=
+	2a\sqrt{3}+6b
+	\]
+	である。
+	
+	したがって
+	\[
+	I
+	=
+	\{\,6b+2a\sqrt{3}\mid a,b\in\mathbb{Z}\,\}
+	=
+	6\mathbb{Z}\oplus 2\sqrt{3}\mathbb{Z}
+	\]
+	となる。
+	
+	次に，$A=\mathbb{Z}\oplus\mathbb{Z}\sqrt{3}$ の基底
+	\[
+	1,\sqrt{3}
+	\]
+	に関して，$I$ は
+	\[
+	6\mathbb{Z}\oplus 2\mathbb{Z}\sqrt{3}
+	\]
+	である。
+	したがって商を取ると
+	\[
+	A/I
+	\cong
+	(\mathbb{Z}/6\mathbb{Z})
+	\oplus
+	(\mathbb{Z}/2\mathbb{Z})
+	\]
+	となる。
+	
+	不変系は小さい方が前に来るように並べて
+	\[
+	(2,6)
+	\]
+	である。
+\end{strategy}

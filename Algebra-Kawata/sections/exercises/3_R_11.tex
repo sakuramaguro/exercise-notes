@@ -1,0 +1,97 @@
+% !TeX root = ../sections/02_exercises.tex
+
+\begin{exercise}
+	R-11. $V$ を整数を成分とする $n$ 次列ベクトル全体がなす加法群とする。
+	\begin{enumerate}
+		\item $V$ は階数 $n$ の $\mathbb{Z}$-自由加群であることを示せ。
+		\item $A$ を整数成分の $n$ 次正方行列とし，自己準同型写像
+		\[
+		f:V\longrightarrow V
+		\]
+		を
+		\[
+		f(v)=Av
+		\qquad
+		(v\in V)
+		\]
+		で定める。
+		このとき，$f$ が同型となるための必要十分条件は
+		\[
+		\det A=\pm 1
+		\]
+		であることを示せ。
+	\end{enumerate}
+\end{exercise}
+
+\begin{background}
+	整数成分の $n$ 次列ベクトル全体は
+	\[
+	V=\mathbb{Z}^n
+	\]
+	である。
+	標準基底を
+	\[
+	e_1,\dots,e_n
+	\]
+	とすると，任意の $v\in V$ は一意的に
+	\[
+	v=a_1e_1+\cdots+a_ne_n
+	\qquad
+	(a_1,\dots,a_n\in\mathbb{Z})
+	\]
+	と表される。
+	したがって $V$ は階数 $n$ の $\mathbb{Z}$-自由加群である。
+	
+	整数行列 $A$ によって定まる写像
+	\[
+	f(v)=Av
+	\]
+	は $\mathbb{Z}$-加群準同型である。
+	
+	この写像が同型であるとは，逆写像も $\mathbb{Z}$-加群準同型として存在することをいう。
+	つまり，逆行列 $A^{-1}$ が存在し，しかもその成分がすべて整数でなければならない。
+\end{background}
+
+\begin{strategy}
+	まず，$V=\mathbb{Z}^n$ の標準基底
+	\[
+	e_1,\dots,e_n
+	\]
+	を用いれば，$V$ が階数 $n$ の自由 $\mathbb{Z}$-加群であることは直ちに分かる。
+	
+	次に，$f(v)=Av$ が同型であると仮定する。
+	このとき，逆写像も整数行列によって表される。
+	すなわち，ある整数行列 $B$ が存在して
+	\[
+	AB=BA=I_n
+	\]
+	となる。
+	両辺の行列式を取ると
+	\[
+	\det A\cdot \det B=1
+	\]
+	である。
+	ここで $\det A,\det B$ は整数なので，
+	\[
+	\det A=\pm 1
+	\]
+	でなければならない。
+	
+	逆に，
+	\[
+	\det A=\pm 1
+	\]
+	とする。
+	余因子行列を用いると
+	\[
+	A^{-1}
+	=
+	\frac{1}{\det A}\operatorname{adj}(A)
+	\]
+	である。
+	$\operatorname{adj}(A)$ は整数行列であり，$\det A=\pm 1$ だから，
+	$A^{-1}$ も整数行列である。
+	
+	したがって，$A^{-1}$ によって逆写像が定まり，
+	$f$ は $\mathbb{Z}$-加群の同型である。
+\end{strategy}

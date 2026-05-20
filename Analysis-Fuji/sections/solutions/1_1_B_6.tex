@@ -1,0 +1,420 @@
+% !TeX root = ../sections/03_solutions.tex
+\subsection{1.1.B.6}
+
+\begin{proof}
+	分子を
+	\[
+	S_n=\sum_{j=1}^{n}j^2a_j
+	\]
+	とおく。
+	
+	まず，
+	\[
+	\frac{S_n}{n^3}\to \frac{\alpha}{3}
+	\]
+	であることを示す。
+		仮定より
+	\[
+	a_j\to \alpha
+	\]
+	であるから，
+	\[
+	a_j=\alpha+(a_j-\alpha)
+	\]
+	と分解する。
+	
+	すると，
+	\[
+	S_n
+	=
+	\sum_{j=1}^{n}j^2a_j
+	=
+	\sum_{j=1}^{n}j^2\{\alpha+(a_j-\alpha)\}
+	\]
+	である。したがって，
+	\[
+	S_n
+	=
+	\alpha\sum_{j=1}^{n}j^2
+	+
+	\sum_{j=1}^{n}j^2(a_j-\alpha)
+	\]
+	となる。
+	
+	よって，
+	\[
+	\frac{S_n}{n^3}
+	=
+	\alpha\frac{1}{n^3}\sum_{j=1}^{n}j^2
+	+
+	\frac{1}{n^3}\sum_{j=1}^{n}j^2(a_j-\alpha)
+	\]
+	である。
+		ここで，
+	\[
+	\sum_{j=1}^{n}j^2
+	=
+	\frac{n(n+1)(2n+1)}{6}
+	\]
+	であるから，
+	\[
+	\frac{1}{n^3}\sum_{j=1}^{n}j^2
+	=
+	\frac{n(n+1)(2n+1)}{6n^3}
+	\]
+	である。
+	
+	これを整理すると，
+	\[
+	\frac{n(n+1)(2n+1)}{6n^3}
+	=
+	\frac{2n^3+3n^2+n}{6n^3}
+	\]
+	であるから，
+	\[
+	\frac{1}{n^3}\sum_{j=1}^{n}j^2
+	=
+	\frac{1}{3}
+	+
+	\frac{1}{2n}
+	+
+	\frac{1}{6n^2}
+	\]
+	となる。
+	
+	したがって，
+	\[
+	\frac{1}{n^3}\sum_{j=1}^{n}j^2
+	\to
+	\frac{1}{3}
+	\]
+	である。
+	
+	よって，
+	\[
+	\alpha\frac{1}{n^3}\sum_{j=1}^{n}j^2
+	\to
+	\frac{\alpha}{3}
+	\]
+	である。
+		次に，
+	\[
+	R_n=
+	\frac{1}{n^3}\sum_{j=1}^{n}j^2(a_j-\alpha)
+	\]
+	とおく。
+	
+	$R_n\to 0$ を示す。
+	
+	任意に $\epsilon>0$ を取る。
+	
+	$a_j\to\alpha$ であるから，ある自然数 $N_1$ が存在して，
+	$j\geq N_1$ ならば
+	\[
+	|a_j-\alpha|<\frac{\epsilon}{2}
+	\]
+	が成り立つ。
+	
+	有限個の和
+	\[
+	C=
+	\sum_{j=1}^{N_1-1}j^2|a_j-\alpha|
+	\]
+	をおく。これは有限個の実数の和なので，有限の値である。
+		$n\geq N_1$ のとき，三角不等式より
+	\[
+	|R_n|
+	=
+	\left|
+	\frac{1}{n^3}\sum_{j=1}^{n}j^2(a_j-\alpha)
+	\right|
+	\leq
+	\frac{1}{n^3}\sum_{j=1}^{n}j^2|a_j-\alpha|
+	\]
+	である。
+	
+	ここで和を分けると，
+	\[
+	\sum_{j=1}^{n}j^2|a_j-\alpha|
+	=
+	\sum_{j=1}^{N_1-1}j^2|a_j-\alpha|
+	+
+	\sum_{j=N_1}^{n}j^2|a_j-\alpha|
+	\]
+	である。
+	
+	したがって，
+	\[
+	|R_n|
+	\leq
+	\frac{C}{n^3}
+	+
+	\frac{1}{n^3}
+	\sum_{j=N_1}^{n}j^2|a_j-\alpha|
+	\]
+	となる。
+		$j\geq N_1$ ならば
+	\[
+	|a_j-\alpha|<\frac{\epsilon}{2}
+	\]
+	であるから，
+	\[
+	\sum_{j=N_1}^{n}j^2|a_j-\alpha|
+	<
+	\frac{\epsilon}{2}\sum_{j=N_1}^{n}j^2
+	\leq
+	\frac{\epsilon}{2}\sum_{j=1}^{n}j^2
+	\]
+	である。
+	
+	また，
+	\[
+	\sum_{j=1}^{n}j^2\leq n^3
+	\]
+	である。実際，$1\leq j\leq n$ ならば $j^2\leq n^2$ なので，
+	$n$ 個足して高々 $n^3$ である。
+	
+	よって，
+	\[
+	\frac{1}{n^3}
+	\sum_{j=N_1}^{n}j^2|a_j-\alpha|
+	\leq
+	\frac{\epsilon}{2}
+	\]
+	となる。
+	
+	したがって，$n\geq N_1$ のとき
+	\[
+	|R_n|
+	\leq
+	\frac{C}{n^3}
+	+
+	\frac{\epsilon}{2}
+	\]
+	である。
+		さらに，$C/n^3\to0$ であるから，ある自然数 $N_2$ が存在して，
+	$n\geq N_2$ ならば
+	\[
+	\frac{C}{n^3}<\frac{\epsilon}{2}
+	\]
+	が成り立つ。
+	
+	ここで
+	\[
+	N=\max\{N_1,N_2\}
+	\]
+	とおく。
+	
+	$n\geq N$ ならば
+	\[
+	|R_n|
+	\leq
+	\frac{C}{n^3}
+	+
+	\frac{\epsilon}{2}
+	<
+	\frac{\epsilon}{2}
+	+
+	\frac{\epsilon}{2}
+	=
+	\epsilon
+	\]
+	である。
+	
+	したがって
+	\[
+	R_n\to0
+	\]
+	である。
+		以上より，
+	\[
+	\frac{S_n}{n^3}
+	=
+	\alpha\frac{1}{n^3}\sum_{j=1}^{n}j^2
+	+
+	R_n
+	\]
+	であり，
+	\[
+	\alpha\frac{1}{n^3}\sum_{j=1}^{n}j^2
+	\to
+	\frac{\alpha}{3},
+	\qquad
+	R_n\to0
+	\]
+	である。
+	
+	したがって，
+	\[
+	\frac{S_n}{n^3}\to\frac{\alpha}{3}
+	\]
+	である。
+		いま求めたい極限は
+	\[
+	\lim_{n\to\infty}\frac{S_n}{n^k}
+	\]
+	である。
+	
+	すでに
+	\[
+	\frac{S_n}{n^3}\to\frac{\alpha}{3}
+	\]
+	が分かっている。
+	
+	また，仮定より $\alpha\neq0$ なので，
+	\[
+	\frac{\alpha}{3}\neq0
+	\]
+	である。
+		まず $k=3$ のとき，
+	\[
+	\frac{S_n}{n^k}
+	=
+	\frac{S_n}{n^3}
+	\to
+	\frac{\alpha}{3}
+	\]
+	である。
+	
+	これは $0$ でない実数である。
+		次に $k>3$ とする。
+	
+	このとき
+	\[
+	\frac{S_n}{n^k}
+	=
+	\frac{S_n}{n^3}\cdot\frac{1}{n^{k-3}}
+	\]
+	である。
+	
+	ここで
+	\[
+	\frac{S_n}{n^3}\to\frac{\alpha}{3}
+	\]
+	であり，
+	\[
+	\frac{1}{n^{k-3}}\to0
+	\]
+	である。
+	
+	したがって，
+	\[
+	\frac{S_n}{n^k}\to0
+	\]
+	となる。
+	
+	これは $0$ でない実数への収束ではない。
+		最後に $k<3$ とする。
+	
+	このとき $3-k>0$ であり，
+	\[
+	\frac{S_n}{n^k}
+	=
+	\frac{S_n}{n^3}\cdot n^{3-k}
+	\]
+	である。
+	
+	ここで
+	\[
+	\frac{S_n}{n^3}\to\frac{\alpha}{3}
+	\]
+	であり，$\alpha\neq0$ なので，十分大きな $n$ に対して
+	\[
+	\left|\frac{S_n}{n^3}\right|
+	\geq
+	\frac{|\alpha|}{6}
+	\]
+	が成り立つ。
+	
+	一方，
+	\[
+	n^{3-k}\to\infty
+	\]
+	である。
+	
+	したがって，十分大きな $n$ に対して
+	\[
+	\left|\frac{S_n}{n^k}\right|
+	=
+	\left|\frac{S_n}{n^3}\right|n^{3-k}
+	\geq
+	\frac{|\alpha|}{6}n^{3-k}
+	\]
+	となる。
+	
+	右辺は $n\to\infty$ で正の無限大に発散するので，
+	\[
+	\frac{S_n}{n^k}
+	\]
+	は有限な実数には収束しない。
+		以上より，
+	\[
+	\frac{S_n}{n^k}
+	\]
+	が $0$ でない実数に収束するためには，
+	\[
+	k=3
+	\]
+	でなければならない。
+	
+	そのときの極限値は
+	\[
+	A=\frac{\alpha}{3}
+	\]
+	である。
+	
+	したがって，
+	\[
+	\boxed{k=3,\qquad A=\frac{\alpha}{3}}
+	\]
+	である。
+\end{proof}
+\begin{lemma}
+	任意の $n\in\mathbb{N}$ に対して，
+	\[
+	\sum_{j=1}^{n}j^2\leq n^3
+	\]
+	が成り立つ。
+\end{lemma}
+
+\begin{proof}
+	$1\leq j\leq n$ とする。
+	このとき
+	\[
+	j\leq n
+	\]
+	であるから，両辺は非負なので二乗して
+	\[
+	j^2\leq n^2
+	\]
+	を得る。
+	
+	したがって，
+	\[
+	1^2\leq n^2,\quad
+	2^2\leq n^2,\quad
+	\ldots,\quad
+	n^2\leq n^2
+	\]
+	である。
+	
+	これらを足し合わせると，
+	\[
+	\sum_{j=1}^{n}j^2
+	\leq
+	\sum_{j=1}^{n}n^2
+	\]
+	となる。
+	
+	右辺は $n^2$ を $n$ 個足したものなので，
+	\[
+	\sum_{j=1}^{n}n^2=nn^2=n^3
+	\]
+	である。
+	
+	よって
+	\[
+	\sum_{j=1}^{n}j^2\leq n^3
+	\]
+	が成り立つ。
+\end{proof}
