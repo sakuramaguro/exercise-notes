@@ -1,0 +1,199 @@
+% !TeX root = ../sections/02_exercises.tex
+\subsection{2-C.}
+\begin{exercise}
+	\textup{(Heine--Borel の定理)}
+	\(a,b\in\mathbb{R}\) が
+	\[
+	a<b
+	\]
+	をみたすとする。
+	開区間の族
+	\[
+	\{U_\lambda\}_{\lambda\in\Lambda}
+	\]
+	が
+	\[
+	[a,b]\subset
+	\bigcup_{\lambda\in\Lambda}U_\lambda
+	\]
+	をみたすとき，有限個の
+	\[
+	\lambda_1,\ldots,\lambda_n\in\Lambda
+	\]
+	が存在して
+	\[
+	[a,b]\subset
+	\bigcup_{k=1}^{n}U_{\lambda_k}
+	\]
+	が成立することを証明せよ。
+\end{exercise}
+
+\begin{background}
+	この問題は，閉区間 \([a,b]\) のコンパクト性を示す問題である。
+	主張は，閉区間を開区間の族で覆うことができるならば，
+	実はその中から有限個だけを選んでも閉区間全体を覆える，
+	という内容である。
+	
+	このような有限個の部分族を
+	有限部分被覆という。
+	つまり，仮定は
+	\[
+	[a,b]\subset
+	\bigcup_{\lambda\in\Lambda}U_\lambda
+	\]
+	であり，示すべきことは
+	\[
+	[a,b]\subset
+	U_{\lambda_1}\cup\cdots\cup U_{\lambda_n}
+	\]
+	となる有限個の添字
+	\(\lambda_1,\ldots,\lambda_n\) が取れることである。
+	
+	証明には区間縮小法を用いる。
+	背理法で，\([a,b]\) が有限個の \(U_\lambda\) では覆えないと仮定する。
+	そのうえで，区間を半分に分けていく。
+	もし左右の半分がどちらも有限個で覆えるなら，
+	元の区間も有限個で覆える。
+	したがって，少なくとも一方は有限個では覆えない。
+	このような半分を選び続けることで，
+	有限個では覆えない閉区間の列を作る。
+	
+	区間の長さは半分ずつ小さくなるので，
+	区間縮小法により，それらの共通部分にはただ一つの点が存在する。
+	その点はもとの開被覆のどれか一つに含まれるため，
+	十分小さい閉区間はその開区間一つに含まれる。
+	これは「有限個では覆えない」とした選び方に反する。
+\end{background}
+
+\begin{strategy}
+	背理法で証明する。
+	すなわち，
+	\[
+	[a,b]
+	\]
+	は
+	\[
+	\{U_\lambda\}_{\lambda\in\Lambda}
+	\]
+	の有限個では覆えないと仮定する。
+	
+	まず
+	\[
+	I_1=[a,b]
+	\]
+	とおく。
+	\(I_1\) を二等分して，
+	\[
+	I_1'
+	=
+	\left[
+	a,\frac{a+b}{2}
+	\right],
+	\qquad
+	I_1''
+	=
+	\left[
+	\frac{a+b}{2},b
+	\right]
+	\]
+	を考える。
+	もし \(I_1'\) と \(I_1''\) がどちらも有限個の
+	\(U_\lambda\) で覆えるならば，
+	その有限個を合わせることで \(I_1=[a,b]\) も有限個で覆える。
+	これは仮定に反する。
+	
+	したがって，少なくとも一方は有限個では覆えない。
+	そのような方を選んで
+	\[
+	I_2
+	\]
+	とおく。
+	
+	同様に，すでに \(I_n\) が選ばれていて，
+	\(I_n\) が有限個では覆えないとする。
+	\(I_n\) を二等分し，そのうち有限個では覆えない方を
+	\[
+	I_{n+1}
+	\]
+	として選ぶ。
+	
+	この操作により，閉区間の列
+	\[
+	I_1\supset I_2\supset I_3\supset\cdots
+	\]
+	が得られる。
+	さらに，各 \(I_n\) は有限個の \(U_\lambda\) では覆えず，
+	区間の長さは
+	\[
+	|I_n|=\frac{b-a}{2^{n-1}}
+	\]
+	である。
+	したがって
+	\[
+	|I_n|\to 0
+	\]
+	である。
+	
+	区間縮小法より，
+	ある \(\alpha\in\mathbb{R}\) が存在して
+	\[
+	\bigcap_{n=1}^{\infty}I_n
+	=
+	\{\alpha\}
+	\]
+	となる。
+	特に
+	\[
+	\alpha\in [a,b]
+	\]
+	である。
+	
+	仮定より
+	\[
+	[a,b]\subset
+	\bigcup_{\lambda\in\Lambda}U_\lambda
+	\]
+	だから，ある \(\lambda_0\in\Lambda\) が存在して
+	\[
+	\alpha\in U_{\lambda_0}
+	\]
+	となる。
+	\(U_{\lambda_0}\) は開区間なので，ある \(\varepsilon>0\) が存在して
+	\[
+	(\alpha-\varepsilon,\alpha+\varepsilon)
+	\subset
+	U_{\lambda_0}
+	\]
+	となる。
+	
+	一方，\(I_n\) の長さは \(0\) に収束し，さらに
+	\(\alpha\in I_n\) である。
+	したがって，十分大きい \(N\) に対して
+	\[
+	I_N
+	\subset
+	(\alpha-\varepsilon,\alpha+\varepsilon)
+	\subset
+	U_{\lambda_0}
+	\]
+	が成り立つ。
+	
+	これは \(I_N\) がただ一つの開区間
+	\[
+	U_{\lambda_0}
+	\]
+	で覆えることを意味する。
+	したがって \(I_N\) は有限個の \(U_\lambda\) で覆える。
+	これは，\(I_N\) を有限個では覆えないように選んだことに反する。
+	
+	よって背理法により，有限個の
+	\[
+	\lambda_1,\ldots,\lambda_n\in\Lambda
+	\]
+	が存在して
+	\[
+	[a,b]\subset
+	\bigcup_{k=1}^{n}U_{\lambda_k}
+	\]
+	が成り立つ。
+\end{strategy}

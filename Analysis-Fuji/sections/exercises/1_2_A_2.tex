@@ -1,0 +1,74 @@
+% !TeX root = ../sections/02_exercises.tex
+\subsection{2-A-2.}
+\begin{exercise}
+	関数 \(f:X\to\mathbb{R}\) が有界であることは，
+	\[
+	\exists M>0\quad \text{s.t.}\quad
+	\forall x\in X,\quad |f(x)|\leq M
+	\]
+	であることと同値であることを証明せよ。
+\end{exercise}
+
+\begin{background}
+	関数 \(f:X\to\mathbb{R}\) が有界であるとは，
+	値域
+	\[
+	f(X)=\{f(x)\mid x\in X\}
+	\]
+	が \(\mathbb{R}\) の部分集合として有界であることをいう。
+	
+	すなわち，ある実数 \(m,M\) が存在して，
+	任意の \(x\in X\) に対して
+	\[
+	m\leq f(x)\leq M
+	\]
+	が成り立つことである。
+	
+	一方，
+	\[
+	|f(x)|\leq C
+	\]
+	は
+	\[
+	-C\leq f(x)\leq C
+	\]
+	と同値である。
+	したがって，絶対値による有界性は，
+	上下両側からの有界性を一つの式で表している。
+\end{background}
+
+\begin{strategy}
+	まず，
+	\[
+	\exists M>0,\quad |f(x)|\leq M
+	\quad (x\in X)
+	\]
+	を仮定する。
+	このとき
+	\[
+	-M\leq f(x)\leq M
+	\]
+	であるから，\(f(X)\) は上にも下にも有界である。
+	したがって \(f\) は有界である。
+	
+	逆に，\(f\) が有界であると仮定する。
+	すると，ある実数 \(m,M\) が存在して
+	\[
+	m\leq f(x)\leq M
+	\qquad (x\in X)
+	\]
+	が成り立つ。
+	
+	ここで
+	\[
+	C=\max\{|m|,|M|,1\}
+	\]
+	とおく。
+	すると \(C>0\) であり，任意の \(x\in X\) に対して
+	\[
+	|f(x)|\leq C
+	\]
+	が成り立つ。
+	
+	よって，二つの条件は同値である。
+\end{strategy}

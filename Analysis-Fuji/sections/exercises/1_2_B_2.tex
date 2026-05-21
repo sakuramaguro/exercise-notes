@@ -1,0 +1,131 @@
+% !TeX root = ../sections/02_exercises.tex
+\subsection{2-B-2.}
+\begin{exercise}
+	有界な集合 \(A,B\subset\mathbb{R}\) に対して，
+	\[
+	\sup(A\cup B)
+	=
+	\max\{\sup A,\sup B\}
+	\]
+	および
+	\[
+	\inf(A\cup B)
+	=
+	\min\{\inf A,\inf B\}
+	\]
+	が成立することを証明せよ。
+\end{exercise}
+
+\begin{background}
+	この問題では，和集合の上限と下限を扱う。
+	
+	集合 \(A\cup B\) の元は，
+	\(A\) の元または \(B\) の元である。
+	したがって，\(A\cup B\) の上界になるためには，
+	\(A\) の上界でもあり，かつ \(B\) の上界でもある必要がある。
+	
+	よって，\(A\cup B\) の最小上界は，
+	\[
+	\sup A
+	\quad\text{と}\quad
+	\sup B
+	\]
+	のうち大きい方になる。
+	
+	同様に，\(A\cup B\) の下界になるためには，
+	\(A\) の下界でもあり，かつ \(B\) の下界でもある必要がある。
+	したがって，最大下界は
+	\[
+	\inf A
+	\quad\text{と}\quad
+	\inf B
+	\]
+	のうち小さい方になる。
+\end{background}
+
+\begin{strategy}
+	まず，上限について示す。
+	\[
+	\alpha=\sup A,
+	\qquad
+	\beta=\sup B,
+	\qquad
+	M=\max\{\alpha,\beta\}
+	\]
+	とおく。
+	
+	任意に \(x\in A\cup B\) を取る。
+	このとき \(x\in A\) または \(x\in B\) である。
+	もし \(x\in A\) ならば
+	\[
+	x\leq\alpha\leq M
+	\]
+	であり，もし \(x\in B\) ならば
+	\[
+	x\leq\beta\leq M
+	\]
+	である。
+	したがって，\(M\) は \(A\cup B\) の上界である。
+	
+	次に，\(\gamma\) を \(A\cup B\) の任意の上界とする。
+	すると，\(A\subset A\cup B\) かつ \(B\subset A\cup B\) なので，
+	\(\gamma\) は \(A\) の上界でもあり，\(B\) の上界でもある。
+	したがって
+	\[
+	\alpha\leq\gamma,
+	\qquad
+	\beta\leq\gamma
+	\]
+	となる。
+	よって
+	\[
+	M=\max\{\alpha,\beta\}\leq\gamma
+	\]
+	である。
+	したがって
+	\[
+	\sup(A\cup B)=M
+	\]
+	が従う。
+	
+	下限についても同様に示す。
+	\[
+	i=\inf A,
+	\qquad
+	j=\inf B,
+	\qquad
+	m=\min\{i,j\}
+	\]
+	とおく。
+	任意の \(x\in A\cup B\) に対して，
+	\(x\in A\) ならば
+	\[
+	m\leq i\leq x
+	\]
+	であり，\(x\in B\) ならば
+	\[
+	m\leq j\leq x
+	\]
+	である。
+	したがって \(m\) は \(A\cup B\) の下界である。
+	
+	また，\(\delta\) を \(A\cup B\) の任意の下界とすると，
+	\(\delta\) は \(A\) と \(B\) の下界でもある。
+	よって
+	\[
+	\delta\leq i,
+	\qquad
+	\delta\leq j
+	\]
+	である。
+	したがって
+	\[
+	\delta\leq\min\{i,j\}=m
+	\]
+	となる。
+	よって
+	\[
+	\inf(A\cup B)=\min\{\inf A,\inf B\}
+	\]
+	である。
+\end{strategy}

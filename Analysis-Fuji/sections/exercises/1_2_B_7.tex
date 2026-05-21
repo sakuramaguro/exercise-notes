@@ -1,0 +1,167 @@
+% !TeX root = ../sections/02_exercises.tex
+\subsection{2-B-7.}
+\begin{exercise}
+	実数
+	\[
+	y_1>x_1>0
+	\]
+	に対して，数列
+	\[
+	\{x_n\}_{n\in\mathbb{N}},
+	\qquad
+	\{y_n\}_{n\in\mathbb{N}}
+	\]
+	を以下の漸化式を用いて定義する。
+	\[
+	x_{n+1}:=\sqrt{x_ny_n},
+	\qquad
+	y_{n+1}:=\frac{x_n+y_n}{2}
+	\qquad
+	(n=1,2,3,\ldots).
+	\]
+	
+	以下の問いに答えよ。
+	
+	\begin{enumerate}
+		\item
+		任意の \(n\in\mathbb{N}\) に対して，
+		\[
+		x_n\leq x_{n+1}
+		\leq y_{n+1}
+		\leq y_n
+		\]
+		が成立することを証明せよ。
+		
+		\item
+		数列 \(\{x_n\}_{n\in\mathbb{N}}\)，
+		\(\{y_n\}_{n\in\mathbb{N}}\) は共に収束し，
+		それらの極限値は一致することを証明せよ。
+	\end{enumerate}
+\end{exercise}
+
+\begin{background}
+	この問題では，相加平均と相乗平均の関係を用いる。
+	正の実数 \(x,y\) に対して，
+	\[
+	\sqrt{xy}\leq\frac{x+y}{2}
+	\]
+	が成り立つ。
+	これは AM-GM 不等式である。
+	
+	また，\(0<x\leq y\) のとき，
+	\[
+	x\leq\sqrt{xy}\leq y
+	\]
+	も成り立つ。
+	
+	したがって，
+	\[
+	x_{n+1}=\sqrt{x_ny_n},
+	\qquad
+	y_{n+1}=\frac{x_n+y_n}{2}
+	\]
+	は，\(x_n\) と \(y_n\) の間にある二つの平均を作る操作である。
+	
+	この操作を繰り返すと，
+	\(\{x_n\}\) は上に上がり，
+	\(\{y_n\}\) は下に下がる。
+	したがって，単調収束定理を用いて収束性を示すことができる。
+\end{background}
+
+\begin{strategy}
+	まず，帰納法により
+	\[
+	0<x_n\leq y_n
+	\]
+	を確認する。
+	初期条件より
+	\[
+	0<x_1<y_1
+	\]
+	である。
+	
+	いま \(0<x_n\leq y_n\) とする。
+	このとき
+	\[
+	x_n^2\leq x_ny_n
+	\]
+	であり，両辺の平方根を取ると
+	\[
+	x_n\leq \sqrt{x_ny_n}=x_{n+1}
+	\]
+	となる。
+	
+	また，AM-GM 不等式より
+	\[
+	x_{n+1}
+	=
+	\sqrt{x_ny_n}
+	\leq
+	\frac{x_n+y_n}{2}
+	=
+	y_{n+1}
+	\]
+	である。
+	
+	さらに \(x_n\leq y_n\) より
+	\[
+	\frac{x_n+y_n}{2}\leq y_n
+	\]
+	であるから，
+	\[
+	y_{n+1}\leq y_n
+	\]
+	となる。
+	
+	以上より
+	\[
+	x_n\leq x_{n+1}
+	\leq y_{n+1}
+	\leq y_n
+	\]
+	が成り立つ。
+	
+	次に，収束性を示す。
+	上の不等式から，\(\{x_n\}\) は単調増加であり，
+	\[
+	x_n\leq y_n\leq y_1
+	\]
+	なので上に有界である。
+	したがって，\(\{x_n\}\) は収束する。
+	
+	また，\(\{y_n\}\) は単調減少であり，
+	\[
+	x_1\leq x_n\leq y_n
+	\]
+	なので下に有界である。
+	したがって，\(\{y_n\}\) も収束する。
+	
+	そこで
+	\[
+	\lim_{n\to\infty}x_n=\alpha,
+	\qquad
+	\lim_{n\to\infty}y_n=\beta
+	\]
+	とおく。
+	
+	漸化式
+	\[
+	y_{n+1}=\frac{x_n+y_n}{2}
+	\]
+	の両辺で \(n\to\infty\) とすると，
+	\[
+	\beta=\frac{\alpha+\beta}{2}
+	\]
+	となる。
+	したがって
+	\[
+	2\beta=\alpha+\beta
+	\]
+	より
+	\[
+	\alpha=\beta
+	\]
+	が従う。
+	
+	よって，二つの数列は共に収束し，極限値は一致する。
+\end{strategy}

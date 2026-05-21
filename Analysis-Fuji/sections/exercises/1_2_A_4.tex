@@ -1,0 +1,146 @@
+% !TeX root = ../sections/02_exercises.tex
+\subsection{2-A-4.}
+\begin{exercise}
+	\textup{(区間縮小法)}
+	閉区間の列
+	\[
+	\{I_n=[a_n,b_n]\}_{n\in\mathbb{N}}
+	\]
+	が
+	\[
+	I_{n+1}\subset I_n
+	\qquad
+	(n=1,2,3,\ldots)
+	\]
+	をみたすとき，
+	\[
+	I:=\bigcap_{n=1}^{\infty} I_n
+	\]
+	は空集合ではないことを証明せよ。
+	
+	さらに，
+	\[
+	\lim_{n\to\infty}(b_n-a_n)=0
+	\]
+	ならば，
+	\[
+	I=\{\alpha\}
+	\]
+	と書くことができ，
+	\[
+	\lim_{n\to\infty}a_n
+	=
+	\lim_{n\to\infty}b_n
+	=
+	\alpha
+	\]
+	であることを証明せよ。
+\end{exercise}
+
+\begin{background}
+	閉区間の列
+	\[
+	I_n=[a_n,b_n]
+	\]
+	が
+	\[
+	I_{n+1}\subset I_n
+	\]
+	を満たすとき，区間がだんだん小さくなっている。
+	この条件から，
+	\[
+	a_n\leq a_{n+1}\leq b_{n+1}\leq b_n
+	\]
+	が成り立つ。
+	
+	したがって，\(\{a_n\}\) は単調増加数列であり，
+	\(\{b_n\}\) は単調減少数列である。
+	また，常に
+	\[
+	a_n\leq b_n
+	\]
+	である。
+	
+	単調増加かつ上に有界な数列は収束し，
+	単調減少かつ下に有界な数列も収束する。
+	これを用いて，共通部分に含まれる点を構成する。
+\end{background}
+
+\begin{strategy}
+	まず，
+	\[
+	I_{n+1}\subset I_n
+	\]
+	から
+	\[
+	a_n\leq a_{n+1}\leq b_{n+1}\leq b_n
+	\]
+	を導く。
+	これにより，\(\{a_n\}\) は単調増加，
+	\(\{b_n\}\) は単調減少である。
+	
+	さらに，任意の \(n,m\) に対して
+	\[
+	a_n\leq b_m
+	\]
+	が成り立つことを確認する。
+	これにより，\(\{a_n\}\) は上に有界である。
+	したがって
+	\[
+	\alpha=\lim_{n\to\infty}a_n
+	\]
+	が存在する。
+	
+	次に，各 \(n\) について
+	\[
+	a_n\leq \alpha\leq b_n
+	\]
+	を示す。
+	これが示せれば
+	\[
+	\alpha\in [a_n,b_n]=I_n
+	\]
+	が任意の \(n\) で成り立つので，
+	\[
+	\alpha\in\bigcap_{n=1}^{\infty}I_n
+	\]
+	となる。
+	よって \(I\neq\emptyset\) である。
+	
+	さらに，
+	\[
+	b_n-a_n\to 0
+	\]
+	を仮定する。
+	もし \(\alpha,\beta\in I\) ならば，任意の \(n\) に対して
+	\[
+	\alpha,\beta\in [a_n,b_n]
+	\]
+	であるから
+	\[
+	|\alpha-\beta|\leq b_n-a_n
+	\]
+	である。
+	右辺は \(0\) に収束するので，
+	\[
+	|\alpha-\beta|=0
+	\]
+	となり，\(\alpha=\beta\) である。
+	したがって \(I\) はただ一つの点からなる。
+	
+	最後に，その一点を \(\alpha\) と書けば，
+	\[
+	a_n\leq \alpha\leq b_n
+	\]
+	かつ
+	\[
+	b_n-a_n\to 0
+	\]
+	であるから，はさみうちにより
+	\[
+	a_n\to\alpha,
+	\qquad
+	b_n\to\alpha
+	\]
+	が従う。
+\end{strategy}

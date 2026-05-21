@@ -1,0 +1,95 @@
+% !TeX root = ../sections/02_exercises.tex
+\subsection{2-B-6.}
+\begin{exercise}
+	\(\alpha\in\mathbb{R}\) とする。
+	数列 \(\{a_n\}_{n\in\mathbb{N}}\) の任意の部分列が
+	\(\alpha\) に収束する部分列を含むならば，
+	\[
+	a_n\to\alpha
+	\]
+	であることを証明せよ。
+\end{exercise}
+
+\begin{background}
+	この問題は，部分列を用いた収束判定である。
+	
+	通常，
+	\[
+	a_n\to\alpha
+	\]
+	ならば，任意の部分列も \(\alpha\) に収束する。
+	ここではその逆に近い主張を示す。
+	
+	仮定は，任意の部分列そのものが \(\alpha\) に収束する，
+	というものではない。
+	任意の部分列の中に，さらに
+	\(\alpha\) に収束する部分列が含まれる，
+	という条件である。
+	
+	この主張を直接示すよりも，対偶を用いると分かりやすい。
+	すなわち，
+	\[
+	a_n\not\to\alpha
+	\]
+	と仮定して，\(\alpha\) に収束する部分列を一切含まない部分列を作る。
+\end{background}
+
+\begin{strategy}
+	対偶を示す。
+	すなわち，
+	\[
+	a_n\not\to\alpha
+	\]
+	ならば，\(\alpha\) に収束する部分列を含まない部分列が存在することを示す。
+	
+	\(a_n\not\to\alpha\) であるから，
+	ある \(\varepsilon_0>0\) が存在して，任意の \(N\in\mathbb{N}\) に対して，
+	ある \(n\geq N\) が存在し，
+	\[
+	|a_n-\alpha|\geq \varepsilon_0
+	\]
+	となる。
+	
+	この条件を用いて，帰納的に部分列を作る。
+	まず \(N=1\) として，ある \(n_1\) を取り，
+	\[
+	|a_{n_1}-\alpha|\geq\varepsilon_0
+	\]
+	とする。
+	
+	次に \(N=n_1+1\) として，ある \(n_2>n_1\) を取り，
+	\[
+	|a_{n_2}-\alpha|\geq\varepsilon_0
+	\]
+	とする。
+	
+	同様にして，
+	\[
+	n_1<n_2<\cdots<n_k<\cdots
+	\]
+	かつ，すべての \(k\) に対して
+	\[
+	|a_{n_k}-\alpha|\geq\varepsilon_0
+	\]
+	を満たす部分列
+	\[
+	\{a_{n_k}\}_{k\in\mathbb{N}}
+	\]
+	を得る。
+	
+	この部分列の任意の部分列を取っても，その各項は常に
+	\[
+	|a_{n_k}-\alpha|\geq\varepsilon_0
+	\]
+	を満たしている。
+	したがって，その部分列は \(\alpha\) に収束できない。
+	
+	これは，任意の部分列が \(\alpha\) に収束する部分列を含む，
+	という仮定に反する。
+	
+	よって対偶が示されたので，
+	\[
+	a_n\to\alpha
+	\]
+	である。
+\end{strategy}

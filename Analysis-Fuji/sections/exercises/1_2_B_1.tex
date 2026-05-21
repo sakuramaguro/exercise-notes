@@ -1,0 +1,118 @@
+% !TeX root = ../sections/02_exercises.tex
+\subsection{2-B-1.}
+\begin{exercise}
+	上に有界な集合 \(A,B\subset\mathbb{R}\) に対して，
+	\[
+	C:=\{a+b\mid a\in A,\ b\in B\}
+	\]
+	とする。
+	このとき，
+	\[
+	\sup C=\sup A+\sup B
+	\]
+	が成立することを証明せよ。
+\end{exercise}
+
+\begin{background}
+	この問題では，上限の定義を使う。
+	実数 \(s\) が集合 \(A\) の上限であるとは，
+	次の二つが成り立つことである。
+	
+	\[
+	a\leq s
+	\qquad (a\in A)
+	\]
+	であり，さらに任意の \(\varepsilon>0\) に対して，
+	ある \(a_\varepsilon\in A\) が存在して
+	\[
+	s-\varepsilon<a_\varepsilon
+	\]
+	となる。
+	
+	ここでは
+	\[
+	\alpha=\sup A,
+	\qquad
+	\beta=\sup B
+	\]
+	とおくと，
+	任意の \(a\in A,\ b\in B\) に対して
+	\[
+	a\leq\alpha,
+	\qquad
+	b\leq\beta
+	\]
+	である。
+	したがって
+	\[
+	a+b\leq\alpha+\beta
+	\]
+	となり，\(\alpha+\beta\) は \(C\) の上界になる。
+	
+	あとは，\(\alpha+\beta\) がただの上界ではなく，
+	最小の上界であることを示せばよい。
+\end{background}
+
+\begin{strategy}
+	\[
+	\alpha=\sup A,
+	\qquad
+	\beta=\sup B
+	\]
+	とおく。
+	示すべきことは
+	\[
+	\sup C=\alpha+\beta
+	\]
+	である。
+	
+	まず，\(\alpha+\beta\) が \(C\) の上界であることを示す。
+	任意に \(c\in C\) を取ると，
+	ある \(a\in A,\ b\in B\) が存在して
+	\[
+	c=a+b
+	\]
+	と書ける。
+	\(\alpha,\beta\) はそれぞれ \(A,B\) の上界なので，
+	\[
+	a\leq\alpha,
+	\qquad
+	b\leq\beta
+	\]
+	である。
+	したがって
+	\[
+	c=a+b\leq\alpha+\beta
+	\]
+	となる。
+	よって \(\alpha+\beta\) は \(C\) の上界である。
+	
+	次に，\(\alpha+\beta\) より小さい数は
+	\(C\) の上界ではないことを示す。
+	任意に \(\varepsilon>0\) を取る。
+	\(\alpha=\sup A\) より，ある \(a_\varepsilon\in A\) が存在して
+	\[
+	\alpha-\frac{\varepsilon}{2}<a_\varepsilon
+	\]
+	となる。
+	また，\(\beta=\sup B\) より，ある \(b_\varepsilon\in B\) が存在して
+	\[
+	\beta-\frac{\varepsilon}{2}<b_\varepsilon
+	\]
+	となる。
+	
+	このとき \(a_\varepsilon+b_\varepsilon\in C\) であり，
+	\[
+	\alpha+\beta-\varepsilon
+	<
+	a_\varepsilon+b_\varepsilon
+	\]
+	が成り立つ。
+	したがって，\(\alpha+\beta\) は \(C\) の上限である。
+	
+	よって
+	\[
+	\sup C=\sup A+\sup B
+	\]
+	である。
+\end{strategy}

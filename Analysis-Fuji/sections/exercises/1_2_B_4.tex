@@ -1,0 +1,116 @@
+% !TeX root = ../sections/02_exercises.tex
+\subsection{2-B-4.}
+\begin{exercise}
+	数列 \(\{a_n\}_{n\in\mathbb{N}}\) の部分列
+	\[
+	\{a_{2k-1}\}_{k\in\mathbb{N}}
+	\quad\text{および}\quad
+	\{a_{2k}\}_{k\in\mathbb{N}}
+	\]
+	が共に同一の値 \(\alpha\in\mathbb{R}\) に収束するとき，
+	\(\{a_n\}_{n\in\mathbb{N}}\) は \(\alpha\) に収束することを証明せよ。
+\end{exercise}
+
+\begin{background}
+	数列 \(\{a_n\}\) は，奇数番目の項と偶数番目の項に分けられる。
+	すなわち，任意の自然数 \(n\) は
+	\[
+	n=2k-1
+	\quad\text{または}\quad
+	n=2k
+	\]
+	のどちらか一方で表される。
+	
+	したがって，奇数番目の部分列
+	\[
+	\{a_{2k-1}\}
+	\]
+	と偶数番目の部分列
+	\[
+	\{a_{2k}\}
+	\]
+	がともに同じ極限 \(\alpha\) に収束するならば，
+	十分後ろの項は，奇数番目であっても偶数番目であっても
+	\(\alpha\) に近い。
+	
+	これを \(\varepsilon\)-\(N\) 論法で書けば，
+	元の数列全体の収束が示される。
+\end{background}
+
+\begin{strategy}
+	任意に \(\varepsilon>0\) を取る。
+	
+	仮定より
+	\[
+	a_{2k-1}\to\alpha
+	\]
+	であるから，ある \(K_1\in\mathbb{N}\) が存在して，
+	\[
+	k\geq K_1
+	\quad\Longrightarrow\quad
+	|a_{2k-1}-\alpha|<\varepsilon
+	\]
+	となる。
+	
+	また，
+	\[
+	a_{2k}\to\alpha
+	\]
+	であるから，ある \(K_2\in\mathbb{N}\) が存在して，
+	\[
+	k\geq K_2
+	\quad\Longrightarrow\quad
+	|a_{2k}-\alpha|<\varepsilon
+	\]
+	となる。
+	
+	ここで
+	\[
+	N=\max\{2K_1-1,\ 2K_2\}
+	\]
+	とおく。
+	\(n\geq N\) を任意に取る。
+	
+	もし \(n\) が奇数ならば，
+	ある \(k\in\mathbb{N}\) により
+	\[
+	n=2k-1
+	\]
+	と書ける。
+	さらに \(n\geq 2K_1-1\) なので \(k\geq K_1\) である。
+	したがって
+	\[
+	|a_n-\alpha|
+	=
+	|a_{2k-1}-\alpha|
+	<\varepsilon
+	\]
+	である。
+	
+	もし \(n\) が偶数ならば，
+	ある \(k\in\mathbb{N}\) により
+	\[
+	n=2k
+	\]
+	と書ける。
+	さらに \(n\geq 2K_2\) なので \(k\geq K_2\) である。
+	したがって
+	\[
+	|a_n-\alpha|
+	=
+	|a_{2k}-\alpha|
+	<\varepsilon
+	\]
+	である。
+	
+	よって，任意の \(n\geq N\) に対して
+	\[
+	|a_n-\alpha|<\varepsilon
+	\]
+	が成り立つ。
+	したがって
+	\[
+	a_n\to\alpha
+	\]
+	である。
+\end{strategy}

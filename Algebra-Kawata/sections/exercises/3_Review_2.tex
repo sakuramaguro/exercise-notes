@@ -1,0 +1,165 @@
+% !TeX root = ../sections/02_exercises.tex
+
+\begin{exercise}
+	\(\mathbb{Z}\) のイデアル \(3\mathbb{Z}\) と \(5\mathbb{Z}\) について，
+	中国式剰余定理から
+	\[
+	\mathbb{Z}/15\mathbb{Z}
+	\simeq
+	\mathbb{Z}/3\mathbb{Z}
+	\oplus
+	\mathbb{Z}/5\mathbb{Z}
+	\]
+	が成り立つことを踏まえて，次の問いに答えよ。
+	
+	\begin{enumerate}
+		\setcounter{enumi}{-1}
+		
+		\item
+		\[
+		1=3a+5b
+		\]
+		を満たす整数 \(a,b\) を一組求めよ。
+		
+		\item
+		\(\mathbb{Z}/3\mathbb{Z}\oplus\mathbb{Z}/5\mathbb{Z}\) において，
+		\[
+		(5b,5b)=(1,0)
+		\]
+		であることを示せ。
+		
+		\item
+		\(\mathbb{Z}/3\mathbb{Z}\oplus\mathbb{Z}/5\mathbb{Z}\) において，
+		\[
+		(3a,3a)=(0,1)
+		\]
+		であることを示せ。
+		
+		\item
+		\(\mathbb{Z}/3\mathbb{Z}\oplus\mathbb{Z}/5\mathbb{Z}\) において，
+		\[
+		(4\cdot 3a+2\cdot 5b,\,
+		4\cdot 3a+2\cdot 5b)
+		=
+		(2,4)
+		\]
+		であることを示せ。
+		
+		\item
+		\(3\) で割った余りが \(2\) となり，
+		\(5\) で割った余りが \(4\) であるような整数を求めよ。
+	\end{enumerate}
+\end{exercise}
+
+\begin{background}
+	この問題の中心は，中国式剰余定理である。
+	互いに素な整数 \(3,5\) に対して，
+	\[
+	\mathbb{Z}/15\mathbb{Z}
+	\simeq
+	\mathbb{Z}/3\mathbb{Z}
+	\oplus
+	\mathbb{Z}/5\mathbb{Z}
+	\]
+	が成り立つ。
+	この同型は，整数 \(n\) に対して
+	\[
+	n \longmapsto (n \bmod 3,\ n \bmod 5)
+	\]
+	を対応させる写像によって与えられる。
+	
+	また，\(3\) と \(5\) は互いに素なので，ベズーの等式より
+	整数 \(a,b\) が存在して
+	\[
+	1=3a+5b
+	\]
+	と書ける。
+	
+	この等式から，
+	\[
+	5b \equiv 1 \pmod{3},
+	\qquad
+	5b \equiv 0 \pmod{5}
+	\]
+	および
+	\[
+	3a \equiv 0 \pmod{3},
+	\qquad
+	3a \equiv 1 \pmod{5}
+	\]
+	が従う。
+	したがって，\(5b\) は第1成分だけを取り出す元，
+	\(3a\) は第2成分だけを取り出す元として働く。
+\end{background}
+
+\begin{strategy}
+	まず，ベズーの等式
+	\[
+	1=3a+5b
+	\]
+	を満たす整数 \(a,b\) を具体的に求める。
+	これは互除法，または簡単な代入で見つければよい。
+	
+	\begin{enumerate}
+		\item[(0)]
+		\(3a+5b=1\) を満たす整数の組を一つ求める。
+		この組は一意ではないが，一組あれば以降の計算に使える。
+		
+		\item[(1)]
+		\(1=3a+5b\) を法 \(3\) で見る。
+		すると
+		\[
+		5b\equiv 1 \pmod{3}
+		\]
+		が分かる。
+		また，法 \(5\) では
+		\[
+		5b\equiv 0 \pmod{5}
+		\]
+		である。
+		よって \((5b,5b)=(1,0)\) となる。
+		
+		\item[(2)]
+		同様に，\(1=3a+5b\) を法 \(5\) で見る。
+		すると
+		\[
+		3a\equiv 1 \pmod{5}
+		\]
+		が分かる。
+		一方，法 \(3\) では
+		\[
+		3a\equiv 0 \pmod{3}
+		\]
+		である。
+		よって \((3a,3a)=(0,1)\) となる。
+		
+		\item[(3)]
+		(1)，(2) で得た
+		\[
+		5b \leftrightarrow (1,0),
+		\qquad
+		3a \leftrightarrow (0,1)
+		\]
+		を使う。
+		つまり，
+		\[
+		4\cdot 3a+2\cdot 5b
+		\]
+		は，第1成分では \(2\cdot 5b\)，
+		第2成分では \(4\cdot 3a\) が効くと考える。
+		
+		\item[(4)]
+		余りの条件
+		\[
+		n\equiv 2 \pmod{3},
+		\qquad
+		n\equiv 4 \pmod{5}
+		\]
+		を，中国式剰余定理を使って一つの整数にまとめる。
+		(1)，(2) の元を用いて，
+		\[
+		n=2\cdot 5b+4\cdot 3a
+		\]
+		とおけば，指定された二つの合同条件を同時に満たす。
+	\end{enumerate}
+\end{strategy}

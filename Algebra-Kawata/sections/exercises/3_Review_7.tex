@@ -1,0 +1,273 @@
+% !TeX root = ../sections/02_exercises.tex
+
+\begin{exercise}
+	環
+	\[
+	R=\mathbb{Z}[\sqrt{2},\sqrt{3}]
+	\]
+	とそのイデアル
+	\[
+	I=(\sqrt{6})
+	\]
+	について考える。
+	\(\mathbb{Z}\)-加群としての同型写像
+	\[
+	f:\mathbb{Z}[\sqrt{2},\sqrt{3}]
+	\longrightarrow
+	\mathbb{Z}^4
+	\]
+	を
+	\[
+	f(a+b\sqrt{2}+c\sqrt{3}+d\sqrt{6})
+	=
+	\begin{pmatrix}
+		a\\
+		b\\
+		c\\
+		d
+	\end{pmatrix}
+	\]
+	で定める。
+	\(V=f(I)\) を，自由 \(\mathbb{Z}\)-加群 \(\mathbb{Z}^4\) の
+	\(\mathbb{Z}\)-部分加群とする。
+	
+	\begin{enumerate}
+		\item
+		\(V\) の階数 \(m\) および \(V\) の基底
+		\[
+		[a_1,\ldots,a_m]
+		\]
+		を求めよ。
+		
+		\item
+		\(A=(a_1,\ldots,a_m)\) とおく。
+		\(A\) の単因子を求めよ。
+		
+		\item
+		\(R/I\) を \(\mathbb{Z}\)-加群と見たときの不変系を求めよ。
+	\end{enumerate}
+\end{exercise}
+
+\begin{background}
+	この問題では，環
+	\[
+	R=\mathbb{Z}[\sqrt{2},\sqrt{3}]
+	\]
+	を \(\mathbb{Z}\)-加群として見る。
+	任意の元は
+	\[
+	a+b\sqrt{2}+c\sqrt{3}+d\sqrt{6}
+	\qquad
+	(a,b,c,d\in\mathbb{Z})
+	\]
+	と一意的に表されるので，
+	\(R\) は \(\mathbb{Z}\)-加群として
+	\[
+	R\simeq \mathbb{Z}^4
+	\]
+	である。
+	
+	この同型が問題文の写像
+	\[
+	f:R\to\mathbb{Z}^4
+	\]
+	である。
+	すなわち，
+	\[
+	f(a+b\sqrt{2}+c\sqrt{3}+d\sqrt{6})
+	=
+	\begin{pmatrix}
+		a\\
+		b\\
+		c\\
+		d
+	\end{pmatrix}
+	\]
+	によって，\(R\) の元を係数ベクトルに対応させる。
+	
+	イデアル
+	\[
+	I=(\sqrt{6})
+	\]
+	は，\(R\) の元に \(\sqrt{6}\) を掛けたもの全体である。
+	したがって，
+	\[
+	I=
+	\left\{
+	(a+b\sqrt{2}+c\sqrt{3}+d\sqrt{6})\sqrt{6}
+	\ \middle|\ 
+	a,b,c,d\in\mathbb{Z}
+	\right\}
+	\]
+	である。
+	
+	積を展開すると，
+	\[
+	\sqrt{6}\cdot 1=\sqrt{6},
+	\qquad
+	\sqrt{6}\cdot \sqrt{2}=2\sqrt{3},
+	\]
+	\[
+	\sqrt{6}\cdot \sqrt{3}=3\sqrt{2},
+	\qquad
+	\sqrt{6}\cdot \sqrt{6}=6
+	\]
+	となる。
+	これにより，\(I\) の生成元を \(\mathbb{Z}^4\) のベクトルとして表せる。
+	
+	剰余 \(R/I\) を \(\mathbb{Z}\)-加群として調べることは，
+	同型 \(f\) によって
+	\[
+	\mathbb{Z}^4/V
+	\]
+	を調べることに対応する。
+	したがって，\(V=f(I)\) の基底を取り，
+	その基底を列に並べた行列 \(A\) の単因子を求めればよい。
+\end{background}
+
+\begin{strategy}
+	まず，イデアル \(I=(\sqrt{6})\) の元を具体的に展開する。
+	任意の \(R\) の元は
+	\[
+	a+b\sqrt{2}+c\sqrt{3}+d\sqrt{6}
+	\]
+	と書けるので，
+	\[
+	(a+b\sqrt{2}+c\sqrt{3}+d\sqrt{6})\sqrt{6}
+	\]
+	を計算する。
+	
+	展開すると，
+	\[
+	a\sqrt{6}
+	+
+	b\sqrt{12}
+	+
+	c\sqrt{18}
+	+
+	d\sqrt{36}
+	\]
+	である。
+	ここで
+	\[
+	\sqrt{12}=2\sqrt{3},
+	\qquad
+	\sqrt{18}=3\sqrt{2},
+	\qquad
+	\sqrt{36}=6
+	\]
+	だから，
+	\[
+	(a+b\sqrt{2}+c\sqrt{3}+d\sqrt{6})\sqrt{6}
+	=
+	6d+3c\sqrt{2}+2b\sqrt{3}+a\sqrt{6}
+	\]
+	となる。
+	
+	\begin{enumerate}
+		\item[(1)]
+		上の式を \(f\) によって \(\mathbb{Z}^4\) のベクトルに移す。
+		すると，
+		\[
+		f(6)=
+		\begin{pmatrix}
+			6\\
+			0\\
+			0\\
+			0
+		\end{pmatrix},
+		\qquad
+		f(3\sqrt{2})=
+		\begin{pmatrix}
+			0\\
+			3\\
+			0\\
+			0
+		\end{pmatrix},
+		\]
+		\[
+		f(2\sqrt{3})=
+		\begin{pmatrix}
+			0\\
+			0\\
+			2\\
+			0
+		\end{pmatrix},
+		\qquad
+		f(\sqrt{6})=
+		\begin{pmatrix}
+			0\\
+			0\\
+			0\\
+			1
+		\end{pmatrix}
+		\]
+		が得られる。
+		
+		したがって，
+		\[
+		V=f(I)
+		\]
+		はこれらのベクトルによって生成される。
+		これらが \(\mathbb{Z}\)-一次独立であることを確認すれば，
+		\(V\) の階数と基底が得られる。
+		
+		\item[(2)]
+		(1) で得た基底を列ベクトルとして並べ，
+		\[
+		A=(a_1,\ldots,a_m)
+		\]
+		を作る。
+		その行列に対して整数係数の行基本変形・列基本変形を行い，
+		単因子標準形に直す。
+		
+		単因子を求めるときは，
+		小行列式の最大公約数を使って確認するとよい。
+		すなわち，
+		\[
+		\Delta_k=
+		\gcd\{\text{\(A\) の \(k\) 次小行列式}\}
+		\]
+		を求める。
+		そのとき，
+		\[
+		d_1=\Delta_1,
+		\qquad
+		d_2=\frac{\Delta_2}{\Delta_1},
+		\qquad
+		d_3=\frac{\Delta_3}{\Delta_2},
+		\qquad
+		d_4=\frac{\Delta_4}{\Delta_3}
+		\]
+		として単因子が得られる。
+		
+		\item[(3)]
+		\(R/I\) を \(\mathbb{Z}\)-加群として見ると，
+		同型 \(f\) によって
+		\[
+		R/I\simeq \mathbb{Z}^4/V
+		\]
+		と考えられる。
+		
+		したがって，(2) で求めた単因子
+		\[
+		d_1,d_2,d_3,d_4
+		\]
+		を用いて，
+		\[
+		R/I
+		\simeq
+		\mathbb{Z}/d_1\mathbb{Z}
+		\oplus
+		\mathbb{Z}/d_2\mathbb{Z}
+		\oplus
+		\mathbb{Z}/d_3\mathbb{Z}
+		\oplus
+		\mathbb{Z}/d_4\mathbb{Z}
+		\]
+		と表す。
+		
+		ただし，\(d_i=1\) の成分は自明な群であるため，
+		不変系を書くときには通常省略する。
+	\end{enumerate}
+\end{strategy}

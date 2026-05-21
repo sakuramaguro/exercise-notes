@@ -1,0 +1,188 @@
+% !TeX root = ../sections/02_exercises.tex
+
+\begin{exercise}
+	\(R=\mathbb{R}[x]\) とし，\(V=\mathbb{R}^2\) とする。
+	\(2\) 次行列
+	\[
+	A=
+	\begin{pmatrix}
+		3 & 1\\
+		0 & 2
+	\end{pmatrix}
+	\]
+	を用いて，\(\mathbb{R}[x]\) の \(V=\mathbb{R}^2\) への作用を
+	\[
+	x
+	\begin{pmatrix}
+		a\\
+		b
+	\end{pmatrix}
+	=
+	A
+	\begin{pmatrix}
+		a\\
+		b
+	\end{pmatrix}
+	\]
+	で定義する。
+	
+	\begin{enumerate}
+		\item 次を計算せよ。
+		\[
+		\text{\rm (i)}\ 
+		(2x+3)
+		\begin{pmatrix}
+			4\\
+			5
+		\end{pmatrix}
+		\qquad
+		\text{\rm (ii)}\ 
+		(x^2-2)
+		\begin{pmatrix}
+			3\\
+			-2
+		\end{pmatrix}
+		\]
+		
+		\item
+		\[
+		W=
+		\left\{
+		\begin{pmatrix}
+			a\\
+			0
+		\end{pmatrix}
+		\ \middle|\ 
+		a\in\mathbb{R}
+		\right\}
+		\]
+		は \(V\) の \(\mathbb{R}[x]\)-部分加群であることを示せ。
+		
+		\item
+		\(W\) は既約 \(\mathbb{R}[x]\)-加群であることを示せ。
+		
+		\item
+		剰余加群
+		\[
+		V/W=
+		\left\{
+		\left[
+		\begin{pmatrix}
+			0\\
+			b
+		\end{pmatrix}
+		\right]
+		\ \middle|\ 
+		b\in\mathbb{R}
+		\right\}
+		\]
+		において，次の計算をせよ。
+		\[
+		\text{\rm (i)}\ 
+		(3x-2)
+		\left[
+		\begin{pmatrix}
+			0\\
+			3
+		\end{pmatrix}
+		\right]
+		\qquad
+		\text{\rm (ii)}\ 
+		(2x^2+3)
+		\left[
+		\begin{pmatrix}
+			0\\
+			5
+		\end{pmatrix}
+		\right]
+		\]
+	\end{enumerate}
+\end{exercise}
+
+\begin{background}
+	この問題では，ベクトル空間 \(V=\mathbb{R}^2\) を
+	\(\mathbb{R}[x]\)-加群とみなす。
+	ここで \(x\) の作用は行列 \(A\) によって定められているので，
+	多項式 \(f(x)\in\mathbb{R}[x]\) の作用は
+	\[
+	f(x)v=f(A)v
+	\]
+	として計算される。
+	
+	特に，
+	\[
+	(2x+3)v=(2A+3I)v,
+	\qquad
+	(x^2-2)v=(A^2-2I)v
+	\]
+	である。
+	
+	また，\(W\subset V\) が \(\mathbb{R}[x]\)-部分加群であるとは，
+	\(W\) が加法について部分群であり，さらに任意の
+	\(f(x)\in\mathbb{R}[x]\) と \(w\in W\) に対して
+	\[
+	f(x)w\in W
+	\]
+	が成り立つことをいう。
+	
+	剰余加群 \(V/W\) では，二つのベクトルはその差が \(W\) に属するとき
+	同じ元とみなされる。
+	したがって，第1成分の差は \(W\) に吸収され，第2成分が本質的に残る。
+\end{background}
+
+\begin{strategy}
+	まず，\(\mathbb{R}[x]\)-加群の作用を行列の計算に翻訳する。
+	つまり，\(x\) は \(A\) として作用するので，
+	多項式 \(f(x)\) は行列 \(f(A)\) として作用する。
+	
+	\begin{enumerate}
+		\item[(1)]
+		\((2x+3)v\) は \((2A+3I)v\) として計算する。
+		同様に，\((x^2-2)v\) は \((A^2-2I)v\) として計算する。
+		
+		\item[(2)]
+		\(W\) が通常の加法について部分群であることを確認した後，
+		\(xW\subset W\) を示す。
+		\(\mathbb{R}[x]\) は \(x\) と定数から作られるので，
+		\(x\) の作用で \(W\) が保たれれば，
+		任意の多項式の作用でも \(W\) が保たれる。
+		
+		\item[(3)]
+		\(W\) の非零 \(\mathbb{R}[x]\)-部分加群 \(U\) を任意に取る。
+		\(U\) に非零ベクトル
+		\[
+		\begin{pmatrix}
+			a\\
+			0
+		\end{pmatrix}
+		\qquad (a\neq 0)
+		\]
+		が入っていれば，定数倍の作用により
+		\[
+		\begin{pmatrix}
+			1\\
+			0
+		\end{pmatrix}
+		\]
+		も入る。
+		したがって \(U=W\) となることを示せばよい。
+		
+		\item[(4)]
+		剰余加群では第1成分は \(W\) によって消える。
+		そのため，
+		\[
+		A
+		\begin{pmatrix}
+			0\\
+			b
+		\end{pmatrix}
+		=
+		\begin{pmatrix}
+			b\\
+			2b
+		\end{pmatrix}
+		\]
+		を計算した後，第1成分を無視して，
+		同値類として整理する。
+	\end{enumerate}
+\end{strategy}

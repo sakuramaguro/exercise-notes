@@ -1,0 +1,96 @@
+% !TeX root = ../sections/02_exercises.tex
+\subsection{2-A-5.}
+\begin{exercise}
+	数列
+	\[
+	\{a_n\}_{n\in\mathbb{N}}
+	\]
+	が Cauchy 列であることと，
+	\[
+	\lim_{N\to\infty}
+	\sup_{n,m\geq N}|a_n-a_m|
+	=0
+	\]
+	は同値であることを証明せよ。
+\end{exercise}
+
+\begin{background}
+	数列 \(\{a_n\}\) が Cauchy 列であるとは，
+	任意の \(\varepsilon>0\) に対して，
+	ある \(N\in\mathbb{N}\) が存在して，
+	任意の \(n,m\geq N\) に対して
+	\[
+	|a_n-a_m|<\varepsilon
+	\]
+	が成り立つことをいう。
+	
+	一方，
+	\[
+	\sup_{n,m\geq N}|a_n-a_m|
+	\]
+	は，\(N\) 番目以降の項どうしの距離の最大幅を表している。
+	したがって，これが \(N\to\infty\) で \(0\) に近づくとは，
+	十分後ろではすべての項どうしが一様に近いという意味である。
+	
+	これは Cauchy 列の定義と本質的に同じ内容である。
+\end{background}
+
+\begin{strategy}
+	まず，
+	\[
+	S_N=\sup_{n,m\geq N}|a_n-a_m|
+	\]
+	とおく。
+	示すべきことは，
+	\[
+	\{a_n\}\text{ が Cauchy}
+	\quad\Longleftrightarrow\quad
+	S_N\to 0
+	\]
+	である。
+	
+	まず，\(\{a_n\}\) が Cauchy 列であると仮定する。
+	任意に \(\varepsilon>0\) を取る。
+	Cauchy 条件より，ある \(N_0\in\mathbb{N}\) が存在して，
+	任意の \(n,m\geq N_0\) に対して
+	\[
+	|a_n-a_m|<\varepsilon
+	\]
+	となる。
+	したがって，\(N\geq N_0\) ならば
+	\[
+	S_N\leq \varepsilon
+	\]
+	である。
+	よって
+	\[
+	S_N\to 0
+	\]
+	が従う。
+	
+	逆に，
+	\[
+	S_N\to 0
+	\]
+	を仮定する。
+	任意に \(\varepsilon>0\) を取る。
+	極限の定義より，ある \(N_0\in\mathbb{N}\) が存在して，
+	\[
+	N\geq N_0
+	\quad\Longrightarrow\quad
+	S_N<\varepsilon
+	\]
+	となる。
+	
+	特に \(N=N_0\) とすれば，
+	\[
+	\sup_{n,m\geq N_0}|a_n-a_m|<\varepsilon
+	\]
+	である。
+	したがって，任意の \(n,m\geq N_0\) に対して
+	\[
+	|a_n-a_m|<\varepsilon
+	\]
+	が成り立つ。
+	よって \(\{a_n\}\) は Cauchy 列である。
+\end{strategy}

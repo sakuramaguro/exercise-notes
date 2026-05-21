@@ -1,0 +1,204 @@
+% !TeX root = ../sections/02_exercises.tex
+
+\begin{exercise}
+	\[
+	V=
+	\left\langle
+	\begin{pmatrix}
+		2\\
+		2\\
+		2
+	\end{pmatrix},
+	\begin{pmatrix}
+		2\\
+		4\\
+		6
+	\end{pmatrix},
+	\begin{pmatrix}
+		4\\
+		4\\
+		8
+	\end{pmatrix},
+	\begin{pmatrix}
+		4\\
+		6\\
+		12
+	\end{pmatrix}
+	\right\rangle_{\mathbb{Z}}
+	\]
+	を自由 \(\mathbb{Z}\)-加群
+	\[
+	\mathbb{Z}^3
+	=
+	\left\{
+	\begin{pmatrix}
+		a\\
+		b\\
+		c
+	\end{pmatrix}
+	\ \middle|\ 
+	a,b,c\in\mathbb{Z}
+	\right\}
+	\]
+	の \(\mathbb{Z}\)-部分加群とする。
+	
+	\begin{enumerate}
+		\item
+		\(V\) の階数 \(m\) および \(V\) の基底
+		\[
+		[a_1,\ldots,a_m]
+		\]
+		を求めよ。
+		
+		\item
+		\(A=(a_1,\ldots,a_m)\) とおく。
+		\(A\) の単因子を求めよ。
+		
+		\item
+		\(\mathbb{Z}^3/V\) の不変系を求めよ。
+	\end{enumerate}
+\end{exercise}
+
+\begin{background}
+	この問題では，自由 \(\mathbb{Z}\)-加群 \(\mathbb{Z}^3\) の部分加群を考える。
+	\(\mathbb{Z}\) は PID なので，自由 \(\mathbb{Z}\)-加群の部分加群は再び自由加群である。
+	したがって，\(V\subset \mathbb{Z}^3\) は自由 \(\mathbb{Z}\)-加群であり，ある基底
+	\[
+	[a_1,\ldots,a_m]
+	\]
+	を持つ。
+	
+	与えられた \(4\) つのベクトルを列ベクトルとして並べると，
+	\[
+	B=
+	\begin{pmatrix}
+		2 & 2 & 4 & 4\\
+		2 & 4 & 4 & 6\\
+		2 & 6 & 8 & 12
+	\end{pmatrix}
+	\]
+	となる。
+	この行列の列が生成する \(\mathbb{Z}\)-加群が \(V\) である。
+	
+	\(\mathbb{Z}\)-係数の列基本変形は，生成元の取り替えに対応する。
+	したがって，列基本変形によって余分な生成元を除き，
+	一次独立な生成元を取り出せば，\(V\) の基底を得られる。
+	
+	また，基底を列に並べた行列
+	\[
+	A=(a_1,\ldots,a_m)
+	\]
+	の単因子を求めることで，剰余加群
+	\[
+	\mathbb{Z}^3/V
+	\]
+	の構造を調べられる。
+	特に，\(A\) の単因子が
+	\[
+	d_1,\ldots,d_m
+	\]
+	であるとき，\(m=3\) ならば
+	\[
+	\mathbb{Z}^3/V
+	\simeq
+	\mathbb{Z}/d_1\mathbb{Z}
+	\oplus
+	\mathbb{Z}/d_2\mathbb{Z}
+	\oplus
+	\mathbb{Z}/d_3\mathbb{Z}
+	\]
+	の形で表される。
+	ただし，\(d_i=1\) の成分は自明な群なので，必要に応じて省略する。
+\end{background}
+
+\begin{strategy}
+	まず，与えられた \(4\) つの生成ベクトルを列に並べた行列
+	\[
+	B=
+	\begin{pmatrix}
+		2 & 2 & 4 & 4\\
+		2 & 4 & 4 & 6\\
+		2 & 6 & 8 & 12
+	\end{pmatrix}
+	\]
+	を考える。
+	この行列の列が \(V\) の生成元である。
+	
+	\begin{enumerate}
+		\item[(1)]
+		まず，列基本変形を用いて，生成元の中から余分なものを取り除く。
+		つまり，ある生成ベクトルが他の生成ベクトルの整数係数線形結合で表せるなら，
+		それは基底から除外できる。
+		
+		階数 \(m\) は，この列ベクトルたちが張る空間のランクとして求める。
+		実際には，\(\mathbb{Q}\) 上でのランクを計算すれば，
+		\(V\) の \(\mathbb{Z}\)-加群としての階数が分かる。
+		
+		そのうえで，\(V\) を生成する一次独立なベクトル
+		\[
+		a_1,\ldots,a_m
+		\]
+		を選び，
+		\[
+		[a_1,\ldots,a_m]
+		\]
+		を \(V\) の基底として与える。
+		
+		\item[(2)]
+		(1) で得た基底を列に並べて
+		\[
+		A=(a_1,\ldots,a_m)
+		\]
+		とおく。
+		この行列に対して，整数係数の基本行変形・基本列変形を行い，
+		単因子標準形
+		\[
+		PAQ=
+		\operatorname{diag}(d_1,\ldots,d_m)
+		\]
+		を求める。
+		
+		単因子は
+		\[
+		d_1\mid d_2\mid \cdots \mid d_m
+		\]
+		を満たすように取る。
+		計算の確認には，小行列式の最大公約数を用いるとよい。
+		すなわち，
+		\[
+		\Delta_k
+		=
+		\gcd\{\text{\(A\) の \(k\) 次小行列式}\}
+		\]
+		を計算し，
+		\[
+		d_1=\Delta_1,
+		\qquad
+		d_2=\frac{\Delta_2}{\Delta_1},
+		\qquad
+		d_3=\frac{\Delta_3}{\Delta_2}
+		\]
+		によって確認する。
+		
+		\item[(3)]
+		\(\mathbb{Z}^3/V\) の不変系は，(2) で求めた単因子から得られる。
+		もし \(A\) の単因子が
+		\[
+		d_1,\ d_2,\ d_3
+		\]
+		であれば，
+		\[
+		\mathbb{Z}^3/V
+		\simeq
+		\mathbb{Z}/d_1\mathbb{Z}
+		\oplus
+		\mathbb{Z}/d_2\mathbb{Z}
+		\oplus
+		\mathbb{Z}/d_3\mathbb{Z}
+		\]
+		となる。
+		
+		したがって，剰余加群の不変系を求めるには，
+		まず \(V\) の基底を取り，次にその基底行列の単因子を求めればよい。
+	\end{enumerate}
+\end{strategy}

@@ -1,0 +1,223 @@
+% !TeX root = ../sections/02_exercises.tex
+\subsection{2-A-1.}
+\begin{exercise}
+	\(A,B\subset\mathbb{R}\) は下に有界であるとする。
+	以下の問いに答えよ。
+	
+	\begin{enumerate}
+		\item
+		\(i=\inf A\) であるための必要十分条件は，次の二条件：
+		\begin{enumerate}
+			\item
+			任意の \(a\in A\) に対して
+			\[
+			a\geq i
+			\]
+			である。
+			
+			\item
+			任意の \(\varepsilon>0\) に対して，
+			ある \(a_\varepsilon\in A\) が存在して
+			\[
+			i+\varepsilon>a_\varepsilon
+			\]
+			である。
+		\end{enumerate}
+		が成立することであることを証明せよ。
+		
+		\item
+		\(A\subset B\) ならば
+		\[
+		\inf B\leq \inf A
+		\]
+		であることを証明せよ。
+	\end{enumerate}
+\end{exercise}
+
+\begin{background}
+	この問題の中心は，\(\inf A\) の意味を
+	「\(A\) の下界のうち最大のもの」として理解することである。
+	
+	まず，実数 \(l\) が \(A\) の下界であるとは，
+	任意の \(a\in A\) に対して
+	\[
+	l\leq a
+	\]
+	が成り立つことをいう。
+	つまり，下界とは \(A\) のすべての元より下にある数である。
+	
+	したがって，
+	\[
+	i=\inf A
+	\]
+	とは，次の二つを同時に満たすということである。
+	
+	\begin{enumerate}
+		\item
+		\(i\) 自身は \(A\) の下界である。
+		
+		\item
+		\(i\) より少しでも大きい数は，もはや \(A\) の下界ではない。
+	\end{enumerate}
+	
+	ここで重要なのは，二つ目の条件である。
+	\(i+\varepsilon\) が \(A\) の下界ではないとは，
+	ある \(a_\varepsilon\in A\) が存在して
+	\[
+	a_\varepsilon<i+\varepsilon
+	\]
+	となることを意味する。
+	
+	つまり，
+	\[
+	i=\inf A
+	\]
+	であることは，
+	\[
+	i\leq a \quad (a\in A)
+	\]
+	によって「\(i\) が下界である」ことを保証し，
+	さらに
+	\[
+	\forall \varepsilon>0,\quad
+	\exists a_\varepsilon\in A
+	\quad\text{s.t.}\quad
+	a_\varepsilon<i+\varepsilon
+	\]
+	によって「\(i\) より大きい数は下界になれない」
+	ことを保証している。
+	
+	また，\(A\subset B\) のとき，\(B\) のすべての元以下である数は，
+	特に \(A\) のすべての元以下でもある。
+	したがって，
+	\[
+	\{\text{\(B\) の下界}\}
+	\subset
+	\{\text{\(A\) の下界}\}
+	\]
+	となる。
+	下界の集合が小さくなると，その最大元である下限は小さくなる。
+	これが
+	\[
+	\inf B\leq \inf A
+	\]
+	の発想である。
+\end{background}
+
+\begin{strategy}
+	この問題では，下限を直接計算するのではなく，
+	\[
+	\inf A=\max\{\text{\(A\) の下界}\}
+	\]
+	という定義を，\(\varepsilon\) を使った形に言い換える。
+	
+	\begin{enumerate}
+		\item[(1)]
+		まず，
+		\[
+		i=\inf A
+		\]
+		を仮定する。
+		このとき \(i\) は \(A\) の下界なので，
+		任意の \(a\in A\) に対して
+		\[
+		i\leq a
+		\]
+		が成り立つ。
+		したがって条件 (i) が従う。
+		
+		次に，任意に \(\varepsilon>0\) を取る。
+		ここで見るべき数は
+		\[
+		i+\varepsilon
+		\]
+		である。
+		これは \(i\) より大きい数である。
+		
+		もし \(i+\varepsilon\) が \(A\) の下界であれば，
+		\(i\) より大きい下界が存在することになる。
+		これは \(i\) が下界の最大元であることに反する。
+		
+		したがって，\(i+\varepsilon\) は \(A\) の下界ではない。
+		下界ではないということは，ある \(a_\varepsilon\in A\) が存在して
+		\[
+		a_\varepsilon<i+\varepsilon
+		\]
+		となることである。
+		よって条件 (ii) が従う。
+		
+		逆に，条件 (i), (ii) を仮定する。
+		条件 (i) より，\(i\) は \(A\) の下界である。
+		あとは，\(i\) が下界の中で最大であることを示せばよい。
+		
+		そのために，任意に
+		\[
+		j>i
+		\]
+		を取る。
+		この \(j\) が \(A\) の下界ではないことを示す。
+		
+		ここで
+		\[
+		\varepsilon=j-i>0
+		\]
+		とおく。
+		条件 (ii) より，ある \(a_\varepsilon\in A\) が存在して
+		\[
+		a_\varepsilon<i+\varepsilon=j
+		\]
+		となる。
+		つまり，
+		\[
+		a_\varepsilon<j
+		\]
+		である。
+		
+		したがって，\(j\) は \(A\) のすべての元以下ではない。
+		よって \(j\) は \(A\) の下界ではない。
+		
+		以上より，\(i\) は \(A\) の下界であり，
+		\(i\) より大きい数はどれも下界ではない。
+		したがって
+		\[
+		i=\inf A
+		\]
+		である。
+		
+		\item[(2)]
+		\(A\subset B\) とする。
+		このとき，\(B\) の下界を一つ取る。
+		それを \(l\) とする。
+		
+		\(l\) が \(B\) の下界であるとは，任意の \(b\in B\) に対して
+		\[
+		l\leq b
+		\]
+		が成り立つことである。
+		
+		いま \(A\subset B\) だから，任意の \(a\in A\) は \(B\) の元でもある。
+		したがって
+		\[
+		l\leq a
+		\]
+		が任意の \(a\in A\) に対して成り立つ。
+		つまり，\(l\) は \(A\) の下界でもある。
+		
+		よって，
+		\[
+		\{\text{\(B\) の下界}\}
+		\subset
+		\{\text{\(A\) の下界}\}
+		\]
+		である。
+		
+		ここで，下限は下界全体の最大元である。
+		\(B\) の下界全体は，\(A\) の下界全体に含まれているので，
+		その最大元は \(A\) の下界全体の最大元を超えられない。
+		したがって
+		\[
+		\inf B\leq \inf A
+		\]
+		が成り立つ。
+	\end{enumerate}
+\end{strategy}

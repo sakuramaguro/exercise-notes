@@ -1,0 +1,157 @@
+% !TeX root = ../sections/02_exercises.tex
+
+
+\begin{exercise}
+	\begin{enumerate}
+		\item
+		\[
+		\mathbb{Z}/12\mathbb{Z}
+		\oplus
+		\mathbb{Z}/18\mathbb{Z}
+		\simeq
+		\mathbb{Z}/m\mathbb{Z}
+		\oplus
+		\mathbb{Z}/n\mathbb{Z}
+		\]
+		\((n\) は \(m\) の約数\()\) となるような自然数 \(m,n\) を求めよ。
+		
+		\item
+		\[
+		\mathbb{Z}/24\mathbb{Z}
+		\oplus
+		\mathbb{Z}/18\mathbb{Z}
+		\oplus
+		\mathbb{Z}/6\mathbb{Z}
+		\oplus
+		\mathbb{Z}/5\mathbb{Z}
+		\simeq
+		\mathbb{Z}/n_1\mathbb{Z}
+		\oplus
+		\mathbb{Z}/n_2\mathbb{Z}
+		\oplus
+		\mathbb{Z}/n_3\mathbb{Z}
+		\oplus
+		\cdots
+		\]
+		\((n_{i+1}\) は \(n_i\) の約数\()\) となるような自然数
+		\(n_1,n_2,n_3,\ldots\) を求めよ。
+	\end{enumerate}
+\end{exercise}
+
+\begin{background}
+	この問題では，有限生成アーベル群の構造定理を用いる。
+	有限アーベル群は，巡回群の直和として表すことができる。
+	特に，有限アーベル群 \(G\) は
+	\[
+	G
+	\simeq
+	\mathbb{Z}/d_1\mathbb{Z}
+	\oplus
+	\mathbb{Z}/d_2\mathbb{Z}
+	\oplus
+	\cdots
+	\oplus
+	\mathbb{Z}/d_r\mathbb{Z}
+	\]
+	と表すことができ，ただし
+	\[
+	d_1\mid d_2\mid \cdots \mid d_r
+	\]
+	を満たすように取れる。
+	このような表示を不変因子分解という。
+	
+	問題文では
+	\[
+	\mathbb{Z}/m\mathbb{Z}
+	\oplus
+	\mathbb{Z}/n\mathbb{Z}
+	\]
+	において \(n\mid m\) としているため，
+	大きい不変因子を先に書く順番になっている。
+	したがって，標準的な
+	\[
+	d_1\mid d_2
+	\]
+	という順序とは逆向きに並べていることに注意する。
+	
+	また，互いに素な自然数 \(a,b\) に対しては，中国式剰余定理より
+	\[
+	\mathbb{Z}/ab\mathbb{Z}
+	\simeq
+	\mathbb{Z}/a\mathbb{Z}
+	\oplus
+	\mathbb{Z}/b\mathbb{Z}
+	\]
+	が成り立つ。
+	そのため，各巡回群の位数を素因数分解し，素数ごとの成分に分解してから，
+	同じ段にある成分を掛け合わせることで不変因子を求めることができる。
+\end{background}
+
+\begin{strategy}
+	まず，各位数を素因数分解する。
+	その後，有限アーベル群を素数ごとの部分に分けて考える。
+	
+	\begin{enumerate}
+		\item[(1)]
+		\(12\) と \(18\) を素因数分解する。
+		\[
+		12=2^2\cdot 3,
+		\qquad
+		18=2\cdot 3^2
+		\]
+		である。
+		したがって，
+		\[
+		\mathbb{Z}/12\mathbb{Z}
+		\oplus
+		\mathbb{Z}/18\mathbb{Z}
+		\]
+		を \(2\)-成分と \(3\)-成分に分ける。
+		
+		次に，それぞれの素数成分を指数の小さいものから大きいものへ並べる。
+		最後に，同じ位置にある \(2\)-成分と \(3\)-成分を掛け合わせる。
+		これにより，
+		\[
+		n\mid m
+		\]
+		を満たす形
+		\[
+		\mathbb{Z}/m\mathbb{Z}
+		\oplus
+		\mathbb{Z}/n\mathbb{Z}
+		\]
+		が得られる。
+		
+		\item[(2)]
+		まず
+		\[
+		24,\quad 18,\quad 6,\quad 5
+		\]
+		を素因数分解する。
+		\[
+		24=2^3\cdot 3,
+		\qquad
+		18=2\cdot 3^2,
+		\qquad
+		6=2\cdot 3,
+		\qquad
+		5=5
+		\]
+		である。
+		
+		次に，\(2\)-成分，\(3\)-成分，\(5\)-成分に分ける。
+		各素数ごとに，巡回群の位数を小さい指数から大きい指数へ並べる。
+		足りない場所には \(1\) を補って，成分の個数をそろえる。
+		
+		最後に，同じ位置に並んだ素数冪を掛け合わせる。
+		こうして得られる自然数を大きいものから順に
+		\[
+		n_1,\ n_2,\ n_3,\ldots
+		\]
+		と並べることで，
+		\[
+		n_{i+1}\mid n_i
+		\]
+		を満たす不変因子分解が得られる。
+	\end{enumerate}
+\end{strategy}

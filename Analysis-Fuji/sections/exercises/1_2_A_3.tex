@@ -1,0 +1,94 @@
+% !TeX root = ../sections/02_exercises.tex
+\subsection{2-A-3.}
+\begin{exercise}
+	下に有界な単調減少数列
+	\[
+	\{a_n\}_{n\in\mathbb{N}}
+	\]
+	は
+	\[
+	\inf_{n\in\mathbb{N}} a_n
+	\]
+	に収束することを証明せよ。
+\end{exercise}
+
+\begin{background}
+	単調減少数列とは，任意の \(n\in\mathbb{N}\) に対して
+	\[
+	a_{n+1}\leq a_n
+	\]
+	が成り立つ数列である。
+	
+	また，下に有界であるとは，ある実数 \(m\) が存在して，
+	任意の \(n\in\mathbb{N}\) に対して
+	\[
+	m\leq a_n
+	\]
+	が成り立つことである。
+	
+	このとき集合
+	\[
+	A=\{a_n\mid n\in\mathbb{N}\}
+	\]
+	は下に有界なので，下限
+	\[
+	\alpha=\inf A
+	\]
+	が存在する。
+	
+	直感的には，単調減少数列は上から下へ下がっていくが，
+	下限 \(\alpha\) より下には行けない。
+	したがって，数列は \(\alpha\) に近づく。
+\end{background}
+
+\begin{strategy}
+	\[
+	\alpha=\inf_{n\in\mathbb{N}} a_n
+	\]
+	とおく。
+	示すべきことは
+	\[
+	\lim_{n\to\infty}a_n=\alpha
+	\]
+	である。
+	
+	任意に \(\varepsilon>0\) を取る。
+	\(\alpha=\inf A\) であるから，下限の特徴づけより，
+	ある \(N\in\mathbb{N}\) が存在して
+	\[
+	a_N<\alpha+\varepsilon
+	\]
+	となる。
+	
+	一方，\(\alpha\) は下界なので，任意の \(n\) に対して
+	\[
+	\alpha\leq a_n
+	\]
+	である。
+	
+	さらに，数列は単調減少なので，\(n\geq N\) ならば
+	\[
+	a_n\leq a_N
+	\]
+	である。
+	したがって，\(n\geq N\) に対して
+	\[
+	\alpha\leq a_n\leq a_N<\alpha+\varepsilon
+	\]
+	が成り立つ。
+	
+	よって
+	\[
+	0\leq a_n-\alpha<\varepsilon
+	\]
+	であり，
+	\[
+	|a_n-\alpha|<\varepsilon
+	\]
+	となる。
+	したがって
+	\[
+	a_n\to\alpha
+	\]
+	である。
+\end{strategy}

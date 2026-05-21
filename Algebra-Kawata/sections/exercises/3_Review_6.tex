@@ -1,0 +1,262 @@
+% !TeX root = ../sections/02_exercises.tex
+
+\begin{exercise}
+	有理数体上の多項式環 \(\mathbb{Q}[x]\) は整数環 \(\mathbb{Z}\) と同じく
+	ユークリッド整域であり，従って PID，UFD である。
+	では，整数環 \(\mathbb{Z}\) のかわりに有理数体上の多項式環
+	\(\mathbb{Q}[x]\) で同じような問題を考えよう。
+	
+	中国式剰余定理，単因子の多項式版の問題。
+	
+	\begin{enumerate}
+		\item[(A)]
+		準同型写像
+		\[
+		\varphi:\mathbb{Q}[x]
+		\longrightarrow
+		\mathbb{Q}[x]/(x^2+x+1)
+		\oplus
+		\mathbb{Q}[x]/(x^2+2x+2)
+		\]
+		を
+		\[
+		\varphi(f(x))
+		=
+		\left(\widehat{f(x)},\overline{f(x)}\right)
+		\]
+		で定める。
+		ただし，\(\widehat{f(x)}\) は \(f(x)\) を \(x^2+x+1\) で割った余り
+		\((\)剰余類\()\) を表し，
+		\(\overline{f(x)}\) は \(f(x)\) を \(x^2+2x+2\) で割った余り
+		\((\)剰余類\()\) を表す。
+		
+		\begin{enumerate}
+			\item
+			\[
+			\mathbb{Q}[x]/
+			\left((x^2+x+1)(x^2+2x+2)\right)
+			\simeq
+			\mathbb{Q}[x]/(x^2+x+1)
+			\oplus
+			\mathbb{Q}[x]/(x^2+2x+2)
+			\]
+			を示せ。
+			
+			\item
+			\(x^2+x+1\) で割った余りが \(x-1\) となり，
+			\(x^2+2x+2\) で割った余りが \(x-2\) であるような
+			有理数係数の多項式を求めよ。
+		\end{enumerate}
+		
+		\item[(B)]
+		行列
+		\[
+		A=
+		\begin{pmatrix}
+			x^2-1 & 2x+2\\
+			x^2-x-2 & 3x+3
+		\end{pmatrix}
+		\]
+		の単因子となる多項式 \(f_1(x),f_2(x)\) を求めよ。
+		また，
+		\[
+		PAQ=\operatorname{diag}(f_1(x),f_2(x))
+		\]
+		が成り立つようなユニモジュラー行列 \(P,Q\) を求めよ。
+	\end{enumerate}
+\end{exercise}
+
+\begin{background}
+	この問題では，整数環 \(\mathbb{Z}\) で行っていた
+	中国式剰余定理と単因子標準形の議論を，
+	多項式環 \(\mathbb{Q}[x]\) 上で行う。
+	
+	\(\mathbb{Q}[x]\) はユークリッド整域である。
+	したがって，\(\mathbb{Q}[x]\) は PID であり，
+	任意のイデアルは一つの多項式によって生成される。
+	また，ユークリッドの互除法を使うことができるため，
+	整数の場合と同様に最大公約数やベズーの等式を扱うことができる。
+	
+	\[
+	p(x)=x^2+x+1,
+	\qquad
+	q(x)=x^2+2x+2
+	\]
+	とおく。
+	もし \(p(x)\) と \(q(x)\) が互いに素であれば，
+	中国式剰余定理より
+	\[
+	\mathbb{Q}[x]/(p(x)q(x))
+	\simeq
+	\mathbb{Q}[x]/(p(x))
+	\oplus
+	\mathbb{Q}[x]/(q(x))
+	\]
+	が成り立つ。
+	
+	また，\(\mathbb{Q}[x]\) 上の行列についても，
+	整数行列の場合と同様に単因子標準形を考えることができる。
+	すなわち，行基本変形・列基本変形を用いて，
+	\[
+	PAQ=
+	\operatorname{diag}(f_1(x),f_2(x))
+	\]
+	の形に変形する。
+	ここで \(P,Q\) は \(\mathbb{Q}[x]\) 上のユニモジュラー行列であり，
+	単因子は
+	\[
+	f_1(x)\mid f_2(x)
+	\]
+	を満たすように取る。
+\end{background}
+
+\begin{strategy}
+	まず，
+	\[
+	p(x)=x^2+x+1,
+	\qquad
+	q(x)=x^2+2x+2
+	\]
+	とおく。
+	
+	\begin{enumerate}
+		\item[(A1)]
+		写像
+		\[
+		\varphi:\mathbb{Q}[x]\to
+		\mathbb{Q}[x]/(p(x))
+		\oplus
+		\mathbb{Q}[x]/(q(x))
+		\]
+		の核を調べる。
+		
+		\[
+		\varphi(f(x))=(0,0)
+		\]
+		であることは，
+		\[
+		p(x)\mid f(x),
+		\qquad
+		q(x)\mid f(x)
+		\]
+		であることと同値である。
+		
+		\(p(x)\) と \(q(x)\) が互いに素であることを示せば，
+		\[
+		p(x)q(x)\mid f(x)
+		\]
+		が従う。
+		したがって，
+		\[
+		\Ker\varphi=(p(x)q(x))
+		\]
+		となる。
+		
+		その後，準同型定理を用いて
+		\[
+		\mathbb{Q}[x]/(p(x)q(x))
+		\simeq
+		\operatorname{Im}\varphi
+		\]
+		を得る。
+		さらに中国式剰余定理により \(\varphi\) が全射であることを確認すれば，
+		求める同型が従う。
+		
+		\item[(A2)]
+		求めたい多項式を \(F(x)\) とする。
+		条件は
+		\[
+		F(x)\equiv x-1 \pmod{p(x)},
+		\qquad
+		F(x)\equiv x-2 \pmod{q(x)}
+		\]
+		である。
+		
+		このような \(F(x)\) は，中国式剰余定理の構成を用いて求める。
+		具体的には，ベズーの等式
+		\[
+		1=u(x)p(x)+v(x)q(x)
+		\]
+		を満たす \(u(x),v(x)\in\mathbb{Q}[x]\) を求める。
+		
+		このとき，
+		\[
+		v(x)q(x)\equiv 1 \pmod{p(x)},
+		\qquad
+		v(x)q(x)\equiv 0 \pmod{q(x)}
+		\]
+		であり，
+		\[
+		u(x)p(x)\equiv 0 \pmod{p(x)},
+		\qquad
+		u(x)p(x)\equiv 1 \pmod{q(x)}
+		\]
+		である。
+		
+		したがって，
+		\[
+		F(x)
+		=
+		(x-1)v(x)q(x)
+		+
+		(x-2)u(x)p(x)
+		\]
+		とおけば，指定された二つの剰余条件を同時に満たす。
+		最後に必要なら \(p(x)q(x)\) で割った余りに直す。
+		
+		\item[(B)]
+		行列
+		\[
+		A=
+		\begin{pmatrix}
+			x^2-1 & 2x+2\\
+			x^2-x-2 & 3x+3
+		\end{pmatrix}
+		\]
+		を \(\mathbb{Q}[x]\) 上の行列として考える。
+		
+		まず，各成分を因数分解する。
+		特に，
+		\[
+		x^2-1=(x-1)(x+1),
+		\qquad
+		x^2-x-2=(x-2)(x+1),
+		\]
+		\[
+		2x+2=2(x+1),
+		\qquad
+		3x+3=3(x+1)
+		\]
+		である。
+		すべての成分に共通因子 \(x+1\) が現れることに注意する。
+		
+		単因子 \(f_1(x),f_2(x)\) を求めるには，
+		\[
+		\Delta_1=\gcd(\text{全成分})
+		\]
+		と
+		\[
+		\Delta_2=\gcd(\text{\(2\) 次小行列式})
+		\]
+		を計算する。
+		\(2\times 2\) 行列の場合，\(\Delta_2\) は
+		\[
+		|\det A|
+		\]
+		に対応する。
+		
+		したがって，
+		\[
+		f_1(x)=\Delta_1,
+		\qquad
+		f_2(x)=\frac{\Delta_2}{\Delta_1}
+		\]
+		によって単因子を決定する。
+		
+		その後，実際に \(P,Q\) を求めるには，
+		ユークリッドの互除法に対応する行基本変形・列基本変形を行い，
+		まず左上に最大公約因子 \(f_1(x)\) を作る。
+		次に，第1行・第1列の残りを消去し，
+		右下に \(f_2(x)\) が残る形へ変形する。
+	\end{enumerate}
+\end{strategy}

@@ -1,0 +1,148 @@
+% !TeX root = ../sections/02_exercises.tex
+\subsection{2-B-3.}
+\begin{exercise}
+	\[
+	a_1=3,
+	\qquad
+	a_{n+1}
+	=
+	\frac{1}{2}
+	\left(
+	a_n+\frac{3}{a_n}
+	\right)
+	\]
+	により定まる数列
+	\[
+	\{a_n\}_{n\in\mathbb{N}}
+	\]
+	の極限を求めよ。
+\end{exercise}
+
+\begin{background}
+	この数列は，\(\sqrt{3}\) を求めるための反復法として現れる。
+	漸化式
+	\[
+	a_{n+1}
+	=
+	\frac{1}{2}
+	\left(
+	a_n+\frac{3}{a_n}
+	\right)
+	\]
+	は，正の数 \(a_n\) に対して，
+	\(a_n\) と \(3/a_n\) の平均を取る形になっている。
+	
+	極限を求めるには，まず数列が収束することを示す必要がある。
+	そのために，
+	\[
+	a_n>\sqrt{3}
+	\]
+	と
+	\[
+	a_{n+1}\leq a_n
+	\]
+	を示す。
+	
+	すなわち，\(\{a_n\}\) が下に有界な単調減少数列であることを示せば，
+	単調収束定理より極限が存在する。
+\end{background}
+
+\begin{strategy}
+	まず，すべての \(n\) に対して
+	\[
+	a_n>\sqrt{3}
+	\]
+	を示す。
+	\(a_n>0\) のもとで計算すると，
+	\[
+	\begin{aligned}
+		a_{n+1}-\sqrt{3}
+		&=
+		\frac{1}{2}
+		\left(
+		a_n+\frac{3}{a_n}
+		\right)
+		-\sqrt{3} \\
+		&=
+		\frac{a_n^2-2\sqrt{3}a_n+3}{2a_n} \\
+		&=
+		\frac{(a_n-\sqrt{3})^2}{2a_n}.
+	\end{aligned}
+	\]
+	したがって，\(a_n>0\) ならば
+	\[
+	a_{n+1}\geq\sqrt{3}
+	\]
+	である。
+	さらに初項 \(a_1=3>\sqrt{3}\) なので，
+	帰納法により
+	\[
+	a_n>\sqrt{3}
+	\]
+	が従う。
+	
+	次に，単調減少性を示す。
+	\[
+	\begin{aligned}
+		a_n-a_{n+1}
+		&=
+		a_n-
+		\frac{1}{2}
+		\left(
+		a_n+\frac{3}{a_n}
+		\right) \\
+		&=
+		\frac{a_n^2-3}{2a_n}.
+	\end{aligned}
+	\]
+	すでに \(a_n>\sqrt{3}\) が分かっているので，
+	\[
+	a_n^2-3>0
+	\]
+	である。
+	したがって
+	\[
+	a_n-a_{n+1}>0
+	\]
+	となり，
+	\[
+	a_{n+1}<a_n
+	\]
+	である。
+	
+	よって，\(\{a_n\}\) は下に有界な単調減少数列である。
+	したがって収束する。
+	その極限を
+	\[
+	\alpha=\lim_{n\to\infty}a_n
+	\]
+	とおく。
+	
+	漸化式の両辺で \(n\to\infty\) とすると，
+	\[
+	\alpha
+	=
+	\frac{1}{2}
+	\left(
+	\alpha+\frac{3}{\alpha}
+	\right)
+	\]
+	である。
+	これを整理すると
+	\[
+	2\alpha=\alpha+\frac{3}{\alpha}
+	\]
+	より
+	\[
+	\alpha=\frac{3}{\alpha}.
+	\]
+	したがって
+	\[
+	\alpha^2=3.
+	\]
+	また \(a_n>\sqrt{3}>0\) なので \(\alpha\geq0\) である。
+	よって
+	\[
+	\alpha=\sqrt{3}.
+	\]
+\end{strategy}
