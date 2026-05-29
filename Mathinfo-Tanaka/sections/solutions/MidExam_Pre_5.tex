@@ -1,0 +1,184 @@
+% !TeX root = ../sections/03_solutions.tex
+
+\subsection{2_3}
+\begin{solution}
+	関数列
+	\[
+	\psi_1(x)=x,\qquad
+	\psi_2(x)=x^2,\qquad
+	\psi_3(x)=1
+	\]
+	を考える。
+	
+	内積は
+	\[
+	(f,g)=\int_{-1}^{1}f(x)g(x)\,dx
+	\]
+	で定義されている。
+	
+	正規化を伴わないシュミットの直交化法により，
+	直交関数列
+	\[
+	[\varphi_1,\varphi_2,\varphi_3]
+	\]
+	を作る。
+	
+	まず，
+	\[
+	\varphi_1=\psi_1
+	\]
+	とする。
+	
+	したがって，
+	\[
+	\varphi_1(x)=x
+	\]
+	である。
+	
+	次に，
+	\[
+	\varphi_2
+	=
+	\psi_2
+	-
+	\frac{(\psi_2,\varphi_1)}{(\varphi_1,\varphi_1)}
+	\varphi_1
+	\]
+	である。
+	
+	ここで，
+	\[
+	(\psi_2,\varphi_1)
+	=
+	(x^2,x)
+	=
+	\int_{-1}^{1}x^3\,dx
+	=0
+	\]
+	である。
+	
+	したがって，
+	\[
+	\varphi_2=x^2
+	\]
+	である。
+	
+	最後に，
+	\[
+	\varphi_3
+	=
+	\psi_3
+	-
+	\frac{(\psi_3,\varphi_1)}{(\varphi_1,\varphi_1)}
+	\varphi_1
+	-
+	\frac{(\psi_3,\varphi_2)}{(\varphi_2,\varphi_2)}
+	\varphi_2
+	\]
+	である。
+	
+	この問題では，
+	\[
+	\psi_3=1,\qquad
+	\varphi_1=x,\qquad
+	\varphi_2=x^2
+	\]
+	であるから，
+	\[
+	\varphi_3
+	=
+	1
+	-
+	\frac{(1,x)}{(x,x)}x
+	-
+	\frac{(1,x^2)}{(x^2,x^2)}x^2
+	\]
+	となる。
+	
+	まず，
+	\[
+	(1,x)
+	=
+	\int_{-1}^{1}x\,dx
+	=
+	0
+	\]
+	である。
+	
+	次に，
+	\[
+	(1,x^2)
+	=
+	\int_{-1}^{1}x^2\,dx
+	=
+	\left[\frac{x^3}{3}\right]_{-1}^{1}
+	=
+	\frac{1}{3}-\left(-\frac{1}{3}\right)
+	=
+	\frac{2}{3}.
+	\]
+	
+	また，
+	\[
+	(x^2,x^2)
+	=
+	\int_{-1}^{1}x^4\,dx
+	=
+	\left[\frac{x^5}{5}\right]_{-1}^{1}
+	=
+	\frac{1}{5}-\left(-\frac{1}{5}\right)
+	=
+	\frac{2}{5}.
+	\]
+	
+	したがって，
+	\[
+	\frac{(1,x^2)}{(x^2,x^2)}
+	=
+	\frac{2/3}{2/5}
+	=
+	\frac{5}{3}
+	\]
+	である。
+	
+	よって，
+	\[
+	\varphi_3
+	=
+	1-\frac{5}{3}x^2.
+	\]
+	
+	したがって，正規化を伴わないシュミットの直交化法により得られる直交関数列は
+	\[
+	\boxed{
+		\varphi_1=x,
+		\qquad
+		\varphi_2=x^2,
+		\qquad
+		\varphi_3=1-\frac{5}{3}x^2
+	}
+	\]
+	である。
+	
+	なお，直交性は定数倍しても保たれるので，
+	\[
+	1-\frac{5}{3}x^2
+	\]
+	の代わりに
+	\[
+	3-5x^2
+	\]
+	を用いてもよい。
+	
+	したがって，
+	\[
+	\boxed{
+		\varphi_1=x,
+		\qquad
+		\varphi_2=x^2,
+		\qquad
+		\varphi_3=3-5x^2
+	}
+	\]
+	としても正しい。
+\end{solution}

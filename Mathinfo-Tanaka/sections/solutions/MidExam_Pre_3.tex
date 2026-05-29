@@ -1,0 +1,312 @@
+% !TeX root = ../sections/03_solutions.tex
+
+\subsection{2_1}
+\begin{solution}
+	与えられた関数は
+	\[
+	f(x)=
+	\begin{cases}
+		0
+		& \left(|x|\leq \dfrac{\pi}{3}\right),\\[6pt]
+		\dfrac{\pi}{2}
+		& \left(\dfrac{\pi}{3}<|x|\leq \dfrac{2\pi}{3}\right),\\[6pt]
+		\pi
+		& \left(\dfrac{2\pi}{3}<|x|\leq \pi\right)
+	\end{cases}
+	\]
+	であり，周期 \(2\pi\) で拡張されている。
+	
+	\medskip
+	
+	まずグラフについて考える。
+	
+	この関数は \(|x|\) の値だけで決まるので偶関数である。
+	したがって，グラフは \(y\)-軸対称である。
+	
+	区間ごとの値は，
+	\[
+	|x|\leq \frac{\pi}{3}
+	\quad\text{では}\quad
+	f(x)=0,
+	\]
+	\[
+	\frac{\pi}{3}<|x|\leq \frac{2\pi}{3}
+	\quad\text{では}\quad
+	f(x)=\frac{\pi}{2},
+	\]
+	\[
+	\frac{2\pi}{3}<|x|\leq \pi
+	\quad\text{では}\quad
+	f(x)=\pi
+	\]
+	である。
+	
+	したがって，\(-\pi\leq x\leq \pi\) では，
+	中央が高さ \(0\)，その外側が高さ \(\pi/2\)，さらに外側が高さ \(\pi\) の階段状のグラフになる。
+	
+	\medskip
+	
+	次に，フーリエ係数を求める。
+	
+	周期 \(2\pi\) のフーリエ係数は
+	\[
+	a_0=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)\,dx,
+	\]
+	\[
+	a_n=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)\cos nx\,dx,
+	\]
+	\[
+	b_n=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)\sin nx\,dx
+	\]
+	である。
+	
+	この関数は偶関数なので，
+	\[
+	b_n=0
+	\]
+	である。
+	
+	また，
+	\[
+	a_0
+	=
+	\frac{2}{\pi}\int_0^\pi f(x)\,dx
+	\]
+	である。
+	
+	区間ごとに分けると，
+	\[
+	a_0
+	=
+	\frac{2}{\pi}
+	\left(
+	\int_0^{\pi/3}0\,dx
+	+
+	\int_{\pi/3}^{2\pi/3}\frac{\pi}{2}\,dx
+	+
+	\int_{2\pi/3}^{\pi}\pi\,dx
+	\right).
+	\]
+	
+	これを計算すると，
+	\[
+	a_0
+	=
+	\frac{2}{\pi}
+	\left(
+	\frac{\pi}{2}\cdot \frac{\pi}{3}
+	+
+	\pi\cdot \frac{\pi}{3}
+	\right)
+	=
+	\frac{2}{\pi}
+	\left(
+	\frac{\pi^2}{6}+\frac{\pi^2}{3}
+	\right)
+	=
+	\frac{2}{\pi}\cdot \frac{\pi^2}{2}
+	=
+	\pi.
+	\]
+	
+	したがって，
+	\[
+	a_0=\pi
+	\]
+	である。
+	次に \(a_n\) を求める。
+	偶関数なので，
+	\[
+	a_n
+	=
+	\frac{2}{\pi}\int_0^\pi f(x)\cos nx\,dx
+	\]
+	である。
+	
+	区間ごとに分けると，
+	\[
+	a_n
+	=
+	\frac{2}{\pi}
+	\left(
+	\int_{\pi/3}^{2\pi/3}
+	\frac{\pi}{2}\cos nx\,dx
+	+
+	\int_{2\pi/3}^{\pi}
+	\pi\cos nx\,dx
+	\right).
+	\]
+	
+	ここで，
+	\[
+	\int \cos nx\,dx
+	=
+	\frac{\sin nx}{n}
+	\]
+	を用いる。
+	
+	したがって，
+	\[
+	a_n
+	=
+	\frac{2}{\pi}
+	\left(
+	\frac{\pi}{2}
+	\left[
+	\frac{\sin nx}{n}
+	\right]_{\pi/3}^{2\pi/3}
+	+
+	\pi
+	\left[
+	\frac{\sin nx}{n}
+	\right]_{2\pi/3}^{\pi}
+	\right).
+	\]
+	
+	よって，
+	\[
+	a_n
+	=
+	\frac{2}{\pi}
+	\left(
+	\frac{\pi}{2n}
+	\left(
+	\sin\frac{2n\pi}{3}
+	-
+	\sin\frac{n\pi}{3}
+	\right)
+	+
+	\frac{\pi}{n}
+	\left(
+	\sin n\pi
+	-
+	\sin\frac{2n\pi}{3}
+	\right)
+	\right).
+	\]
+	
+	ここで，
+	\[
+	\sin n\pi=0
+	\]
+	であるから，
+	\[
+	a_n
+	=
+	\frac{2}{\pi}
+	\left(
+	\frac{\pi}{2n}
+	\left(
+	\sin\frac{2n\pi}{3}
+	-
+	\sin\frac{n\pi}{3}
+	\right)
+	-
+	\frac{\pi}{n}
+	\sin\frac{2n\pi}{3}
+	\right).
+	\]
+	
+	整理すると，
+	\[
+	a_n
+	=
+	\frac{1}{n}
+	\left(
+	\sin\frac{2n\pi}{3}
+	-
+	\sin\frac{n\pi}{3}
+	\right)
+	-
+	\frac{2}{n}
+	\sin\frac{2n\pi}{3}.
+	\]
+	
+	したがって，
+	\[
+	a_n
+	=
+	-\frac{1}{n}
+	\left(
+	\sin\frac{n\pi}{3}
+	+
+	\sin\frac{2n\pi}{3}
+	\right).
+	\]
+	
+	以上より，フーリエ係数は
+	\[
+	\boxed{
+		a_0=\pi,
+		\qquad
+		a_n=
+		-\frac{1}{n}
+		\left(
+		\sin\frac{n\pi}{3}
+		+
+		\sin\frac{2n\pi}{3}
+		\right),
+		\qquad
+		b_n=0
+	}
+	\]
+	である。
+	
+	したがって，第 \(N\) 部分和は
+	\[
+	S_N(x)
+	=
+	\frac{\pi}{2}
+	+
+	\sum_{n=1}^{N}
+	a_n\cos nx
+	\]
+	であり，
+	\[
+	a_n=
+	-\frac{1}{n}
+	\left(
+	\sin\frac{n\pi}{3}
+	+
+	\sin\frac{2n\pi}{3}
+	\right)
+	\]
+	を代入すればよい。
+	\end{solution}
+	\begin{solution}
+		gnuplot では，まず任意の \(x\) を基本区間 \([-\pi,\pi)\) に戻す関数を定義する。
+		
+		\begin{verbatim}
+			pi = 3.141592653589793
+			
+			p(x) = x - 2*pi*floor((x + pi)/(2*pi))
+			
+			f(x) = (abs(p(x)) <= pi/3) ? 0 : \
+			(abs(p(x)) <= 2*pi/3) ? pi/2 : pi
+			
+			a(k) = -(sin(k*pi/3) + sin(2*k*pi/3))/k
+			
+			S(N,x) = pi/2 + sum [k=1:N] a(k)*cos(k*x)
+			
+			set yrange [-0.5:4]
+			
+			plot f(x) title "f(x)" linecolor 1, \
+			S(7,x) title "S7(x)" linecolor 2, \
+			S(31,x) title "S31(x)" linecolor 3
+		\end{verbatim}
+		
+		これを \texttt{plot.txt} として保存する。
+		
+		ただし，問題文の指示により，
+		\texttt{plot.txt} には \texttt{set terminal} や \texttt{set output} は含めない。
+		
+		画像ファイル \texttt{graph.png} を作成するには，
+		gnuplot 上で次を実行する。
+		
+		\begin{verbatim}
+			set terminal pngcairo size 1000,700
+			set output "graph.png"
+			load "plot.txt"
+			set output
+		\end{verbatim}
+	\end{solution}

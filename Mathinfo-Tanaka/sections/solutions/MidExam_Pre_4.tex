@@ -1,0 +1,141 @@
+% !TeX root = ../sections/03_solutions.tex
+
+\subsection{2_2}
+\begin{solution}
+	関数
+	\[
+	f(x)=|x|
+	\]
+	を
+	\[
+	T_n(x)
+	=
+	\frac{\alpha_0}{2}
+	+
+	\sum_{k=1}^{n}
+	\left(
+	\alpha_k\cos kx+\beta_k\sin kx
+	\right)
+	\]
+	で近似する。
+	
+	平均 \(2\) 乗誤差を最小にする三角多項式は，
+	\(f(x)\) のフーリエ部分和である。
+	
+	したがって，平均 \(2\) 乗誤差を最小にする係数は，
+	\(f(x)\) のフーリエ係数である。
+	
+	つまり，
+	\[
+	\alpha_k=a_k,
+	\qquad
+	\beta_k=b_k
+	\]
+	である。
+	
+	この問題では \(\alpha_1\) と \(\beta_1\) を求めればよいので，
+	\[
+	\alpha_1=a_1,
+	\qquad
+	\beta_1=b_1
+	\]
+	を求めればよい。
+	
+	ここで，
+	\[
+	f(x)=|x|
+	\]
+	は偶関数である。
+	したがって，正弦係数はすべて \(0\) である。
+	
+	よって，
+	\[
+	\beta_1=0
+	\]
+	である。
+	
+	次に，
+	\[
+	a_1
+	=
+	\frac{1}{\pi}
+	\int_{-\pi}^{\pi}
+	|x|\cos x\,dx
+	\]
+	を計算する。
+	
+	\(|x|\cos x\) は偶関数なので，
+	\[
+	a_1
+	=
+	\frac{2}{\pi}
+	\int_0^\pi x\cos x\,dx
+	\]
+	である。
+	
+	部分積分を用いる。
+	\[
+	u=x,\qquad dv=\cos x\,dx
+	\]
+	とおくと，
+	\[
+	du=dx,\qquad v=\sin x
+	\]
+	である。
+	
+	したがって，
+	\[
+	\int_0^\pi x\cos x\,dx
+	=
+	[x\sin x]_0^\pi
+	-
+	\int_0^\pi \sin x\,dx.
+	\]
+	
+	ここで，
+	\[
+	[x\sin x]_0^\pi=0
+	\]
+	であり，
+	\[
+	\int_0^\pi \sin x\,dx
+	=
+	[-\cos x]_0^\pi
+	=
+	-\cos\pi+\cos 0
+	=
+	1+1
+	=
+	2
+	\]
+	である。
+	
+	したがって，
+	\[
+	\int_0^\pi x\cos x\,dx=-2
+	\]
+	である。
+	
+	よって，
+	\[
+	a_1
+	=
+	\frac{2}{\pi}(-2)
+	=
+	-\frac{4}{\pi}.
+	\]
+	
+	したがって，
+	\[
+	\boxed{
+		\alpha_1=-\frac{4}{\pi},
+		\qquad
+		\beta_1=0
+	}
+	\]
+	である。
+	
+	なお，問題文では \(n=30\) とされているが，
+	\(\alpha_1,\beta_1\) の値は第 \(1\) フーリエ係数で決まるため，
+	\(n=30\) であること自体はこの計算には影響しない。
+\end{solution}
