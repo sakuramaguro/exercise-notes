@@ -1,0 +1,161 @@
+% !TeX root = ../sections/03_solutions.tex
+\subsection{対策-グラフ}
+\begin{exercise}[段階関数のフーリエ係数とグラフ]
+	周期 \(2\pi\) をもち，区間 \([-\pi,\pi)\) 上で
+	\[
+	f(x)=
+	\begin{cases}
+		0
+		& \left(|x|\leq \dfrac{\pi}{3}\right),\\[6pt]
+		\dfrac{\pi}{2}
+		& \left(\dfrac{\pi}{3}<|x|\leq \dfrac{2\pi}{3}\right),\\[6pt]
+		\pi
+		& \left(\dfrac{2\pi}{3}<|x|\leq \pi\right)
+	\end{cases}
+	\]
+	で与えられる周期関数を考える。
+	
+	\begin{enumerate}
+		\item \(y=f(x)\) のグラフをかけ。
+		\item \(f(x)\) のフーリエ係数を求めよ。
+		\item gnuplot を用いて \(y=f(x)\)，\(y=S_7(x)\)，\(y=S_{31}(x)\) を
+		一つの図にプロットせよ。
+	\end{enumerate}
+\end{exercise}
+
+\begin{background}
+	この関数は \(|x|\) によって定義されているため，偶関数である。
+	すなわち，
+	\[
+	f(-x)=f(x)
+	\]
+	が成り立つ。
+	
+	したがって，フーリエ級数では正弦項が消える。
+	つまり，
+	\[
+	b_n=0
+	\]
+	である。
+	
+	偶関数のフーリエ係数は，
+	\[
+	a_0=\frac{2}{\pi}\int_{0}^{\pi}f(x)\,dx
+	\]
+	および
+	\[
+	a_n=\frac{2}{\pi}\int_{0}^{\pi}f(x)\cos nx\,dx
+	\]
+	で求めればよい。
+	
+	この問題では，関数が区間ごとに定数なので，
+	積分区間を
+	\[
+	0\leq x\leq \frac{\pi}{3},
+	\qquad
+	\frac{\pi}{3}<x\leq \frac{2\pi}{3},
+	\qquad
+	\frac{2\pi}{3}<x\leq \pi
+	\]
+	に分ける。
+\end{background}
+\begin{strategy}
+	まずグラフは，原点を中心として左右対称な階段状のグラフである。
+	
+	\[
+	|x|\leq \frac{\pi}{3}
+	\]
+	では高さ \(0\)，
+	
+	\[
+	\frac{\pi}{3}<|x|\leq \frac{2\pi}{3}
+	\]
+	では高さ \(\dfrac{\pi}{2}\)，
+	
+	\[
+	\frac{2\pi}{3}<|x|\leq \pi
+	\]
+	では高さ \(\pi\)
+	である。
+	
+	次にフーリエ係数を求める。
+	
+	偶関数なので，
+	\[
+	b_n=0
+	\]
+	である。
+	
+	また，
+	\[
+	a_0
+	=
+	\frac{2}{\pi}
+	\left(
+	\int_{0}^{\pi/3}0\,dx
+	+
+	\int_{\pi/3}^{2\pi/3}\frac{\pi}{2}\,dx
+	+
+	\int_{2\pi/3}^{\pi}\pi\,dx
+	\right).
+	\]
+	
+	これを計算すると，
+	\[
+	a_0=\pi.
+	\]
+	
+	次に \(a_n\) を求める。
+	\[
+	a_n
+	=
+	\frac{2}{\pi}
+	\left(
+	\int_{\pi/3}^{2\pi/3}\frac{\pi}{2}\cos nx\,dx
+	+
+	\int_{2\pi/3}^{\pi}\pi\cos nx\,dx
+	\right).
+	\]
+	
+	\[
+	\int \cos nx\,dx=\frac{\sin nx}{n}
+	\]
+	を用いると，
+	\[
+	a_n
+	=
+	-\frac{1}{n}
+	\left(
+	\sin\frac{n\pi}{3}
+	+
+	\sin\frac{2n\pi}{3}
+	\right).
+	\]
+	
+	したがって，
+	\[
+	a_0=\pi,
+	\qquad
+	a_n
+	=
+	-\frac{1}{n}
+	\left(
+	\sin\frac{n\pi}{3}
+	+
+	\sin\frac{2n\pi}{3}
+	\right),
+	\qquad
+	b_n=0.
+	\]
+	
+	よって，第 \(N\) 部分和は
+	\[
+	S_N(x)
+	=
+	\frac{\pi}{2}
+	+
+	\sum_{n=1}^{N}
+	a_n\cos nx
+	\]
+	である。
+\end{strategy}

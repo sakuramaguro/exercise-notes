@@ -1,0 +1,265 @@
+% !TeX root = ../sections/02_exercises.tex
+
+\begin{exercise}[情報数学 A 中間試験 2]
+	周期 \(2\pi\) をもち，区間 \([-\pi,\pi)\) 上で
+	\[
+	f(x)=
+	\begin{cases}
+		0
+		& \left(|x|\leq \dfrac{\pi}{3}\right),\\[6pt]
+		\dfrac{\pi}{2}
+		& \left(\dfrac{\pi}{3}<|x|\leq \dfrac{2\pi}{3}\right),\\[6pt]
+		\pi
+		& \left(\dfrac{2\pi}{3}<|x|\leq \pi\right)
+	\end{cases}
+	\]
+	で与えられる周期関数について，次の問いに答えよ．
+	
+	\begin{enumerate}
+		\item \(y=f(x)\) のグラフをかけ．
+		\item \(f(x)\) のフーリエ係数を求めよ．
+		\item \(f(x)\) のフーリエ級数の第 \(n\) 部分和を
+		\[
+		S_n(x)=\frac{a_0}{2}
+		+\sum_{k=1}^{n}
+		\left(
+		a_k\cos kx+b_k\sin kx
+		\right)
+		\]
+		で表す．gnuplot を用いて
+		\[
+		y=f(x),\qquad y=S_7(x),\qquad y=S_{31}(x)
+		\]
+		のグラフを一つの図にプロットした \texttt{.png} ファイル
+		\texttt{graph.png} を作成せよ．
+	\end{enumerate}
+	
+	ただし，次のようにすること．
+	
+	\begin{itemize}
+		\item グラフの色は任意であるが，見やすい色を指定することが望ましい．
+		\item \(y=f(x)\) のグラフがうまくプロットできない場合は省略せよ
+		（その場合，減点はする）．
+		\item \(x\) 軸の範囲はデフォルトの設定である \([-10,10]\) のまま，
+		\(y\) 軸の範囲は \([-0.5,4]\) とせよ．
+		\item \(y=f(x)\)，\(y=S_7(x)\)，\(y=S_{31}(x)\) のグラフの凡例は
+		それぞれ \(\mathrm{f(x)}\)，\(\mathrm{S7(x)}\)，\(\mathrm{S31(x)}\) とせよ．
+		\item グラフをプロットする際はスクリプトファイル \texttt{plot.txt} を作成し，
+		それを \texttt{load} することでプロットせよ．ただし，
+		「作成した図を \texttt{.png} ファイルに書き出す命令文」は
+		\texttt{plot.txt} に含めないこと．
+		\item 作成した二つのファイル
+		\[
+		\texttt{graph.png},\qquad \texttt{plot.txt}
+		\]
+		を学務情報システムの提出物にアップロードせよ．
+	\end{itemize}
+\end{exercise}
+\begin{background}
+	この問題では，周期 \(2\pi\) の段階関数
+	\[
+	f(x)=
+	\begin{cases}
+		0
+		& \left(|x|\leq \dfrac{\pi}{3}\right),\\[6pt]
+		\dfrac{\pi}{2}
+		& \left(\dfrac{\pi}{3}<|x|\leq \dfrac{2\pi}{3}\right),\\[6pt]
+		\pi
+		& \left(\dfrac{2\pi}{3}<|x|\leq \pi\right)
+	\end{cases}
+	\]
+	を扱う。
+	
+	この関数は \(|x|\) によって定義されているため，偶関数である。
+	すなわち，
+	\[
+	f(-x)=f(x)
+	\]
+	が成り立つ。
+	
+	したがって，フーリエ級数を求める際には正弦係数がすべて消える。
+	つまり，
+	\[
+	b_n=0
+	\]
+	である。
+	
+	フーリエ係数の一般公式は
+	\[
+	a_0=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)\,dx,
+	\]
+	\[
+	a_n=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)\cos nx\,dx,
+	\]
+	\[
+	b_n=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)\sin nx\,dx
+	\]
+	である。
+	
+	ただし，今回は偶関数なので，
+	\[
+	a_0=\frac{2}{\pi}\int_0^\pi f(x)\,dx,
+	\]
+	\[
+	a_n=\frac{2}{\pi}\int_0^\pi f(x)\cos nx\,dx,
+	\]
+	\[
+	b_n=0
+	\]
+	として計算できる。
+	
+	また，この関数は区分的に定数である。
+	したがって積分は，関数の値が変化する点
+	\[
+	0,\quad \frac{\pi}{3},\quad \frac{2\pi}{3},\quad \pi
+	\]
+	で区間を分割して行う。
+	
+	グラフについては，中央で \(0\)，その外側で \(\pi/2\)，さらに外側で \(\pi\)
+	となる左右対称な階段状のグラフである。
+	
+	gnuplot では，このような段階関数を条件分岐で表す。
+	さらに，\([-10,10]\) のように複数周期を含む範囲で描画するためには，
+	任意の \(x\) を基本区間 \([-\pi,\pi)\) に戻してから関数値を決める必要がある。
+\end{background}
+\begin{strategy}
+	この問題は，三つの小問を一つの流れとして考えるとよい。
+	
+	まず，グラフを描く。
+	関数は \(|x|\) の大きさで値が決まるので，グラフは \(y\)-軸対称である。
+	
+	区間ごとの値は次の通りである。
+	\[
+	|x|\leq \frac{\pi}{3}
+	\quad\Longrightarrow\quad
+	f(x)=0,
+	\]
+	\[
+	\frac{\pi}{3}<|x|\leq \frac{2\pi}{3}
+	\quad\Longrightarrow\quad
+	f(x)=\frac{\pi}{2},
+	\]
+	\[
+	\frac{2\pi}{3}<|x|\leq \pi
+	\quad\Longrightarrow\quad
+	f(x)=\pi.
+	\]
+	
+	したがって，\(-\pi\) から \(\pi\) までの範囲では，
+	中央が低く，外側に行くほど高くなる階段状のグラフを描けばよい。
+	
+	次に，フーリエ係数を求める。
+	偶関数であることから，まず
+	\[
+	b_n=0
+	\]
+	と分かる。
+	
+	次に，
+	\[
+	a_0=\frac{2}{\pi}\int_0^\pi f(x)\,dx
+	\]
+	を計算する。
+	
+	関数値ごとに積分区間を分けると，
+	\[
+	a_0
+	=
+	\frac{2}{\pi}
+	\left(
+	\int_0^{\pi/3}0\,dx
+	+
+	\int_{\pi/3}^{2\pi/3}\frac{\pi}{2}\,dx
+	+
+	\int_{2\pi/3}^{\pi}\pi\,dx
+	\right)
+	\]
+	となる。
+	
+	次に，
+	\[
+	a_n=\frac{2}{\pi}\int_0^\pi f(x)\cos nx\,dx
+	\]
+	を同様に区間分割して，
+	\[
+	a_n
+	=
+	\frac{2}{\pi}
+	\left(
+	\int_{\pi/3}^{2\pi/3}\frac{\pi}{2}\cos nx\,dx
+	+
+	\int_{2\pi/3}^{\pi}\pi\cos nx\,dx
+	\right)
+	\]
+	とする。
+	
+	ここで
+	\[
+	\int \cos nx\,dx=\frac{\sin nx}{n}
+	\]
+	を使えばよい。
+	
+	計算結果をまとめると，
+	\[
+	a_0=\pi,
+	\]
+	\[
+	a_n
+	=
+	-\frac{1}{n}
+	\left(
+	\sin\frac{n\pi}{3}
+	+
+	\sin\frac{2n\pi}{3}
+	\right),
+	\]
+	\[
+	b_n=0
+	\]
+	となる。
+	
+	したがって，第 \(N\) 部分和は
+	\[
+	S_N(x)
+	=
+	\frac{\pi}{2}
+	+
+	\sum_{n=1}^{N}
+	a_n\cos nx
+	\]
+	である。
+	
+	gnuplot では，この \(a_n\) と \(S_N(x)\) をそのまま関数として定義する。
+	重要なのは次の三つである。
+	
+	\begin{enumerate}
+		\item 基本区間に戻す関数を定義する。
+		\item 段階関数 \(f(x)\) を条件分岐で定義する。
+		\item \(S_7(x)\) と \(S_{31}(x)\) を \texttt{sum} を使って定義する。
+	\end{enumerate}
+	
+	基本区間に戻すには，たとえば
+	\[
+	p(x)=x-2\pi\left\lfloor\frac{x+\pi}{2\pi}\right\rfloor
+	\]
+	を使う。
+	これにより，任意の \(x\) を \([-\pi,\pi)\) に戻すことができる。
+	
+	その上で，\(|p(x)|\) の値によって
+	\[
+	0,\quad \frac{\pi}{2},\quad \pi
+	\]
+	を返すようにすれば，周期関数としての \(f(x)\) が描ける。
+	
+	この問題の発想は，
+	\[
+	\text{偶関数}
+	\Rightarrow
+	b_n=0
+	\Rightarrow
+	a_n\text{ だけ区間分割で計算}
+	\Rightarrow
+	S_N(x)\text{ を gnuplot で描画}
+	\]
+	という流れである。
+\end{strategy}

@@ -1,0 +1,114 @@
+% !TeX root = ../sections/03_solutions.tex
+\subsection{対策-平均二乗誤差}
+\begin{exercise}[平均2乗誤差とフーリエ近似]
+	\(-\pi\leq x\leq \pi\) において，関数
+	\[
+	f(x)=|x|
+	\]
+	を
+	\[
+	T_n(x)
+	=
+	\frac{\alpha_0}{2}
+	+
+	\sum_{k=1}^{n}
+	\left(
+	\alpha_k\cos kx+\beta_k\sin kx
+	\right)
+	\]
+	により近似する。
+	
+	\(n=30\) としたときに，\(f(x)\) と \(T_n(x)\) の平均 \(2\) 乗誤差を
+	最小にする \(\alpha_1\) と \(\beta_1\) の値をそれぞれ答えよ。
+\end{exercise}
+
+\begin{background}
+	平均 \(2\) 乗誤差とは，関数 \(f(x)\) と近似関数 \(T_n(x)\) の差の二乗を
+	平均した量である。
+	
+	典型的には，
+	\[
+	\frac{1}{2\pi}\int_{-\pi}^{\pi}
+	|f(x)-T_n(x)|^2\,dx
+	\]
+	を考える。
+	
+	この誤差を最小にする三角多項式は，
+	\(f(x)\) のフーリエ係数を用いたフーリエ部分和である。
+	
+	つまり，
+	\[
+	T_n(x)
+	=
+	\frac{\alpha_0}{2}
+	+
+	\sum_{k=1}^{n}
+	\left(
+	\alpha_k\cos kx+\beta_k\sin kx
+	\right)
+	\]
+	が \(f(x)\) を最もよく近似するためには，
+	\[
+	\alpha_k=a_k,\qquad \beta_k=b_k
+	\]
+	となればよい。
+	
+	ここで \(a_k,b_k\) は \(f(x)\) のフーリエ係数である。
+\end{background}
+\begin{strategy}
+	この問題では，
+	\[
+	f(x)=|x|
+	\]
+	である。
+	
+	\(|x|\) は偶関数なので，
+	\[
+	b_k=0
+	\]
+	である。
+	
+	したがって，
+	\[
+	\beta_1=0
+	\]
+	である。
+	
+	また，問題文の例にもあるように，
+	周期 \(2\pi\) の関数 \(f(x)=|x|\) のフーリエ係数は
+	\[
+	a_0=\pi,
+	\]
+	\[
+	a_n=
+	\begin{cases}
+		-\dfrac{4}{\pi n^2} & (n\text{ が奇数}),\\[6pt]
+		0 & (n\text{ が偶数}),
+	\end{cases}
+	\qquad
+	b_n=0
+	\]
+	である。
+	
+	よって，
+	\[
+	\alpha_1=a_1=-\frac{4}{\pi},
+	\qquad
+	\beta_1=b_1=0.
+	\]
+	
+	したがって，答えは
+	\[
+	\boxed{
+		\alpha_1=-\frac{4}{\pi},
+		\qquad
+		\beta_1=0
+	}
+	\]
+	である。
+	
+	この問題で重要なのは，
+	\(n=30\) という情報に惑わされないことである。
+	平均 \(2\) 乗誤差を最小にする係数はフーリエ係数なので，
+	\(\alpha_1,\beta_1\) は第 \(1\) フーリエ係数を見ればよい。
+\end{strategy}

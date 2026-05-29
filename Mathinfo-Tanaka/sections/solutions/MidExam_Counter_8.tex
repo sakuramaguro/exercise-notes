@@ -1,0 +1,62 @@
+% !TeX root = ../sections/03_solutions.tex
+\subsection{flow}
+
+\begin{background}
+	この試験では，次の三つの力が中心になっている。
+	
+	\begin{enumerate}
+		\item 周期関数を分類する力
+		\item フーリエ係数を計算する力
+		\item 内積空間の考え方で近似・直交化を扱う力
+	\end{enumerate}
+	
+	特に，フーリエ級数と平均 \(2\) 乗誤差は別々の話ではない。
+	フーリエ級数は，三角関数の張る空間への直交射影として理解できる。
+	そのため，平均 \(2\) 乗誤差を最小にする近似は，
+	フーリエ係数によって与えられる。
+\end{background}
+
+\begin{strategy}
+	問題を見たときは，次の順番で判断する。
+	
+	\begin{enumerate}
+		\item 周期関数の分類問題では，端点と特異点を見る。
+		\item フーリエ級数では，まず偶関数か奇関数かを見る。
+		\item 偶関数なら余弦項だけ，奇関数なら正弦項だけを考える。
+		\item 区分的に定義された関数では，積分区間を分割する。
+		\item gnuplot では，関数・係数・部分和を順番に定義する。
+		\item 平均 \(2\) 乗誤差の最小化では，フーリエ係数を使う。
+		\item シュミットの直交化法では，内積を使って前の成分を引く。
+	\end{enumerate}
+	
+	この試験の対策としては，まず次の公式を確実に覚える。
+	
+	\[
+	a_0=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)\,dx,
+	\]
+	\[
+	a_n=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)\cos nx\,dx,
+	\]
+	\[
+	b_n=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)\sin nx\,dx.
+	\]
+	
+	次に，内積の公式
+	\[
+	(f,g)=\int_a^b f(x)g(x)\,dx
+	\]
+	と，シュミットの直交化法
+	\[
+	\varphi_k
+	=
+	\psi_k
+	-
+	\sum_{j=1}^{k-1}
+	\frac{(\psi_k,\varphi_j)}{(\varphi_j,\varphi_j)}
+	\varphi_j
+	\]
+	を覚える。
+	
+	この二つを結びつけて理解できると，
+	フーリエ級数，平均 \(2\) 乗誤差，直交関数の問題が同じ構造で見える。
+\end{strategy}

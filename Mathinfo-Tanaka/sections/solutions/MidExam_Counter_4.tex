@@ -1,0 +1,79 @@
+% !TeX root = ../sections/03_solutions.tex
+\usepackage{listing}
+\subsection{対策-gnuplot}
+
+\begin{background}
+	gnuplot では，まず数学的に求めた式をプログラム上の関数として定義する。
+	
+	この問題で必要なのは，次の三つである。
+	
+	\begin{enumerate}
+		\item 周期関数 \(f(x)\)
+		\item フーリエ係数 \(a_n\)
+		\item 部分和 \(S_N(x)\)
+	\end{enumerate}
+	
+	特に，グラフの範囲がデフォルトの \([-10,10]\) のままであるため，
+	\(f(x)\) を周期 \(2\pi\) の関数として定義する必要がある。
+	
+	そのため，任意の \(x\) を区間 \([-\pi,\pi)\) に戻す関数を作る。
+\end{background}
+
+\begin{lstlisting}
+	# plot.txt の中身
+	
+	pi = 3.141592653589793
+	
+	# x を [-pi, pi) に戻す
+	p(x) = x - 2*pi*floor((x + pi)/(2*pi))
+	
+	# 周期関数 f(x)
+	f(x) = (abs(p(x)) <= pi/3) ? 0 : \
+	(abs(p(x)) <= 2*pi/3) ? pi/2 : pi
+	
+	# フーリエ係数
+	a(k) = -(sin(k*pi/3) + sin(2*k*pi/3))/k
+	
+	# 第 N 部分和
+	S(N,x) = pi/2 + sum [k=1:N] a(k)*cos(k*x)
+	
+	set yrange [-0.5:4]
+	
+	plot f(x) title "f(x)" linecolor 1, \
+	S(7,x) title "S7(x)" linecolor 2, \
+	S(31,x) title "S31(x)" linecolor 3
+	
+	# graph.png を作るために gnuplot 上で実行する命令
+	# これは plot.txt には入れない
+	
+	set terminal pngcairo size 1000,700
+	set output "graph.png"
+	load "plot.txt"
+	set output
+\end{lstlisting}
+\begin{strategy}
+	gnuplot の問題では，次の順番で考えるとよい。
+	
+	\begin{enumerate}
+		\item まず，数学的にフーリエ係数を求める。
+		\item 次に，係数 \(a_n\) を gnuplot の関数として定義する。
+		\item 次に，部分和 \(S_N(x)\) を \texttt{sum} を使って定義する。
+		\item 最後に，\(f(x)\)，\(S_7(x)\)，\(S_{31}(x)\) を同時にプロットする。
+	\end{enumerate}
+	
+	この問題では，
+	\[
+	f(x)
+	\]
+	は階段関数なので，gnuplot では条件分岐
+	\[
+	\texttt{条件 ? 値1 : 値2}
+	\]
+	を使って定義する。
+	
+	また，\([-10,10]\) の範囲で周期関数を描くために，
+	\[
+	p(x)=x-2\pi\left\lfloor\frac{x+\pi}{2\pi}\right\rfloor
+	\]
+	を使って，任意の \(x\) を \([-\pi,\pi)\) に戻している。
+\end{strategy}
